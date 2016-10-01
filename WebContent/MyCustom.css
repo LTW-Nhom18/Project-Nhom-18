@@ -1,0 +1,22 @@
+@CHARSET "ISO-8859-1";
+.MyCustom{
+	margin: 3px;
+	min-height: 300px;
+	background-color: silver;
+	text-align: center;
+	font-size: large;
+}
+.sidebarContent{
+	margin: 10px;
+	min-height: 200px;
+	background-color: silver;
+	text-align: center;
+	font-size: large;
+}
+.mainContent{
+	margin: 10px;
+	min-height: 420px;
+	background-color: silver;
+	text-align: center;
+	font-size: large;
+}

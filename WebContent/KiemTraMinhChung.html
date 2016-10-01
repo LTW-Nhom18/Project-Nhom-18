@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Insert title here</title>
+	<link href="MyCustom.css" rel="stylesheet">
+	<link href="tree.css" rel="stylesheet">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<br/>
+<div class="container">
+   		<div class="row">
+			<div class="col-md-12" style="min-height:100px;">
+			
+   				<center><img border="0" src="image/SPKT.jpg" height="143"  ></center>
+   			<br>
+   			</div>
+   		</div>
+   		<div class="row">
+	   		<div class="col-md-12" >
+				<nav class="navbar navbar-default">
+				  <div class="container-fluid">
+	
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      
+				      <form class="navbar-form navbar-right">
+				        <button type="button" class="btn btn-info">Thoát</button>
+				      </form>
+				    
+				    </div><!-- /.navbar-collapse -->
+				  </div><!-- /.container-fluid -->
+				</nav>
+			</div>
+   		</div>
+   		<div class="row">
+   			<div class="col-md-3">
+   				<div class="panel-group" id="accordion">
+					<div class ="panel panel-primary">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a href = "XemCayMC.html" data-parent="#accordion">
+									Xem cây minh chứng
+								</a>	
+							</h4>
+						</div>
+						
+						
+					</div> 
+					<div class ="panel panel-primary">
+						<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href = "GiaoMC.html"  data-parent="#accordion">
+									Phân công nhập minh chứng
+									</a>	
+								</h4>
+						</div>
+					</div>
+					<div class ="panel panel-primary">
+						<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href = "KiemTraMinhChung.html"  data-parent="#accordion">
+									Kiểm tra mục minh chứng
+									</a>	
+								</h4>
+						</div>
+					</div>
+					<div class ="panel panel-primary">
+						<div class="panel-heading">
+								<h4 class="panel-title">
+									<a href = "Timkiem1.html" data-parent="#accordion">
+									Tìm kiếm
+									</a>	
+								</h4>
+						</div>	
+					</div>
+				</div>
+   			</div>
+   			<div class="col-md-9">
+   			<div class="panel-group" id="accordion">
+					<div class ="panel panel-primary">
+						<div class="panel-heading">Cây minh chứng</div>
+						<div class="panel-body">
+			   				<div class="tree">
+							 <ul>
+								<li>
+					            <span><i class="glyphicon glyphicon-folder-open"></i>    Hoạt động giảng dạy</span> 
+						            <ul>
+						                <li>
+						                	<span><i class= "glyphicon glyphicon-ok" ></i>   100% giảng viên dạy đủ số tiết</span> 
+						                    
+						                </li>
+						               <li>
+						                	<span><i class="glyphicon glyphicon-book"></i>   90% giảng viên đạt loại giỏi</span> 
+						                    
+						                </li>
+						            </ul>
+						        </li>
+						        <li>
+						            <span><i class="glyphicon glyphicon-folder-open"></i>    Công tác xã hội</span>
+						            <ul>
+						                <li>
+						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tổ chức 1 buổi CTXH trong học kỳ</span> 
+								        </li>
+								        <li>
+						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tổ chức hội thao cấp trường</span> 
+								        </li>
+								        <li>
+						                	<span><i class="glyphicon glyphicon-book"></i>   100% giảng viên tham gia hội thao cấp khoa</span> 
+								        </li>
+								    </ul>
+						        </li>
+						        <li>
+						            <span><i class="glyphicon glyphicon-folder-open"></i>    Hoạt động tư vấn</span> 
+						            <ul>
+						                <li>
+						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tư vấn chọn chuyên ngành</span> 
+								        </li>
+								        <li>
+						                	<span><i class="glyphicon glyphicon-book"></i>   Tư vấn hướng nghiệp</span> 
+								        </li>
+	
+								    </ul>
+						        </li>
+						    </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+   		
+   </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script> 
+
+<script type="text/javascript">
+			$(document).ready(function(){
+				$(function () {
+				    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+				    $('.tree li.parent_li > span').on('click', function (e) {
+				        var children = $(this).parent('li.parent_li').find(' > ul > li');
+				        if (children.is(":visible")) {
+				            children.hide('fast');
+				            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+				        } else {
+				            children.show('fast');
+				            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+				        }
+				        e.stopPropagation();
+				    });
+				});
+			});
+</script>
+	
+</body>
+</html>
