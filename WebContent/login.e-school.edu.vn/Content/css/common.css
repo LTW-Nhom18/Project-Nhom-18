@@ -1,0 +1,235 @@
+/*!
+ * Start Bootstrap - Business Casual Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+html{
+    font-size: 100%;
+}
+body,div,h1,h2,h3,h4,h5,h6,p{padding: 0;margin: 0}
+body.body-login {
+    font-family: Arial,Tahoma, Helvetica, sans-serif;
+    font-size: 62.5%;
+    background: url("../images/imgLogOn/bg_login.jpg") left top no-repeat;
+    background-size:cover;
+}
+/*  Login  */
+.container-login{
+    left: 50%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1002px;
+ 
+    
+}
+.container-login .title-head {
+    font-size: 0;
+    color: transparent;
+    background: url("../images/imgLogOn/bg_logo_login.png") left top no-repeat;
+    height: 152px;
+    width: 1002px;
+    position: absolute;
+
+}
+.container-login .main{
+    overflow: hidden;
+    padding-top: 124px;
+}
+ul.list-nostyle {
+    list-style: none;
+    padding: 0;
+}
+.container-login ul li.item {
+    border-bottom: 1px solid #fff;
+}
+.container-login ul li.item-last {
+    color: #fff;
+    font-size: 1.3em;
+    background: url("../images/imgLogOn/icon_warning.png") left 15px no-repeat;
+    padding:15px 0 0 45px;
+    text-align: justify;
+    border-bottom: none;
+}
+.col-intro {
+    width: 243px;
+    padding: 10px 14px 0 137px;
+    float: left;
+}
+.col-login{
+    width: 401px;
+    float: left;
+    padding-bottom: 100px;
+    padding-left: 330px;
+    
+}
+.box-login{
+    border: 1px solid #fff;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    background-color: rgba(255,255,255,0.3);
+    padding: 20px 70px 35px;
+}
+.box-login h2{
+    font-weight: normal;
+    text-transform: uppercase;
+	padding: 0 0 20px;
+}
+.box-login .input-group {
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    background-color: rgba(255,255,255,0.5);
+    height: 37px;
+    margin: 0 0 16px;
+    padding:0 0 0 40px;
+    position: relative;
+}
+.box-login .icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 13px;
+    top: 7px;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+.box-login .icon-username {
+    background-image: url("../images/imgLogOn/icon_user.png");
+}
+.box-login .icon-password {
+    background-image: url("../images/imgLogOn/icon_lock.png");
+}
+.box-login .icon-phone {
+	background-image: url("../images/imgLogOn/icon_phone.png");
+}
+.box-login .icon-captcha {
+	background-image: url("../images/imgLogOn/icon_captcha.png");
+}
+.box-login .form-control {
+    background-color: transparent;
+    border: none;
+    height: 37px;
+    width: 100%;
+}
+.box-login h2,p.txt-footer{
+    color: #44444b;
+    font-size: 1.6em;
+    text-align: center;
+}
+p.txt-footer{
+	padding: 10px 0 0;
+}
+.box-btn{
+    padding-top: 30px;
+}
+.btn-login {
+    font-size: 1.6em;
+    text-align: center;
+    background-color: #018ac7;
+    width: 100%;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    padding: 9px 0;
+    text-transform: uppercase;
+}
+.box-remember-forget {
+    font-style: italic;
+    font-size: 15px;
+    color: #44444b;
+}
+.box-remember-forget a {
+    color: #44444b;
+    border-left: 1px solid #44444b;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+/* Change password*/
+.box-changepwd {
+	position: relative;
+}
+.box-changepwd .input-group {
+	width: 35%;
+}
+.captcha {
+	position: absolute;
+	right: 0px;
+	top:5px;
+}
+.box-login .box-btn-changepwd {
+	padding:0;
+	clear:both;
+	width:100%;
+	overflow:hidden;
+}
+.box-btn-changepwd .box-back {
+	background-color:#4e4e4f;
+	width: 90px;
+	margin-right:7px;
+	float: left;
+}
+.box-btn-changepwd .box-update {
+	width:160px;
+	display: inline-block;
+	float: left;
+}
+.box-message {
+	position: absolute;
+    right: 15px;
+    top: 242px;
+    width: 250px;
+}
+.box-message-logon {
+	position: absolute;
+    right: 8px;
+    top: 246px;
+    width: 250px;
+}
+.box-message-in-logon {
+	background-color:#fff;
+	border:1px solid #f85f1c;
+	border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+	position: relative;
+}
+.box-message-in {
+	background-color:#fff;
+	border:1px solid #f85f1c;
+	border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+	position: relative;
+}
+.box-message-btm{
+	background: url("../images/imgLogOn/bg_message_btm.png") center bottom no-repeat;
+	position: absolute;
+	left:0;
+	right:0;
+	height:35px;	
+}
+.box-message p {
+	font-size:1.6em;
+	color:#f85f1c;
+	padding:20px;
+}
+.box-message-logon p {
+	font-size:1.6em;
+	color:#f85f1c;
+	padding:20px;
+}

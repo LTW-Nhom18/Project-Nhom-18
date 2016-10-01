@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from login.e-school.edu.vn/Account/LogOn by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Oct 2016 11:16:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>    
+    <link rel="shortcut icon" href="http://login.e-school.edu.vn/Content/images/favismas.ico" type="image/ico" />
+    <title>Đăng nhập - Phần mềm quản l&#253; nh&#224; trường</title>
+  
+    <script src="../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="page">
+
+
+        
+
+        <div id="main">
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Đăng nhập - Phần mềm quản lý nhà trường</title>
+    <link href="../Content/css/common.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+    <script src="../Scripts/md5.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.browser-fingerprint-1.1.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.cookie.js" type="text/javascript"></script>
+</head>
+<body class="body-login">
+    <div class="container-login">
+        <h1 class="title-head">SMS Hệ thống quản lý nhà trường</h1>
+        <div class="main">
+            <div class="col-intro">
+                <ul class="list-nostyle">
+                    <li class="item"><img src="../Content/images/imgLogOn/img_hotline.png" alt="Hotline: 18008000 nh&#225;nh 1( miễn ph&#237;) Nhánh 2(100đ/1phút)"></li>
+                    <li class="item"><a href ="http://forum.smas.edu.vn/"><img src="../Content/images/imgLogOn/img_forum_smas.png" alt="Diễn đàn SMAS"></a></li>
+                        <li class="item item-last">Thầy c&#244; lưu &#253;: Từ ng&#224;y 01/08/2016, tổng đ&#224;i hỗ trợ sẽ thay đổi từ 19008098 nh&#225;nh 2 sang 18008000 nh&#225;nh 1. </li>    
+                    
+                </ul>
+            </div>
+<form action="http://login.e-school.edu.vn/Account/LogOn" method="post"><input name="__RequestVerificationToken" type="hidden" value="AbxWP+wEVdSOZcPVD8g+Nn9aPbAyFjN80IU2wWjPTexnRRMqVkUngsHSHAKo70Szqpb6GBe+Bn5lj1Daq+CNVqgg3v1iWGOroadJiSFJ+iBsu78yn4karaFCDwBs5FqlPLV/2m5RUduLd35WJyIOr7gfFZk=" />                <div class="col-login">
+                    <div class="box-login">
+                        <h2>Đăng nhập hệ thống</h2>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Tên đăng nhập" id ="UserName" name ="UserName" maxlength ="128">
+                            <span class="icon icon-username"></span>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" class="form-control" placeholder="Mật khẩu" id ="Password" name ="Password" maxlength ="128">
+                            <span class="icon icon-password"></span>
+                        </div>
+                        <div class="box-remember-forget">
+                            <label><input type="checkbox" id ="RememberMe" name ="RememberMe"> Ghi nhớ?</label><a href="ForgetPassword.html">Quên mật khẩu</a>
+                        </div>
+                        
+                        <div class="box-btn">
+                            <button class="btn-login" onclick="return checkCookiesBrowser();">Đăng nhập</button>
+                            <input type="hidden" id="tokenAuthen" name="tokenAuthen" />
+                        </div>
+                        <div class="box-message-logon" id ="idErrorMessage" style ="display:none;">
+						    <div class="box-message-in-logon">
+							    <div class="box-message-btm"></div>
+						    </div>
+					    </div>
+                    </div>
+                    <p class="txt-footer">Tập Đoàn Viễn thông quân đội Viettel </p>
+                </div>
+</form>        </div>
+    </div>
+</body>
+
+<!-- Mirrored from login.e-school.edu.vn/Account/LogOn by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Oct 2016 11:16:29 GMT -->
+</html>
+<script type="text/javascript" language="javascript">
+    //CHECK COOKIE BROWSER - ONLICK INPUT EVENT
+    function checkCookiesBrowser() {
+        $.cookie('isTurnOffCookie', '1');
+        if (navigator.cookieEnabled) {
+            $('#messageErrorID').html('');
+            $('#messageErrorID').css('background-color', '');
+            return true;
+        }
+        else {
+            $('#messageErrorID').html('Cookies được yêu cầu để đăng nhập vào hệ thống. Thầy/cô vui lòng theo <a href="/Help/Browser/CookieGuide.aspx" target="_blank">hướng dẫn</a> sau để kích hoạt cookie hoặc gọi 19008098 để được hướng dẫn.');
+            $('#messageErrorID').css('background-color', '#CFF4FD');
+            return false;
+        }
+    }
+    function ReloadCapchaImage() {
+        $.ajax({
+            url: '/Account/GetCaptcha',
+            type: 'post',
+            beforeSend: function () {
+            },
+            success: function (msg) {
+                setTimeout(function () { $("#PanelImage").html(msg); }, 200);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+            }
+        })
+    }
+    $(document).ready(function () {
+        $('#tokenAuthen').val($.fingerprint());
+        $("#waittingDiv").hide();
+        if ('' != "")
+        {
+            $('#idErrorMessage').show();
+        }
+    });
+</script>
+            <div id="footer">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
