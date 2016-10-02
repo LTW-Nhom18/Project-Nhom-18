@@ -201,14 +201,7 @@
 
                     
                     <li class="">
-                        <a href="DSMC-NguoiNhap.html"><i class="fa fa-book fa-fw"></i>  Danh sách minh chứng</a>
-                    </li>
-                    <li>
-                        <a href="NhapMinhChung.html"><i class="fa fa-pencil fa-fw"></i>  Nhập minh chứng</a>
-
-                    </li>
-                     <li>
-                        <a href="Timkiem.html"><i class="fa fa-search fa-fw"></i>  Tìm kiếm</a>
+                        <a href="DSTaikhoan.html"><i class="fa fa-book fa-fw"></i>Danh sách tài khoản</a>
                     </li>
                     
                     
@@ -225,57 +218,101 @@
             <div class="row">
                  <!--  page header -->
                 <div class="col-lg-12">
-                    <h1 class="page-header">Danh sách minh chứng</h1>
+                	<br>
+                    <h1 class="page-header">CHI TIẾT TÀI KHOẢN</h1>
                 </div>
                  <!-- end  page header -->
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                             Danh sách minh chứng
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-						      <tr>
-						        <th>STT</th>
-						        <th>Tên mục minh chứng</th>
-						        <th>Chi tiết</th>
-						        <th>Tình trạng</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						      <tr>
-						        <td>1</td>
-						        <td>Tham gia hội thao</td>
-						        <td><a href="XemChiTietMC.html" >Chi tiết</a></td>
-						        <td>Đã hoàn thành</td>
-						      </tr>
-						       <tr>
-						        <td>2</td>
-						        <td>Chất lượng dạy học</td>
-						        <td><a href="XemChiTietMC.html" >Chi tiết</a></td>
-						        <td>Chưa hoàn thành</td>
-						      </tr>
-						       <tr>
-						        <td>3</td>
-						        <td>Công tác xã hội</td>
-						        <td><a href="" >Chi tiết</a></td>
-						        <td>Đã hoàn thành</td>
-						      </tr>
-						
-						    </tbody>
-                                </table>
-                            </div>
-                            
-                        </div>
-                    </div>
+                   <div class="col-md-5">
+				<div class="panel panel-primary">
+				    <div class="panel-heading">Thông tin tài khoản</div>
+				     <div class="panel-body" >
+					     <form class="form-horizontal">
+							  <div class="form-group">
+							    <label class="control-label col-sm-4" for="user" >Tài khoản </label>
+							    <div class="col-sm-8">
+							      <input type="text" class="form-control" id="user" value="NVA@gmail.com">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-sm-4" for="pwd">Mật khẩu</label>
+							    <div class="col-sm-8"> 
+							      <input type="password" class="form-control" id="pwd" value="123456789">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-sm-4" for="pwdagain">Nhập lại</label>
+							    <div class="col-sm-8"> 
+							      <input type="password" class="form-control" id="pwdagain" value="123456789"">
+							    </div>
+							  </div>						  
+							  <div class="form-group"> 
+							  <label class="control-label col-sm-4" for="phanquyen">Phân quyền</label>
+							    <div class="col-sm-8">
+						      <input type="text" class="form-control" id="phanquyen" value="Người giao minh chứng">
+							</div>
+							  </div>
+						</form>
+					</div>
+	    		</div>
+			</div>
+			<div class="col-md-7">
+				<div class="panel panel-primary">
+				    <div class="panel-heading">Thông tin cá nhân</div>
+				    <div class="panel-body" >
+				    	  <form class="form-horizontal">
+						<div class="form-group">
+						    <label class="control-label col-sm-3" for="inputName">Họ tên </label>
+						    <div class="col-sm-9">
+						      <input type="text" class="form-control" id="inputName" value="Nguyễn Văn A">
+						      <label class="radio-inline"><input type="radio" name="optradio" checked="checked" >Nam</label>
+						      <label class="radio-inline"><input type="radio" name="optradio" >Nữ</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="inputDate">Ngày sinh </label>
+						    <div class="col-sm-9">
+						    	<div class="input-group">
+						          <input type="text" name="cognito_time_slots" id="inputDate" value="22/07/1965"  class="form-control input-lg datepicker"  >
+						          <span class="input-group-addon time-slots-loading">
+						          	 <i class="glyphicon glyphicon-calendar"></i>
+						          </span>
+						         
+						        </div>
+		
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-3" for="inputTel">Điện thoại </label>
+						    <div class="col-sm-9">
+						      <input type="text" class="form-control" id="inputTel" value="0123696548">
+							</div>
+						</div>
+						<div class="form-group"> 
+						  <label class="control-label col-sm-3" for="Khoa">Khoa:</label>
+						   <div class="col-sm-9">
+						      <input type="text" class="form-control" id="Khoa" value="Công Nghệ Thông Tin">
+							</div>
+						 </div>
+						 <div class="form-group">
+							<label class="control-label col-sm-3" for="chucvu">Chức vụ: </label>
+						   <div class="col-sm-9">
+						      <input type="text" class="form-control" id="chucvu" value="Trưởng khoa">
+							</div>
+						</div>
+					</form>
+				    </div>
+				  
+
+	    		</div>
+			</div>
                     <!--End Advanced Tables -->
                 </div>
             </div>
+            
             
                     <!--  end  Context Classes  -->
                 </div>
@@ -291,7 +328,14 @@
     <!-- Page-Level Plugin Scripts-->
     <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-    
+    <script language = JavaScript>
+
+	function Them()
+	{
+		location = 'TaoTaiKhoan.html';
+
+	}
+</script> 
 
 
 </body>
