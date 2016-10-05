@@ -353,6 +353,8 @@
     <!-- Page-Level Plugin Scripts-->
     <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
     <script language = JavaScript>
 	function Them()
 	{
@@ -362,7 +364,7 @@
 	    <script type="text/javascript">
 			$(document).ready(function(){
 				$('#btnHoanTat').on('click',function(){
-					var retVal = confirm("Xác nhận tạo 1 tài khoản mới?");
+					var retVal = confirm("Lưu thay đổi?");
 		               if( retVal == true ){
 		            	   document.location = 'Admin.html';
 		                  return true;

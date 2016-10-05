@@ -96,7 +96,7 @@
     <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
       <script language="javascript">
 					 function loadtab1() {
 						  var xhttp = new XMLHttpRequest();
@@ -119,6 +119,35 @@
 					  xhttp.send();
 				
 		</script>
+		  <script type="text/javascript">
+			$(document).ready(function(){
+			
+				$('#btnXacnhan').on('click',function(){
+					var retVal = confirm("Lưu thay đổi?");
+		               if( retVal == true ){
+		            	   document.location = 'NguoiNhapMC.html';
+		                  return true;
+		               }
+		               else{
+		                  
+		                  return false;
+		               }
+				});
+				$('#btnHuy').on('click',function(){
+					var retVal = confirm("Bạn có chắc muốn thoát?");
+		               if( retVal == true ){
+		            	   document.location = 'NguoiNhapMC.html';
+		                  return true;
+		               }
+		               else{
+		                  
+		                  return false;
+		               }
+				});
+				
+			});
+			</script>
+		
 
 
 </body>

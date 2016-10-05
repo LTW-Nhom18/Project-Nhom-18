@@ -210,7 +210,7 @@
 
                     </li>
                      <li>
-                        <a href ="#" onclick="loadtab3();"><i class="fa fa-search fa-fw"></i>  Tìm kiếm</a>
+                        <a href ="Timkiem.html" ><i class="fa fa-search fa-fw"></i>  Tìm kiếm</a>
                     </li>
                     
                     
@@ -315,16 +315,7 @@
 						  xhttp.open("GET", "NhapMC.html", true);
 						  xhttp.send();
 					}
-					function loadtab3() {
-						  var xhttp = new XMLHttpRequest();
-						  xhttp.onreadystatechange = function() {
-						    if (this.readyState == 4 && this.status == 200) {
-						      document.getElementById("page-wrapper").innerHTML = this.responseText;
-						    }
-						  };
-						  xhttp.open("GET", "Timkiem.html", true);
-						  xhttp.send();
-					}
+				
 		</script>
 	
 

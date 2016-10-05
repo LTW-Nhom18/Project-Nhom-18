@@ -253,14 +253,10 @@
 								<div class="col-sm-8">
 									<div class="form-group">
 										    <div class="container">
-												   <label class="radio-inline">
-												     <input type="radio" value=""><a href="#">File</a></label>
-												   <label class="radio-inline">
-												     <input type="radio" value=""><a href="#">Video</a></label>
-												   <label class="radio-inline">
-												     <input type="radio" value=""><a href="#">Picture</a></label>
-												   <label class="radio-inline">
-												     <input type="radio" value=""><a href="#">Winrar</a></label>
+												   <label class="radio-inline"><input type="radio" name="optradio" checked="checked" >Văn bản</label>
+											      <label class="radio-inline"><input type="radio" name="optradio" >Hình ảnh</label>
+											      <label class="radio-inline"><input type="radio" name="optradio" >Video</label>
+											      <label class="radio-inline"><input type="radio" name="optradio" >Zip</label>
 											</div>
 									</div>	
 								</div>
@@ -312,14 +308,22 @@
 	
 	 <script type="text/javascript">
 			$(document).ready(function(){
+				
 				$('#btnXacnhan').on('click',function(){
-					alert('Đã cập nhật minh chứng');
-					document.location = 'QLMucMC.html';
-				});	
+					var retVal = confirm("Lưu thay đổi ?");
+		               if( retVal == true ){
+		            	   document.location = 'NguoiQuyDinhMC.html';
+		                  return true;
+		               }
+		               else{
+		                  
+		                  return false;
+		               }
+				});
 				$('#btnHuy').on('click',function(){
 					var retVal = confirm("Bạn có chắc muốn thoát?");
 		               if( retVal == true ){
-		            	   document.location = 'QLMucMC.html';
+		            	   document.location = 'NguoiQuyDinhMC.html';
 		                  return true;
 		               }
 		               else{

@@ -87,10 +87,18 @@
 	<script src="bootstrap/js/bootstrap.min.js"></script>
    <script type="text/javascript">
 			$(document).ready(function(){
+				
 				$('#btnXacnhan').on('click',function(){
-					alert('Đã xác nhận giao 1 minh chứng');
-					document.location = 'NguoiGiaoMC.html';
-				});	
+					var retVal = confirm("Lưu thay đổi?");
+		               if( retVal == true ){
+		            	   document.location = 'NguoiGiaoMC.html';
+		                  return true;
+		               }
+		               else{
+		                  
+		                  return false;
+		               }
+				});
 				$('#btnHuy').on('click',function(){
 					var retVal = confirm("Bạn có chắc muốn thoát?");
 		               if( retVal == true ){
