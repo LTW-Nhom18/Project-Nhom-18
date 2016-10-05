@@ -201,15 +201,7 @@
 
                     
                     <li class="">
-                        <a href="DSMC-NguoiNhap.html"><i class="fa fa-book fa-fw"></i>  Danh sách minh chứng</a>
-                    </li>
-                    <li>
-                        <a href="NhapMinhChung.html"><i class="fa fa-pencil fa-fw"></i>  Nhập minh chứng</a>
-                        
-                        <!-- second-level-items -->
-                    </li>
-                     <li>
-                        <a href="Timkiem.html"><i class="fa fa-search fa-fw"></i>  Tìm kiếm</a>
+                        <a href="Admin.html"><i class="fa fa-book fa-fw"></i>Danh sách tài khoản</a>
                     </li>
                     
                     
@@ -226,7 +218,8 @@
             <div class="row">
                  <!--  page header -->
                 <div class="col-lg-12">
-                    <h1 class="page-header">NHẬP MINH CHỨNG</h1>
+                	<br>
+                    <h1 class="page-header">DANH SÁCH TÀI KHOẢN</h1>
                 </div>
                  <!-- end  page header -->
             </div>
@@ -234,50 +227,50 @@
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
                     <div class="panel panel-primary">
-					    <div class="panel-heading">Thông tin minh chứng</div>
-					    <div class="panel-body" >
-					    <form class="form-horizontal">
-							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="ten" >Tên mục minh chứng:</label>
-							    <div class="col-sm-7">
-							      <input type="text" class="form-control" id="ten" placeholder="Nhập tên mục minh chứng">
-							    </div>
-							  </div>
-							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="mota" style="margin-left:0;">Mô tả:</label>
-							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="mota" placeholder="Nhập mô tả minh chứng">
-							    </div>
-							  </div>
-							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="tao">Người tạo:</label>
-							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="tao" placeholder="Nhập họ và tên người tạo">
-							    </div>
-							  </div>
-							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="giao">Người giao:</label>
-							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="giao" placeholder="Nhập họ và tên người giao">
-							    </div>
-							  </div>
-							 <div class="form-group">
-							   <label class="control-label col-sm-4" for="file">Up file minh chứng:</label>
-										<div class="col-sm-7">
-										     <input type="file" class="form-control" id="file">
-										</div>
-							  </div>
-							</form>
-					    </div>
-					    	
-					    <div class="panel-footer" >
-
-					    	<form class="form-inline col-md-offset-9  ">
-					    	<button type="button" class="btn btn-primary btn-md" id="btnXacnhan">Hoàn tất</button>
-							<button style="margin-left:25px;" type="button" class="btn btn-primary btn-md" id="btnHuy">Hủy</button>
-							</form>
-						</div>
-					  </div>
+				  <div class="panel-heading">Danh sách Tài khoản</div>
+				   <span class="MyNewClass">
+				      <table class="table table-bordered table-hover specialCollapse">
+					    <thead>
+					      <tr>
+					        <th>STT</th>
+					        <th>NGười dùng</th>
+					        <th>Tài khoản</th>
+					        <th>Phân quyền</th>
+					        <th>Chi tiết</th>
+					        <th>Cập nhật</th>
+					        <th>Xóa</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					      <tr>
+					        <td>1</td>
+					        <td>Nguyễn Văn A</td>
+					        <td>NVA@gmail.com</td>
+					        <td>Người giao MC</td>
+					        <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
+					        <td><a href="#" onclick="loadSTTK();">Cập nhật</a></td>
+					        <td><a href="" >Xóa</a></td>
+					      </tr>
+					      <tr>
+					        <td>s</td>
+					        <td>Trần Thị D</td>
+					        <td>TTD@gmail.com</td>
+					        <td>Người nhập MC</td>
+					       <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
+					        <td><a href="#" onclick="loadSTTK();">Cập nhật</a></td>
+					        <td><a href="" >Xóa</a></td>
+					      </tr>
+					
+					    </tbody>
+				    </table>
+				   </span>
+				</div>
+				<div class="row">
+		   			<div class="col-md-offset-11">
+		   			 	<a  class="btn btn-primary" href="TaoTaiKhoan.html" >Thêm tài khoản </a>
+		   			
+		   			 </div>
+		   		</div>
                     <!--End Advanced Tables -->
                 </div>
             </div>
@@ -296,36 +289,30 @@
     <!-- Page-Level Plugin Scripts-->
     <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-     <script type="text/javascript">
-			$(document).ready(function(){
-			
-				$('#btnXacnhan').on('click',function(){
-					var retVal = confirm("Lưu thay đổi?");
-		               if( retVal == true ){
-		            	   document.location = 'NguoiNhapMC.html';
-		                  return true;
-		               }
-		               else{
-		                  
-		                  return false;
-		               }
-				});
-				$('#btnHuy').on('click',function(){
-					var retVal = confirm("Bạn có chắc muốn thoát?");
-		               if( retVal == true ){
-		            	   document.location = 'NguoiNhapMC.html';
-		                  return true;
-		               }
-		               else{
-		                  
-		                  return false;
-		               }
-				});
+
+ <script language="javascript">
 				
-			});
-			</script>
+				function loadTTTK() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      document.getElementById("page-wrapper").innerHTML = this.responseText;
+					    }
+					  };
+					  xhttp.open("GET", "ThongTinTK.html", true);
+					  xhttp.send();
+					}
+				function loadSTTK() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      document.getElementById("page-wrapper").innerHTML = this.responseText;
+					    }
+					  };
+					  xhttp.open("GET", "SuaThongTinTK.html", true);
+					  xhttp.send();
+					}
+		</script>
 
 
 </body>

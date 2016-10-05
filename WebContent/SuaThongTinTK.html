@@ -39,25 +39,25 @@
 							  <div class="form-group">
 							    <label class="control-label col-sm-4" for="user" >Tài khoản </label>
 							    <div class="col-sm-8">
-							      <input type="text" class="form-control" id="user" value="NVA@gmail.com" readonly>
+							      <input type="text" class="form-control" id="user" value="NVA@gmail.com">
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label class="control-label col-sm-4" for="pwd">Mật khẩu</label>
 							    <div class="col-sm-8"> 
-							      <input type="password" class="form-control" id="pwd" value="123456789" readonly>
+							      <input type="password" class="form-control" id="pwd" value="123456789">
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label class="control-label col-sm-4" for="pwdagain">Nhập lại</label>
 							    <div class="col-sm-8"> 
-							      <input type="password" class="form-control" id="pwdagain" value="123456789" readonly>
+							      <input type="password" class="form-control" id="pwdagain" value="123456789" >
 							    </div>
 							  </div>						  
 							  <div class="form-group"> 
 							  <label class="control-label col-sm-4" for="phanquyen">Phân quyền</label>
 							    <div class="col-sm-8">
-						      <input type="text" class="form-control" id="phanquyen" value="Người giao minh chứng" readonly>
+						      <input type="text" class="form-control" id="phanquyen" value="Người giao minh chứng" >
 							</div>
 							  </div>
 						</form>
@@ -72,16 +72,16 @@
 						<div class="form-group">
 						    <label class="control-label col-sm-3" for="inputName">Họ tên </label>
 						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputName" value="Nguyễn Văn A" readonly>
-						      <label class="radio-inline"><input type="radio" name="optradio" checked="checked" disabled="disabled">Nam</label>
-						      <label class="radio-inline"><input type="radio" name="optradio" disabled="disabled">Nữ</label>
+						      <input type="text" class="form-control" id="inputName" value="Nguyễn Văn A" >
+						      <label class="radio-inline"><input type="radio" name="optradio" checked="checked" >Nam</label>
+						      <label class="radio-inline"><input type="radio" name="optradio" >Nữ</label>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-3" for="inputDate">Ngày sinh </label>
 						    <div class="col-sm-9">
 						    	<div class="input-group">
-						          <input type="text" name="cognito_time_slots" id="inputDate" value="22/07/1965"  class="form-control input-lg datepicker" readonly >
+						          <input type="text" name="cognito_time_slots" id="inputDate" value="22/07/1965"  class="form-control input-lg datepicker"  >
 						          <span class="input-group-addon time-slots-loading">
 						          	 <i class="glyphicon glyphicon-calendar"></i>
 						          </span>
@@ -93,19 +93,19 @@
 						<div class="form-group">
 							<label class="control-label col-sm-3" for="inputTel">Điện thoại </label>
 						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputTel" value="0123696548" readonly>
+						      <input type="text" class="form-control" id="inputTel" value="0123696548" >
 							</div>
 						</div>
 						<div class="form-group"> 
 						  <label class="control-label col-sm-3" for="Khoa">Khoa:</label>
 						   <div class="col-sm-9">
-						      <input type="text" class="form-control" id="Khoa" value="Công Nghệ Thông Tin" readonly>
+						      <input type="text" class="form-control" id="Khoa" value="Công Nghệ Thông Tin" >
 							</div>
 						 </div>
 						 <div class="form-group">
 							<label class="control-label col-sm-3" for="chucvu">Chức vụ: </label>
 						   <div class="col-sm-9">
-						      <input type="text" class="form-control" id="chucvu" value="Trưởng khoa" readonly>
+						      <input type="text" class="form-control" id="chucvu" value="Trưởng khoa" >
 							</div>
 						</div>
 					</form>
@@ -117,7 +117,17 @@
                     <!--End Advanced Tables -->
                 </div>
             </div>
-            
+             <div class="row">
+   			<div class= "col-md-offset-10">
+   			<form class="form-inline" >
+				<div class="form-group" >
+				<button  type="button" class="btn btn-primary btn-md" id="btnHoanTat" >Hoàn tất</button>
+				<button  style="margin-left:20px;" id="btnHuy" type="button" class="btn btn-primary btn-md" style="margin-left:20px;" >Hủy</button>
+				</div>
+			</form>
+			</div>
+	   		
+   		</div>
             
                     <!--  end  Context Classes  -->
        
@@ -131,6 +141,37 @@
     <!-- Page-Level Plugin Scripts-->
     <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+			$(document).ready(function(){
+				$('#btnHoanTat').on('click',function(){
+					var retVal = confirm("Xác nhận sửa thông tin?");
+		               if( retVal == true ){
+		            	   document.location = 'Admin.html';
+		                  return true;
+		               }
+		               else{
+		                  
+		                  return false;
+		               }
+				});
+				$('#btnHuy').on('click',function(){
+					var retVal = confirm("Bạn có chắc muốn thoát?");
+		               if( retVal == true ){
+		            	   document.location = 'Admin.html';
+		                  return true;
+		               }
+		               else{
+		                  
+		                  return false;
+		               }
+				});
+				
+			});
+			</script>
     
 
 

@@ -10,6 +10,9 @@
     <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    	<link href="MyCustom.css" rel="stylesheet">
+	<link href="tree.css" rel="stylesheet">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
       <link href="assets/css/main-style.css" rel="stylesheet" />
 
@@ -200,16 +203,11 @@
                     </li>
 
                     
-                    <li class="">
-                        <a href="DSMC-NguoiNhap.html"><i class="fa fa-book fa-fw"></i>  Danh sách minh chứng</a>
-                    </li>
-                    <li>
-                        <a href="NhapMinhChung.html"><i class="fa fa-pencil fa-fw"></i>  Nhập minh chứng</a>
-                        
-                        <!-- second-level-items -->
+                   <li class="">
+                        <a href="NguoiKiemTra.html"><i class="fa fa-book fa-fw"></i>Xem cây minh chứng</a>
                     </li>
                      <li>
-                        <a href="Timkiem.html"><i class="fa fa-search fa-fw"></i>  Tìm kiếm</a>
+                        <a href="Timkiem3.html" ><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
                     </li>
                     
                     
@@ -226,58 +224,91 @@
             <div class="row">
                  <!--  page header -->
                 <div class="col-lg-12">
-                    <h1 class="page-header">NHẬP MINH CHỨNG</h1>
+                	<br>
+                    <h1 class="page-header">CÂY MINH CHỨNG</h1>
                 </div>
                  <!-- end  page header -->
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
-                    <div class="panel panel-primary">
-					    <div class="panel-heading">Thông tin minh chứng</div>
-					    <div class="panel-body" >
-					    <form class="form-horizontal">
-							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="ten" >Tên mục minh chứng:</label>
-							    <div class="col-sm-7">
-							      <input type="text" class="form-control" id="ten" placeholder="Nhập tên mục minh chứng">
-							    </div>
-							  </div>
-							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="mota" style="margin-left:0;">Mô tả:</label>
-							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="mota" placeholder="Nhập mô tả minh chứng">
-							    </div>
-							  </div>
-							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="tao">Người tạo:</label>
-							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="tao" placeholder="Nhập họ và tên người tạo">
-							    </div>
-							  </div>
-							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="giao">Người giao:</label>
-							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="giao" placeholder="Nhập họ và tên người giao">
-							    </div>
-							  </div>
-							 <div class="form-group">
-							   <label class="control-label col-sm-4" for="file">Up file minh chứng:</label>
-										<div class="col-sm-7">
-										     <input type="file" class="form-control" id="file">
-										</div>
-							  </div>
-							</form>
-					    </div>
-					    	
-					    <div class="panel-footer" >
-
-					    	<form class="form-inline col-md-offset-9  ">
-					    	<button type="button" class="btn btn-primary btn-md" id="btnXacnhan">Hoàn tất</button>
-							<button style="margin-left:25px;" type="button" class="btn btn-primary btn-md" id="btnHuy">Hủy</button>
-							</form>
+                    <div class="panel-group" id="accordion">
+					<div class ="panel panel-primary">
+						<div class="panel-heading">Cây minh chứng</div>
+						<div class="panel-body">
+			   				<div class="tree">
+							 <ul>
+								<li>
+					            <span><i class="glyphicon glyphicon-folder-open"></i>    Hoạt động giảng dạy</span> 
+						            <ul>
+						                <li>
+						                	<span><i class= "glyphicon glyphicon-ok" ></i>   100% giảng viên dạy đủ số tiết</span> 
+						                    <ul>
+						                        <li>
+									                  <span><i class="glyphicon glyphicon-pencil"></i>  Tên: 100% giảng viên dạy đủ số tiết</span> 
+								                 </li>
+								                 <li>
+									                  <span><i class="glyphicon glyphicon-pencil"></i>   Mô tả: 100% giảng viên lên lớp đúng giờ và dạy đủ số tiết</span> 
+								                 </li>
+								                 <li>
+									                  <span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span>  <a href="#">  Xem</a>
+								                 </li>
+								                 <li>
+									                  <span><i class="glyphicon glyphicon-user"></i>   Người nhập: Trưởng khoa CNTT</span> 
+								                 </li>
+						                    </ul>
+						                </li>
+						               <li>
+						                	<span><i class="glyphicon glyphicon-book"></i>   90% giảng viên đạt loại giỏi</span> 
+						                    <ul>
+						                        <li>
+									                  <span><i class="glyphicon glyphicon-pencil"></i>   Tên: 90% giảng viên đạt loại giỏi</span> 
+								                 </li>
+								                 <li>
+									                  <span><i class="glyphicon glyphicon-pencil"></i>   Mô tả: Mỗi khoa phải có tối thiểu 90% giảng viên đủ tiêu chuẩn loại giỏi</span> 
+								                 </li>
+								                 <li>
+									                  <span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span> 
+								                 </li>
+								                 <li>
+									                  <span><i class="glyphicon glyphicon-user"></i>   Người nhập: Trưởng khoa CNTT</span> 
+								                 </li>
+						                    </ul>
+						                </li>
+						            </ul>
+						        </li>
+						        <li>
+						            <span><i class="glyphicon glyphicon-folder-open"></i>    Công tác xã hội</span>
+						            <ul>
+						                <li>
+						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tổ chức 1 buổi CTXH trong học kỳ</span>  
+								        </li>
+								        <li>
+						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tổ chức hội thao cấp trường</span> 
+								        </li>
+								        <li>
+						                	<span><i class="glyphicon glyphicon-book"></i>   100% giảng viên tham gia hội thao cấp khoa</span> 
+								        </li>
+								    </ul>
+						        </li>
+						        <li>
+						            <span><i class="glyphicon glyphicon-folder-open"></i>    Hoạt động tư vấn</span> 
+						            <ul>
+						                <li>
+						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tư vấn chọn chuyên ngành</span> 
+								        </li>
+								        <li>
+						                	<span><i class="glyphicon glyphicon-book"></i>   Tư vấn hướng nghiệp</span> 
+								        </li>
+	
+								    </ul>
+						        </li>
+						    </ul>
 						</div>
-					  </div>
+					</div>
+				</div>
+			</div>
+				
                     <!--End Advanced Tables -->
                 </div>
             </div>
@@ -296,36 +327,31 @@
     <!-- Page-Level Plugin Scripts-->
     <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-     <script type="text/javascript">
-			$(document).ready(function(){
-			
-				$('#btnXacnhan').on('click',function(){
-					var retVal = confirm("Lưu thay đổi?");
-		               if( retVal == true ){
-		            	   document.location = 'NguoiNhapMC.html';
-		                  return true;
-		               }
-		               else{
-		                  
-		                  return false;
-		               }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script> 
+	
+	<script type="text/javascript">
+				$(document).ready(function(){
+					$(function () {
+					    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+	
+					    //hide the child li elements
+					    $('.tree li ul > li').hide();
+					    $('.tree li.parent_li > span').on('click', function (e) {
+					        var children = $(this).parent('li.parent_li').find(' > ul > li');
+					        if (children.is(":visible")) {
+					            children.hide('fast');
+					            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+					        } else {
+					            children.show('fast');
+					            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+					        }
+					        e.stopPropagation();
+					    });
+					});
 				});
-				$('#btnHuy').on('click',function(){
-					var retVal = confirm("Bạn có chắc muốn thoát?");
-		               if( retVal == true ){
-		            	   document.location = 'NguoiNhapMC.html';
-		                  return true;
-		               }
-		               else{
-		                  
-		                  return false;
-		               }
-				});
-				
-			});
-			</script>
+	</script>
+	
 
 
 </body>

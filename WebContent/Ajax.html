@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+  
+</head>
+<body>
+
+
+
+	<div id="demo"><h2>Let AJAX change this text</h2></div>
+
+	<button type="button" onclick="loadDoc();">Change Content</button>
+	
+	<script language="javascript">
+	function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {
+	      document.getElementById("demo").innerHTML = this.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "XemCayMC.html", true);
+	  xhttp.send();
+	}
+	</script>
+	<!--  
+	
+	
+<div id="demo1"><h2>Let AJAX change this text</h2></div>
+
+<button type="button" onclick="loadDoc1()">Change Content</button>
+
+<script language="javascript">
+function loadDoc1() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo1").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.html", true);
+  xhttp.send();
+}
+</script>
+
+<h2>AJAX</h2>
+
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo2"></p>
+
+
+<script language="javascript">
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo2").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "demo_get.asp", true);
+  xhttp.send();
+}
+</script>
+
+<h2>AJAX</h2>
+
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo3"></p>
+
+<script language="javascript">
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo3").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "demo_get2.asp?fname=Henry&lname=Ford", true);
+  xhttp.send();
+}
+</script>
+	
+	-->
+
+</body>
+</html>

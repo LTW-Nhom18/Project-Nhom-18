@@ -203,19 +203,16 @@
                     </li>
 
                     
-                      
+                   
                       <li class="">
-                        <a href="XemCayMC.html"><i class="fa fa-book fa-fw"></i>Xem cây minh chứng</a>
+                        <a href="NguoiQuyDinhMC.html"><i class="fa fa-book fa-fw"></i>Quản lý cây minh chứng</a>
                     </li>
                      <li class="">
-                        <a href="GiaoMC.html"><i class="fa fa-pencil fa-fw"></i>Phân công nhập minh chứng</a>
-                    </li>
-                     <li class="">
-                        <a href="KiemTraMinhChung.html"><i class="fa fa-check fa-fw"></i>Kiểm tra mục minh chứng</a>
-                    </li>
+                        <a href="#" onclick="loadtab2()"><i class="fa fa-file fa-fw"></i>Quản lý mục minh chứng</a>
                      <li>
-                        <a href="Timkiem1.html"><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
+                        <a href="#" onclick="loadtab3()"><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
                     </li>
+                    
                     
                     
                 </ul>
@@ -226,9 +223,7 @@
         <!-- end navbar side -->
         <!--  page-wrapper -->
         <div id="page-wrapper">
-
-            
-            <div class="row">
+			<div class="row">
                  <!--  page header -->
                 <div class="col-lg-12">
                 	<br>
@@ -253,7 +248,7 @@
 								    <div class="panel-body">
 										<label class="control-label col-sm-3" for="mota">Mô tả minh chứng</label>
 										<div class="col-sm-8">
-										     <input type="text" class="form-control" id="mota" value="Tham gia hội thao công đoàn trường HK2 - Năm học 2016-2017">
+										     <input type="text" class="form-control" id="mota" value="Tham gia hội thao công đoàn trường HK2 - Năm học 2016-2017" disabled>
 										</div>
 									</div>
 									<div class="panel-body">
@@ -265,21 +260,21 @@
 									<div class="panel-body">
 										<label class="control-label col-sm-3" for="nguoitao">Người tạo</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="nguoitao" value="Phòng ĐBCL">
+										     <input type="text" class="form-control" id="nguoitao" value="Phòng ĐBCL" disabled>
 										</div>
 										<label class="control-label col-sm-2" style="margin-left: 20px;" for="nguoigiao">Người giao</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="nguoigiao" value ="Trưởng khoa CNTT ">
+										     <input type="text" class="form-control" id="nguoigiao" value ="Trưởng khoa CNTT " disabled>
 										</div>
 									</div>
 									<div class="panel-body">
 										<label class="control-label col-sm-3" for="date">Ngày tạo</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="date" value="20/6/2016">
+										     <input type="text" class="form-control" id="date" value="20/6/2016" disabled>
 										</div>
 										<label class="control-label col-sm-2" style="margin-left: 20px;" for="state">Tình trạng</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="state" value ="đã hoàn thành">
+										     <input type="text" class="form-control" id="state" value ="đã hoàn thành" disabled>
 										</div>
 									</div>
 									<br>
@@ -293,6 +288,8 @@
                     <!--End Advanced Tables -->
                 </div>
             </div>
+            
+           
             
                     <!--  end  Context Classes  -->
                 </div>
@@ -311,7 +308,51 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script> 
 	
+	<script type="text/javascript">
+				$(document).ready(function(){
+					$(function () {
+					    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
 	
+					    //hide the child li elements
+					    $('.tree li ul > li').hide();
+					    $('.tree li.parent_li > span').on('click', function (e) {
+					        var children = $(this).parent('li.parent_li').find(' > ul > li');
+					        if (children.is(":visible")) {
+					            children.hide('fast');
+					            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+					        } else {
+					            children.show('fast');
+					            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+					        }
+					        e.stopPropagation();
+					    });
+					});
+				});
+	</script>
+	
+	<script language="javascript">
+				
+				function loadtab2() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      document.getElementById("page-wrapper").innerHTML = this.responseText;
+					    }
+					  };
+					  xhttp.open("GET", "QLMucMC.html", true);
+					  xhttp.send();
+					}
+				function loadtab3() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      document.getElementById("page-wrapper").innerHTML = this.responseText;
+					    }
+					  };
+					  xhttp.open("GET", "Timkiem2.html", true);
+					  xhttp.send();
+					}
+		</script>
 
 </body>
 

@@ -33,7 +33,7 @@
        <h1 class="title-head">SMS Hệ thống quản lý minh chứng ĐBCL</h1>
         <div class="main">
            <br><br><br><br>
-			<form action="http://login.e-school.edu.vn/Account/LogOn" method="post"><input type="hidden"  />               
+			<form action="" method=""><input type="hidden"  />               
 				 <div class="col-login">
                     <div class="box-login">
                         <h2>Đăng nhập hệ thống</h2>
@@ -50,7 +50,7 @@
                         </div>
                         
                         <div class="box-btn">
-                            <button class="btn-login" onclick="">Đăng nhập</button>
+                            <button class="btn-login" onclick="Admin();">Đăng nhập</button>
                             <input type="hidden" id="tokenAuthen" name="tokenAuthen" />
                         </div>
                         <div class="box-message-logon" id ="idErrorMessage" style ="display:none;">
@@ -65,7 +65,17 @@
  		</div>
     </div>
     </div>
+    <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script language = JavaScript>
+
+	function Admin()
+	{
+		location = 'DSTaikhoan.html';
+
+	}
 </body>
+	
+	
 
 <!-- Mirrored from login.e-school.edu.vn/Account/LogOn by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Oct 2016 11:16:29 GMT -->
 </html>
