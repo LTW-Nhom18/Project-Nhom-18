@@ -204,17 +204,17 @@
 
                     
                       
-                      <li class="">
-                        <a href="XemCayMC.html"><i class="fa fa-book fa-fw"></i>Xem cây minh chứng</a>
+                         <li class="">
+                        <a href="NguoiGiaoMC.html"><i class="fa fa-book fa-fw"></i>Xem cây minh chứng</a>
                     </li>
                      <li class="">
-                        <a href="GiaoMC.html"><i class="fa fa-pencil fa-fw"></i>Phân công nhập minh chứng</a>
+                        <a href="#" onclick="loadtab2()"><i class="fa fa-pencil fa-fw"></i>Phân công nhập minh chứng</a>
                     </li>
                      <li class="">
-                        <a href="KiemTraMinhChung.html"><i class="fa fa-check fa-fw"></i>Kiểm tra mục minh chứng</a>
+                        <a href="#" onclick="loadtab3()"><i class="fa fa-check fa-fw"></i>Kiểm tra mục minh chứng</a>
                     </li>
                      <li>
-                        <a href="Timkiem1.html"><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
+                        <a href="Timkiem1.html" ><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
                     </li>
                     
                     
@@ -308,7 +308,31 @@
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script> 
-	
+	<script language="javascript">
+				
+		
+				function loadtab2() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      document.getElementById("page-wrapper").innerHTML = this.responseText;
+					    }
+					  };
+					  xhttp.open("GET", "GiaoMC.html", true);
+					  xhttp.send();
+					}
+				function loadtab3() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      document.getElementById("page-wrapper").innerHTML = this.responseText;
+					    }
+					  };
+					  xhttp.open("GET", "KiemTraMinhChung.html", true);
+					  xhttp.send();
+					}
+				
+		</script>
 	
 
 </body>
