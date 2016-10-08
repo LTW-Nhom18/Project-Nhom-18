@@ -213,7 +213,7 @@
 
                     
                     <li class="">
-                        <a href="DSTaikhoan.html"><i class="fa fa-book fa-fw"></i>Danh sách tài khoản</a>
+                        <a href="Admin.html"><i class="fa fa-book fa-fw"></i>Danh sách tài khoản</a>
                     </li>
                     
                     
@@ -226,6 +226,7 @@
         <!--  page-wrapper -->
         <div id="page-wrapper">
 
+
             
             <div class="row">
                  <!--  page header -->
@@ -236,139 +237,137 @@
                  <!-- end  page header -->
             </div>
             <div class="row">
-
                 <div class="col-lg-12">
 				 <form class="form-horizontal" id="formMain" name="formMain" action="Admin.html" method="get">
 					<fieldset>
 					
-                <div class="col-md-5">
-					<div class="panel panel-primary">
-				 
-						<div class="panel-heading">Thông tin tài khoản</div>
-						 <div class="panel-body" >
-						
-					    
-					
-							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="user">Tài khoản </label>
-							    <div class="col-sm-8">
-							      <input type="text" class="form-control"  name="user" id="user" placeholder="Enter username" required>
+		                <div class="col-md-5">
+							<div class="panel panel-primary">
+						 
+								<div class="panel-heading">Thông tin tài khoản</div>
+								 <div class="panel-body" >
 
-							    </div>
-							  </div>
-							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="pwd">Mật khẩu</label>
-							    <div class="col-sm-8"> 
-							      <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password" required>
+									  <div class="form-group">
+									    <label class="control-label col-sm-4" for="user">Tài khoản </label>
+									    <div class="col-sm-8">
+									      <input type="text" class="form-control"  name="user" id="user" placeholder="Enter username" required>
+		
+									    </div>
+									  </div>
+									  <div class="form-group">
+									    <label class="control-label col-sm-4" for="pwd">Mật khẩu</label>
+									    <div class="col-sm-8"> 
+									      <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password" required>
+		
+									    </div>
+									  </div>
+									  <div class="form-group">
+									    <label class="control-label col-sm-4" for="pwdagain">Nhập lại</label>
+									    <div class="col-sm-8"> 
+									      <input type="password" class="form-control"  name="pwdagain" id="pwdagain" placeholder="Enter password again" required>
+		
+									    </div>
+									  </div>						  
+									  <div class="form-group"> 
+									  <label class="control-label col-sm-4" for="phanquyen">Phân quyền</label>
+									    <div class="col-sm-8" id="phanquyen" >
+											  <select class="form-control">
+												  <option value="qd">Người quy định</option>
+												  <option value="g">Người giao</option>
+												  <option value="n">Người nhập</option>
+												  <option value="kt">Người kiểm tra</option>
+											  </select>
+									    </div>
+							 	 		</div>
 
-							    </div>
-							  </div>
-							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="pwdagain">Nhập lại</label>
-							    <div class="col-sm-8"> 
-							      <input type="password" class="form-control"  name="pwdagain" id="pwdagain" placeholder="Enter password again" required>
-
-							    </div>
-							  </div>						  
-							  <div class="form-group"> 
-							  <label class="control-label col-sm-4" for="phanquyen">Phân quyền</label>
-							    <div class="col-sm-8" id="phanquyen" >
-									  <select class="form-control">
-										  <option value="qd">Người quy định</option>
-										  <option value="g">Người giao</option>
-										  <option value="n">Người nhập</option>
-										  <option value="kt">Người kiểm tra</option>
-									  </select>
-							    </div>
-							  </div>
-								
-					
-					
-						
-					</div>
-	    		</div>
-		</div>
-			<div class="col-md-7">
-				<div class="panel panel-primary">
-				    <div class="panel-heading">Thông tin cá nhân</div>
-				    <div class="panel-body" >
-				
-				   
-						<div class="form-group">
-						    <label class="control-label col-sm-3" for="inputName">Họ tên </label>
-						    <div class="col-sm-9">
-						      <input type="text" class="form-control" name="inputName" id="inputName" placeholder="Enter name" required>
-						      <label class="radio-inline"><input type="radio" name="optradio" checked="checked">Nam</label>
-						      <label class="radio-inline"><input type="radio" name="optradio">Nữ</label>
-							</div>
+									</div>
+					    		</div>
 						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-3" for="inputDate">Ngày sinh </label>
-						    <div class="col-sm-9">
-						          <input type="date" name="inputDate" id="inputDate" placeholder="Enter date" class="form-control"   required>  
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-3" for="inputTel">Điện thoại </label>
-						    <div class="col-sm-9">
-						      <input type="tel" class="form-control" name="inputTel" id="inputTel" placeholder="Enter telephonenumber" required>
-							</div>
-						</div>
-						<div class="form-group"> 
-						  <label class="control-label col-sm-3" for="Khoa">Khoa:</label>
-						    <div class="col-sm-9">
-								  <select class="form-control" id="Khoa">
-									  <option value="CNTT">Công nghệ thông tin</option>
-									  <option value="CKM">Cơ khí máy</option>
-									  <option value="CNTP">Công nghệ thực phẩm</option>
-									  <option value="CNM">Công nghệ may</option>
-									  <option value="CKD">Cơ khí động lực</option>
-								  </select>
-						    </div>
-						 </div>
-						 <div class="form-group">
-							<label class="control-label col-sm-3" for="chucvu">Chức vụ: </label>
-						    <div class="col-sm-9">
-						      <select class="form-control" id ="chucvu" >
-									  <option >Trưởng khoa </option>
-									  <option >Phó khoa</option>
-									  <option >Thư ký khoa</option>
-
-								  </select>
-							</div>
-						</div>
-						
+						<div class="col-md-7">
+							<div class="panel panel-primary">
+							    <div class="panel-heading">Thông tin cá nhân</div>
+							    <div class="panel-body" >
+							
+							   
+									<div class="form-group">
+									    <label class="control-label col-sm-3" for="inputName">Họ tên </label>
+									    <div class="col-sm-9">
+									      <input type="text" class="form-control" name="inputName" id="inputName" placeholder="Enter name" required>
+									      <label class="radio-inline"><input type="radio" name="optradio" checked="checked">Nam</label>
+									      <label class="radio-inline"><input type="radio" name="optradio">Nữ</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-3" for="inputDate">Ngày sinh </label>
+									    <div class="col-sm-9">
+									          <input type="date" name="inputDate" id="inputDate" placeholder="Enter date" class="form-control"   required>  
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-3" for="inputTel">Điện thoại </label>
+									    <div class="col-sm-9">
+									      <input type="tel" class="form-control" name="inputTel" id="inputTel" placeholder="Enter telephonenumber" required>
+										</div>
+									</div>
+									<div class="form-group"> 
+									  <label class="control-label col-sm-3" for="Khoa">Khoa:</label>
+									    <div class="col-sm-9">
+											  <select class="form-control" id="Khoa">
+												  <option value="CNTT">Công nghệ thông tin</option>
+												  <option value="CKM">Cơ khí máy</option>
+												  <option value="CNTP">Công nghệ thực phẩm</option>
+												  <option value="CNM">Công nghệ may</option>
+												  <option value="CKD">Cơ khí động lực</option>
+											  </select>
+									    </div>
+									 </div>
+									 <div class="form-group">
+										<label class="control-label col-sm-3" for="chucvu">Chức vụ: </label>
+									    <div class="col-sm-9">
+									      <select class="form-control" id ="chucvu" >
+												  <option >Trưởng khoa </option>
+												  <option >Phó khoa</option>
+												  <option >Thư ký khoa</option>
 			
+											  </select>
+										</div>
+									</div>
+
 						<button  type="submit" hidden="true" id="btnsubmit" name="btnsubmit"></button>
 					
 				    </div>
-				  
 
-	    		</div>
-				
-		
-                    <!--End Advanced Tables -->
-            </div>
+		    		</div>
+	           <!--End col 7 -->
+	           	 </div>
 				</fieldset>
 			</form>
-			 <div class="row">
-   			<div class= "col-md-offset-10">
-   			<form class="form-inline" >
-				<div class="form-group" >
-				<button  type="button" class="btn btn-primary btn-md" id="btnHoanTat" >Hoàn tất</button>
-				<button  style="margin-left:20px;" id="btnHuy" type="button" class="btn btn-primary btn-md" style="margin-left:20px;" >Hủy</button>
-				</div>
-			</form>
-			</div>
+					 <div class="row">
+			   			<div class= "col-md-offset-10">
+			   			<form class="form-inline" >
+							<div class="form-group" >
+							<button  type="button" class="btn btn-primary btn-md" id="btnHoanTat" >Hoàn tất</button>
+							<button  style="margin-left:20px;" id="btnHuy" type="button" class="btn btn-primary btn-md" style="margin-left:20px;" >Hủy</button>
+							</div>
+						</form>
+						</div>
 					</div>
+					<!-- end col 12 -->
             </div>
-      
-            
                     <!--  end  Context Classes  -->
-                </div>
- </div>
+        </div>
+ 	</div>
+  </div>
 
-
+<!-- Core Scripts - Include with every page -->
+   
+    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="assets/plugins/pace/pace.js"></script>
+    <script src="assets/scripts/siminta.js"></script>
+    <!-- Page-Level Plugin Scripts-->
+    <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
    
     
 	    <script type="text/javascript">
@@ -401,26 +400,10 @@
 					 function submit()
 					 {
 					    $("#btnsubmit").click();
-					   
 					    
 					 }
 		</script>
-<!-- 	<script type="text/javascript">
 
-      // Form validation code will come here.
-      function validate()
-      {
-      
-         if( document.myForm1.user.value == "" || document.myForm1.pwd.value == ""||document.myForm1.pwd.value == ""
-        	||document.myForm2.inputName.value == "" || document.myForm2.inputDate.value == ""||document.myForm2.inputTel.value == "")
-         {
-            alert( "Vui lòng điền đầy đủ tất cả thông tin" );
-            document.account.user.focus() ;
-            return false;
-         }
-      }
-
-</script> -->
 		
 <script type="text/javascript">
 

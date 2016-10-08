@@ -211,13 +211,13 @@
                     </li>
 
                     
-                      <li class="">
-                        <a href="QLCayMC.html"><i class="fa fa-book fa-fw"></i>Quản lý cây minh chứng</a>
+                             <li class="">
+                        <a href="NguoiQuyDinhMC.html"><i class="fa fa-book fa-fw"></i>Quản lý cây minh chứng</a>
                     </li>
                      <li class="">
-                        <a href="QLMucMC.html"><i class="fa fa-file fa-fw"></i>Quản lý mục minh chứng</a>
+                        <a href="#" onclick="loadtab2()"><i class="fa fa-file fa-fw"></i>Quản lý mục minh chứng</a>
                      <li>
-                        <a href="Timkiem2.html"><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
+                        <a href="#" onclick="loadtab3()"><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
                     </li>
                     
                     
@@ -328,7 +328,29 @@
 			});
 			</script>
 
-
+<script language="javascript">
+					
+				function loadtab2() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      document.getElementById("page-wrapper").innerHTML = this.responseText;
+					    }
+					  };
+					  xhttp.open("GET", "QLMucMC.html", true);
+					  xhttp.send();
+					}
+				function loadtab3() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      document.getElementById("page-wrapper").innerHTML = this.responseText;
+					    }
+					  };
+					  xhttp.open("GET", "Timkiem2.html", true);
+					  xhttp.send();
+					}
+		</script>
   
 
 	<script>

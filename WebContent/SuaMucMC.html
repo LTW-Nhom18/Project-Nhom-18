@@ -18,7 +18,8 @@
 
     <!-- Page-Level CSS -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 </head>
 
 <body>
@@ -202,14 +203,13 @@
                         <!--end user image section-->
                     </li>
 
-                    
-                      <li class="">
-                        <a href="QLCayMC.html"><i class="fa fa-book fa-fw"></i>Quản lý cây minh chứng</a>
+                     <li class="">
+                        <a href="NguoiQuyDinhMC.html"><i class="fa fa-book fa-fw"></i>Quản lý cây minh chứng</a>
                     </li>
                      <li class="">
-                        <a href="QLMucMC.html"><i class="fa fa-file fa-fw"></i>Quản lý mục minh chứng</a>
+                        <a href="#" onclick="loadtab2()"><i class="fa fa-file fa-fw"></i>Quản lý mục minh chứng</a>
                      <li>
-                        <a href="Timkiem2.html"><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
+                        <a href="#" onclick="loadtab3()"><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
                     </li>
                     
                     
@@ -237,51 +237,59 @@
                     <div class="panel panel-primary">
 						  <div class="panel-heading"><h4>Mục minh chứng 1</h4></div>
 						    <div class="panel-body">
-						    	<label class="control-label col-sm-3" for="namemc">Tên mục minh chứng</label>
-								<div class="col-sm-8">
-								     <input type="text" class="form-control" id="namemc">
-								</div>
-							</div>
-						    <div class="panel-body">
-								<label class="control-label col-sm-3" for="mota">Mô tả minh chứng</label>
-								<div class="col-sm-8">
-								     <input type="text" class="form-control" id="mota">
-								</div>
-							</div>
-							<div class="panel-body">
-								<label class="control-label col-sm-3" for="file">File minh chứng</label>
-								<div class="col-sm-8">
-									<div class="form-group">
-										    <div class="container">
-												   <label class="radio-inline"><input type="radio" name="optradio" checked="checked" >Văn bản</label>
-											      <label class="radio-inline"><input type="radio" name="optradio" >Hình ảnh</label>
-											      <label class="radio-inline"><input type="radio" name="optradio" >Video</label>
-											      <label class="radio-inline"><input type="radio" name="optradio" >Zip</label>
+						    <form class="form-horizontal" action="NguoiQuyDinhMC.html" method="get">
+								<fieldset>
+									    	<div class="form-group">
+										    	<label class="control-label col-sm-3" for="namemc">Tên mục minh chứng </label>
+												<div class="col-sm-8">
+												     <input type="text" class="form-control" id="namemc" value="Tham gia hội thao" required="required">
+												</div>
 											</div>
-									</div>	
-								</div>
-							</div>
-							<div class="panel-body">
-								<label class="control-label col-sm-3" for="nguoitao">Người tạo</label>
-								<div class="col-sm-8">
-								     <input type="text" class="form-control" id="nguoitao">
-								</div>
-								
-								<br>
-							</div>
-							<div class="panel-body">
-							<label class="control-label col-sm-3"  for="nguoigiao">Người giao</label>
-								<div class="col-sm-8">
-								     <input type="text" class="form-control" id="nguoigiao">
-								</div>
-							</div>
-							<div class="panel-footer">
-								<form class="form-inline col-md-offset-10 "  >
-									<button type="button" class="btn btn-primary" id="btnXacnhan">Xác nhận</button>
-									<button style="margin-left:20px;" id="btnHuy" type="button" class="btn btn-primary">Hủy</button>
-								</form>
-							</div>
+									   <div class="form-group">
+											<label class="control-label col-sm-3" for="mota">Mô tả minh chứng</label>
+											<div class="col-sm-8">
+											     <input type="text" class="form-control" id="mota" value="Tham gia hội thao công đoàn trường HK2 - Năm học 2016-2017" required="required" >
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-3" for="file">File minh chứng</label>
+											<div class="col-sm-8">
+												<div class="form-group">
+													    <div class="container">
+															   <label class="radio-inline"><input type="radio" name="optradio" checked="checked" >Văn bản</label>
+														      <label class="radio-inline"><input type="radio" name="optradio" >Hình ảnh</label>
+														      <label class="radio-inline"><input type="radio" name="optradio" >Video</label>
+														      <label class="radio-inline"><input type="radio" name="optradio" >Zip</label>
+														</div>
+												</div>	
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="control-label col-sm-3" for="nguoitao">Người tạo</label>
+											<div class="col-sm-8">
+											     <input type="text" class="form-control" id="nguoitao" value="Phòng ĐBCL" required="required">
+											</div>
+											
+											<br>
+										</div>
+										<div class="form-group">
+										<label class="control-label col-sm-3"  for="nguoigiao">Người giao</label>
+											<div class="col-sm-8">
+											     <input type="text" class="form-control" id="nguoigiao" value ="Trưởng khoa CNTT " required="required"> 
+											</div>
+										</div>
+										<button type="submit" hidden="true" name="btnsubmit" id="btnsubmit"></button>
+									  </fieldset>
+								  </form>
+								  
+								  <div class="panel-footer">
+											<form class="form-inline col-md-offset-10 "  >
+												<button type="button" class="btn btn-primary" id="btnXacnhan">Xác nhận</button>
+												<button style="margin-left:20px;" id="btnHuy" type="button" class="btn btn-primary">Hủy</button>
+											</form>
+									</div>
 						  </div>
+						
 					</div>
 				<!-- tab content -->
 				
@@ -295,7 +303,7 @@
 
 
     <!-- Core Scripts - Include with every page -->
-    <script src="assets/plugins/jquery-1.10.2.js"></script>
+   
     <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="assets/plugins/pace/pace.js"></script>
@@ -305,6 +313,13 @@
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script> 
+	<script type="text/javascript">
+					 function submit()
+					 {
+					    $("#btnsubmit").click();
+					    
+					 }
+		</script>
 	
 	 <script type="text/javascript">
 			$(document).ready(function(){
@@ -312,7 +327,7 @@
 				$('#btnXacnhan').on('click',function(){
 					var retVal = confirm("Lưu thay đổi ?");
 		               if( retVal == true ){
-		            	   document.location = 'NguoiQuyDinhMC.html';
+		            	   submit();
 		                  return true;
 		               }
 		               else{
@@ -336,7 +351,29 @@
 			</script>
 	
 	
-	</script>
+	<script language="javascript">
+					
+				function loadtab2() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      document.getElementById("page-wrapper").innerHTML = this.responseText;
+					    }
+					  };
+					  xhttp.open("GET", "QLMucMC.html", true);
+					  xhttp.send();
+					}
+				function loadtab3() {
+					  var xhttp = new XMLHttpRequest();
+					  xhttp.onreadystatechange = function() {
+					    if (this.readyState == 4 && this.status == 200) {
+					      document.getElementById("page-wrapper").innerHTML = this.responseText;
+					    }
+					  };
+					  xhttp.open("GET", "Timkiem2.html", true);
+					  xhttp.send();
+					}
+		</script>
 
 
 </body>

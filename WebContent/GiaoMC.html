@@ -41,24 +41,27 @@
 						<div class="panel panel-primary">
 								<div class="panel-heading">Giao minh chứng</div>
 								<div class="panel-body">
-									<form class="form-horizontal">
+									<form class="form-horizontal" action="NguoiGiaoMC.html">
+									<fieldset>
 									  <div class="form-group">
 									    <label class="control-label col-md-5" for="muc">Mục minh chứng: </label>
 									    <div class="col-md-6">
-									      <input type="text" class="form-control" id="muc" placeholder="Nhập tên mục minh chứng">
+									      <input type="text" class="form-control" id="muc" placeholder="Nhập tên mục minh chứng" required="required">
 									    </div>
 									  </div>
 									  <div class="form-group">
 									    <label class="control-label col-md-5" for="nguoi">Người được giao: </label>
 									    <div class="col-md-6"> 
-									      <input type="text" class="form-control" id="nguoi" placeholder="Nhập họ và tên người được giao">
+									      <input type="text" class="form-control" id="nguoi" placeholder="Nhập họ và tên người được giao" required="required">
 									    </div>
 									  </div>
+									  <button type="submit" hidden="true" name="btnsubmit" id="btnsubmit"></button>
+									  </fieldset>
 									</form>
 								</div>
 								<div class="panel-footer">
-									<form class="form-inline col-md-offset-7 "  >
-										<button type="button" class="btn btn-primary" id="btnXacnhan">Xác nhận</button>
+									<form class="form-inline col-md-offset-8 " >
+										<button type="button" class="btn btn-primary" id="btnXacnhan" >Xác nhận</button>
 										<button style="margin-left:10px;" id="btnHuy" type="button" class="btn btn-primary">Hủy</button>
 									</form>
 								</div>
@@ -91,7 +94,7 @@
 				$('#btnXacnhan').on('click',function(){
 					var retVal = confirm("Lưu thay đổi?");
 		               if( retVal == true ){
-		            	   document.location = 'NguoiGiaoMC.html';
+		            	   submit();
 		                  return true;
 		               }
 		               else{
@@ -113,26 +116,13 @@
 				
 			});
 			</script>
-		<!--  
-   	<script language = JavaScript >
-	   	function XacNhan()
-	   	{
-	   		alert('Tạo tài khoản thành công');
-	  
-	   	}
-		function Huy()
-		{
-			cvar retVal = confirm("Bạn có chắc muốn thoát?");
-	        if( retVal == true ){
-	     	   document.location = 'DSTaikhoan.html';
-	           return true;
-	        }
-	        else{
-	           
-	           return false;
-	        }
-		}
-	</script> -->
+	<script type="text/javascript">
+					 function submit()
+					 {
+					    $("#btnsubmit").click();
+					    
+					 }
+		</script>
 
 
 
