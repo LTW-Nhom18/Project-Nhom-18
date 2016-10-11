@@ -297,7 +297,7 @@
 
 
     <!-- Core Scripts - Include with every page -->
-    <script src="assets/plugins/jquery-1.10.2.js"></script>
+
     <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="assets/plugins/pace/pace.js"></script>
@@ -308,27 +308,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script> 
 	
-	<script type="text/javascript">
-				$(document).ready(function(){
-					$(function () {
-					    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
 	
-					    //hide the child li elements
-					    $('.tree li ul > li').hide();
-					    $('.tree li.parent_li > span').on('click', function (e) {
-					        var children = $(this).parent('li.parent_li').find(' > ul > li');
-					        if (children.is(":visible")) {
-					            children.hide('fast');
-					            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
-					        } else {
-					            children.show('fast');
-					            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
-					        }
-					        e.stopPropagation();
-					    });
-					});
-				});
-	</script>
 	
 	<script language="javascript">
 				
@@ -355,5 +335,7 @@
 		</script>
 
 </body>
-
+<footer style="background-color: rgb(83, 163, 163); min-height: 90px; padding-top: 25px;padding-left:40%; ;color: #fff" >
+	<h5> © 2016 Website quản lý minh chứng đảm bảo chất lượng - Group 18</h5>
+</footer>
 </html>
