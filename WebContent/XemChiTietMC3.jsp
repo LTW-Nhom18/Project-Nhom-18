@@ -1,7 +1,7 @@
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,22 +10,15 @@
     <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    	<link href="MyCustom.css" rel="stylesheet">
+	<link href="tree.css" rel="stylesheet">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
       <link href="assets/css/main-style.css" rel="stylesheet" />
 
     <!-- Page-Level CSS -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-<!-- Load Thư viện jQuery vào trước khi load jQuery Validate-->
-<style type="text/css">
 
-	label.error {
-		display: inline-block;
-		color:red;
-		width: 200px;
-	}
-	</style>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 </head>
 
 <body>
@@ -210,9 +203,15 @@
                     </li>
 
                     
-                    <li class="">
-                        <a href="Admin.html"><i class="fa fa-book fa-fw"></i>Danh sách tài khoản</a>
+                      
+                 
+                   <li class="">
+                        <a href="NguoiKiemTra.html"><i class="fa fa-book fa-fw"></i>Xem cây minh chứng</a>
                     </li>
+                     <li>
+                        <a href="#" onlcick="loadtab3()"><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
+                    </li>
+
                     
                     
                 </ul>
@@ -222,73 +221,75 @@
         </nav>
         <!-- end navbar side -->
         <!--  page-wrapper -->
-        <div id="page-wrapper">
-
-            
+          <div id="page-wrapper">
             <div class="row">
                  <!--  page header -->
                 <div class="col-lg-12">
                 	<br>
-                    <h1 class="page-header">DANH SÁCH TÀI KHOẢN</h1>
+                    <h1 class="page-header">CHI TIẾT MINH CHỨNG</h1>
                 </div>
                  <!-- end  page header -->
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
-                    <div class="panel panel-primary">
-				  <div class="panel-heading">Danh sách Tài khoản</div>
-				   <span class="MyNewClass">
-				     <table class="table table-bordered table-hover specialCollapse" id="myTable">
-					    <thead>
-					      <tr>
-					        <th>STT</th>
-					        <th>NGười dùng</th>
-					        <th>Tài khoản</th>
-					        <th>Phân quyền</th>
-					        <th>Chi tiết</th>
-					        <th>Cập nhật</th>
-					        <th>Xóa</th>
-					      </tr>
-					    </thead>
-					    <tbody>
-					      <tr>
-					        <td>1</td>
-					        <td>Nguyễn Văn A</td>
-					        <td>NVA@gmail.com</td>
-					        <td>Người giao MC</td>
-					        <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
-					        <td><a href="SuaThongTinTK.html" >Cập nhật</a></td>
-					        <td><a href=""  value="Delete" onclick="deleteRow(this)" >Xóa</a></td>
-					      </tr>
-					      <tr>
-					        <td>s</td>
-					        <td>Trần Thị D</td>
-					        <td>TTD@gmail.com</td>
-					        <td>Người nhập MC</td>
-					       <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
-					        <td><a href="SuaThongTinTK.html" >Cập nhật</a></td>
-					        <td><a value="Delete" onclick="deleteRow(this)" >Xóa</a></td>
-					      </tr>
-					
-					    </tbody>
-				    </table>
-				   </span>
-				</div>
-				<div class="row">
-		   			<div class="col-md-offset-11">
-		   			 	<a  class="btn btn-primary" href="TaoTaiKhoan.html" >Thêm tài khoản </a>
-		   			
-		   			 </div>
-		   		</div>
+                    <div class="col-sm-10 col-sm-offset-1" >
+						
+						<div class="panel panel-primary">
+								  <div class="panel-heading">Thông tin minh chứng</div>
+								    <div class="panel-body">
+								    <br>
+								    	<label class="control-label col-sm-3" for="namemc">Tên mục minh chứng</label>
+										<div class="col-sm-8">
+										     <input type="text" class="form-control" id="namemc" value="Tham gia hội thao" disabled>
+										</div>
+									</div>
+								    <div class="panel-body">
+										<label class="control-label col-sm-3" for="mota">Mô tả minh chứng</label>
+										<div class="col-sm-8">
+										     <input type="text" class="form-control" id="mota" value="Tham gia hội thao công đoàn trường HK2 - Năm học 2016-2017" disabled>
+										</div>
+									</div>
+									<div class="panel-body">
+										<label class="control-label col-sm-3" for="file">File minh chứng</label>
+										<div class="col-sm-5">
+										     <span class="glyphicon glyphicon-picture" style="font-size:40px;" ></span>
+										</div>
+									</div>
+									<div class="panel-body">
+										<label class="control-label col-sm-3" for="nguoitao">Người tạo</label>
+										<div class="col-sm-3">
+										     <input type="text" class="form-control" id="nguoitao" value="Phòng ĐBCL" disabled>
+										</div>
+										<label class="control-label col-sm-2" style="margin-left: 20px;" for="nguoigiao">Người giao</label>
+										<div class="col-sm-3">
+										     <input type="text" class="form-control" id="nguoigiao" value ="Trưởng khoa CNTT " disabled>
+										</div>
+									</div>
+									<div class="panel-body">
+										<label class="control-label col-sm-3" for="date">Ngày tạo</label>
+										<div class="col-sm-3">
+										     <input type="text" class="form-control" id="date" value="20/6/2016" disabled>
+										</div>
+										<label class="control-label col-sm-2" style="margin-left: 20px;" for="state">Tình trạng</label>
+										<div class="col-sm-3">
+										     <input type="text" class="form-control" id="state" value ="đã hoàn thành" disabled>
+										</div>
+									</div>
+									<br>
+									
+						 </div>
+							
+																
+				
+			</div>
+				
                     <!--End Advanced Tables -->
                 </div>
             </div>
             
                     <!--  end  Context Classes  -->
                 </div>
-        	
-
  </div>
 
 
@@ -301,39 +302,37 @@
     <!-- Page-Level Plugin Scripts-->
     <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-
- <script language="javascript">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script> 
+	  <script language="javascript">
 				
-				function loadTTTK() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "ThongTinTK.html", true);
-					  xhttp.send();
+		
+					function loadtab2() {
+						  var xhttp = new XMLHttpRequest();
+						  xhttp.onreadystatechange = function() {
+						    if (this.readyState == 4 && this.status == 200) {
+						      document.getElementById("page-wrapper").innerHTML = this.responseText;
+						    }
+						  };
+						  xhttp.open("GET", "NhapMC.html", true);
+						  xhttp.send();
 					}
-				function loadSTTK() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "SuaThongTinTK.html", true);
-					  xhttp.send();
+					function loadtab3() {
+						  var xhttp = new XMLHttpRequest();
+						  xhttp.onreadystatechange = function() {
+						    if (this.readyState == 4 && this.status == 200) {
+						      document.getElementById("page-wrapper").innerHTML = this.responseText;
+						    }
+						  };
+						  xhttp.open("GET", "Timkiem.html", true);
+						  xhttp.send();
 					}
-				function deleteRow(r) {
-				    var i = r.parentNode.parentNode.rowIndex;
-				    document.getElementById("myTable").deleteRow(i);
-				}
 		</script>
 
+	
 
 </body>
 <footer style="background-color: rgb(83, 163, 163); min-height: 90px; padding-top: 25px;padding-left:40%; ;color: #fff" >
 	<h5> © 2016 Website quản lý minh chứng đảm bảo chất lượng - Group 18</h5>
 </footer>
-
 </html>

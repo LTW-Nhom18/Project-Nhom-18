@@ -1,10 +1,11 @@
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Hệ thống quản lý minh chứng đảm bảo chất lượng - SPKT</title>
     <!-- Core CSS - Include with every page -->
     <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
@@ -15,6 +16,7 @@
 
     <!-- Page-Level CSS -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+
 <!-- Load Thư viện jQuery vào trước khi load jQuery Validate-->
 <style type="text/css">
 
@@ -26,9 +28,10 @@
 	</style>
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+	
 </head>
 
-<body>
+<body >
     <!--  wrapper -->
     <div id="wrapper">
         <!-- navbar top -->
@@ -41,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.jsp">
                     <img src="assets/img/logo.png" alt="" />
                 </a>
             </div>
@@ -175,7 +178,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        <li><a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                         </li>
                     </ul>
                     <!-- end dropdown-user -->
@@ -211,7 +214,7 @@
 
                     
                     <li class="">
-                        <a href="Admin.html"><i class="fa fa-book fa-fw"></i>Danh sách tài khoản</a>
+                        <a href="Admin.jsp"><i class="fa fa-book fa-fw"></i>Danh sách tài khoản</a>
                     </li>
                     
                     
@@ -224,76 +227,149 @@
         <!--  page-wrapper -->
         <div id="page-wrapper">
 
+
             
             <div class="row">
                  <!--  page header -->
                 <div class="col-lg-12">
                 	<br>
-                    <h1 class="page-header">DANH SÁCH TÀI KHOẢN</h1>
+                    <h1 class="page-header">TẠO TÀI KHOẢN</h1>
                 </div>
                  <!-- end  page header -->
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <!-- Advanced Tables -->
-                    <div class="panel panel-primary">
-				  <div class="panel-heading">Danh sách Tài khoản</div>
-				   <span class="MyNewClass">
-				     <table class="table table-bordered table-hover specialCollapse" id="myTable">
-					    <thead>
-					      <tr>
-					        <th>STT</th>
-					        <th>NGười dùng</th>
-					        <th>Tài khoản</th>
-					        <th>Phân quyền</th>
-					        <th>Chi tiết</th>
-					        <th>Cập nhật</th>
-					        <th>Xóa</th>
-					      </tr>
-					    </thead>
-					    <tbody>
-					      <tr>
-					        <td>1</td>
-					        <td>Nguyễn Văn A</td>
-					        <td>NVA@gmail.com</td>
-					        <td>Người giao MC</td>
-					        <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
-					        <td><a href="SuaThongTinTK.html" >Cập nhật</a></td>
-					        <td><a href=""  value="Delete" onclick="deleteRow(this)" >Xóa</a></td>
-					      </tr>
-					      <tr>
-					        <td>s</td>
-					        <td>Trần Thị D</td>
-					        <td>TTD@gmail.com</td>
-					        <td>Người nhập MC</td>
-					       <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
-					        <td><a href="SuaThongTinTK.html" >Cập nhật</a></td>
-					        <td><a value="Delete" onclick="deleteRow(this)" >Xóa</a></td>
-					      </tr>
+				 <form class="form-horizontal" id="formMain" name="formMain" action="Admin.jsp" method="get">
+					<fieldset>
 					
-					    </tbody>
-				    </table>
-				   </span>
-				</div>
-				<div class="row">
-		   			<div class="col-md-offset-11">
-		   			 	<a  class="btn btn-primary" href="TaoTaiKhoan.html" >Thêm tài khoản </a>
-		   			
-		   			 </div>
-		   		</div>
-                    <!--End Advanced Tables -->
-                </div>
+		                <div class="col-md-5">
+							<div class="panel panel-primary">
+						 
+								<div class="panel-heading">Thông tin tài khoản</div>
+								 <div class="panel-body" >
+
+									  <div class="form-group">
+									    <label class="control-label col-sm-4" for="user">Tài khoản </label>
+									    <div class="col-sm-8">
+									      <input type="text" class="form-control"  name="user" id="user" placeholder="Enter username" required>
+		
+									    </div>
+									  </div>
+									  <div class="form-group">
+									    <label class="control-label col-sm-4" for="pwd">Mật khẩu</label>
+									    <div class="col-sm-8"> 
+									      <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Enter password" required>
+		
+									    </div>
+									  </div>
+									  <div class="form-group">
+									    <label class="control-label col-sm-4" for="pwdagain">Nhập lại</label>
+									    <div class="col-sm-8"> 
+									      <input type="password" class="form-control"  name="pwdagain" id="pwdagain" placeholder="Enter password again" required>
+		
+									    </div>
+									  </div>						  
+									  <div class="form-group"> 
+									  <label class="control-label col-sm-4" for="phanquyen">Phân quyền</label>
+									    <div class="col-sm-8" id="phanquyen" >
+											  <select class="form-control">
+												  <option value="qd">Người quy định</option>
+												  <option value="g">Người giao</option>
+												  <option value="n">Người nhập</option>
+												  <option value="kt">Người kiểm tra</option>
+											  </select>
+									    </div>
+							 	 		</div>
+
+									</div>
+					    		</div>
+						</div>
+						<div class="col-md-7">
+							<div class="panel panel-primary">
+							    <div class="panel-heading">Thông tin cá nhân</div>
+							    <div class="panel-body" >
+							
+							   
+									<div class="form-group">
+									    <label class="control-label col-sm-3" for="inputName">Họ tên </label>
+									    <div class="col-sm-9">
+									      <input type="text" class="form-control" name="inputName" id="inputName" placeholder="Enter name" required>
+									      <label class="radio-inline"><input type="radio" name="optradio" checked="checked">Nam</label>
+									      <label class="radio-inline"><input type="radio" name="optradio">Nữ</label>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-3" for="inputDate">Ngày sinh </label>
+									    <div class="col-sm-9">
+									          <input type="date" name="inputDate" id="inputDate" placeholder="Enter date" class="form-control"   required>  
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-3" for="inputTel">Điện thoại </label>
+									    <div class="col-sm-9">
+									      <input type="tel" class="form-control" name="inputTel" id="inputTel" placeholder="Enter telephonenumber" required>
+										</div>
+									</div>
+									<div class="form-group"> 
+									  <label class="control-label col-sm-3" for="Khoa">Khoa/Phòng ban:</label>
+									    <div class="col-sm-9">
+											  <select class="form-control" id="Khoa">
+												  <option value="CNTT">Công nghệ thông tin</option>
+												  <option value="CKM">Cơ khí máy</option>
+												  <option value="CNTP">Công nghệ thực phẩm</option>
+												  <option value="CNM">Công nghệ may</option>
+												  <option value="CKD">Cơ khí động lực</option>
+												  <option value="PDBCL">Phòng đảm bảo chất lượng</option>
+												  <option value="PDT">Phòng đào tạo</option>
+												  <option value="BGH">Ban giám hiệu</option>
+											  </select>
+									    </div>
+									 </div>
+									 <div class="form-group">
+										<label class="control-label col-sm-3" for="chucvu">Chức vụ: </label>
+									    <div class="col-sm-9">
+									      <select class="form-control" id ="chucvu" >
+												  <option >Trưởng khoa </option>
+												  <option >Phó khoa</option>
+												  <option >CBVC</option>
+												  <option >Trưởng phòng</option>
+												  <option >Phó phòng</option>
+												  <option >Thanh tra</option>
+												  <option >Khác</option>
+			
+											  </select>
+										</div>
+									</div>
+
+					
+					
+				    </div>
+
+		    		</div>
+	           <!--End col 7 -->
+	           	 </div>
+	           	 	<button  type="submit" hidden="true" id="btnsubmit" name="btnsubmit"></button>
+				</fieldset>
+			</form>
+					 <div class="row">
+			   			<div class= "col-md-offset-10">
+			   			<form class="form-inline" >
+							<div class="form-group" >
+							<button  type="button" class="btn btn-primary btn-md" id="btnHoanTat" >Hoàn tất</button>
+							<button  style="margin-left:20px;" id="btnHuy" type="button" class="btn btn-primary btn-md" style="margin-left:20px;" >Hủy</button>
+							</div>
+						</form>
+						</div>
+					</div>
+					<!-- end col 12 -->
             </div>
-            
                     <!--  end  Context Classes  -->
-                </div>
-        	
+        </div>
+ 	</div>
+  </div>
 
- </div>
-
-
-    <!-- Core Scripts - Include with every page -->
-
+<!-- Core Scripts - Include with every page -->
+   
     <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="assets/plugins/pace/pace.js"></script>
@@ -301,39 +377,106 @@
     <!-- Page-Level Plugin Scripts-->
     <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-
- <script language="javascript">
+   
+    
+	    <script type="text/javascript">
+			$(document).ready(function(){
+				$('#btnHoanTat').on('click',function(){
+					var retVal = confirm("Lưu thay đổi?");
+		               if( retVal == true ){
+		            		submit();
+		               }
+		               else{
+		                  
+		                  return false;
+		               }
+				});
+				$('#btnHuy').on('click',function(){
+					var retVal = confirm("Bạn có chắc muốn thoát?");
+		               if( retVal == true ){
+		            	   document.location = 'Admin.jsp';
+		                  return true;
+		               }
+		               else{
+		                  
+		                  return false;
+		               }
+				});
 				
-				function loadTTTK() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "ThongTinTK.html", true);
-					  xhttp.send();
-					}
-				function loadSTTK() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "SuaThongTinTK.html", true);
-					  xhttp.send();
-					}
-				function deleteRow(r) {
-				    var i = r.parentNode.parentNode.rowIndex;
-				    document.getElementById("myTable").deleteRow(i);
-				}
+			});
+			</script>
+			<script type="text/javascript">
+					 function submit()
+					 {
+					    $("#btnsubmit").click();
+					    
+					 }
 		</script>
+
+		
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		
+		//Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này
+		$("#formMain").validate({
+					rules: {
+						user: "required",
+				
+						pwd: {
+							required: true,
+							minlength: 5
+						},
+						pwdagain: {
+							required: true,
+							minlength: 5,
+							equalTo: "#pwd"
+						},
+						inputName: "required",
+						inputDate: "required",
+				
+						inputTel: {
+							required: true,
+							minlength: 10,
+							digits: true
+						},
+					},
+					messages: {
+						user: "Vui lòng nhập user",
+					
+						
+						pwd: {
+							required: 'Vui lòng nhập mật khẩu',
+							minlength: 'Vui lòng nhập ít nhất 5 kí tự'
+						},
+						pwdagain: {
+							required: 'Vui lòng nhập lại mật khẩu',
+							minlength: 'Vui lòng nhập ít nhất 5 kí tự',
+							equalTo: 'Mật khẩu không trùng'
+						},
+						inputName: "Vui lòng nhập họ tên",
+			
+						inputDate: {
+							required: "Vui lòng nhập ngày sinh",
+							Date: "Sai định dạng"
+						},
+						inputTel: {
+							required: "Vui lòng nhập số điện thoại",
+							minlength: "số điện thoại không hợp lệ",
+							digits: "số điện thoại không hợp lệ"
+						},
+								
+					}
+				});
+		
+		});
+
+	</script>
 
 
 </body>
 <footer style="background-color: rgb(83, 163, 163); min-height: 90px; padding-top: 25px;padding-left:40%; ;color: #fff" >
 	<h5> © 2016 Website quản lý minh chứng đảm bảo chất lượng - Group 18</h5>
 </footer>
+</html>	
 
-</html>

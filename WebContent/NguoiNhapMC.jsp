@@ -1,31 +1,25 @@
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
-    <meta charset="utf-8">
+   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hệ thống quản lý minh chứng đảm bảo chất lượng - SPKT</title>
     <!-- Core CSS - Include with every page -->
     <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
+    	<link href="MyCustom.css" rel="stylesheet">
+	<link href="tree.css" rel="stylesheet">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
       <link href="assets/css/main-style.css" rel="stylesheet" />
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script> 
 
     <!-- Page-Level CSS -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-<!-- Load Thư viện jQuery vào trước khi load jQuery Validate-->
-<style type="text/css">
 
-	label.error {
-		display: inline-block;
-		color:red;
-		width: 200px;
-	}
-	</style>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 </head>
 
 <body>
@@ -41,7 +35,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.jsp">
                     <img src="assets/img/logo.png" alt="" />
                 </a>
             </div>
@@ -175,7 +169,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        <li><a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                         </li>
                     </ul>
                     <!-- end dropdown-user -->
@@ -209,9 +203,15 @@
                         <!--end user image section-->
                     </li>
 
-                    
-                    <li class="">
-                        <a href="Admin.html"><i class="fa fa-book fa-fw"></i>Danh sách tài khoản</a>
+                   <li class="">
+                        <a href ="NguoiNhapMC.jsp" ><i class="fa fa-book fa-fw"></i>  Danh sách minh chứng</a>
+                    </li>
+                    <li>
+                         <a href ="#" onclick="loadtab2();" ><i class="fa fa-pencil fa-fw"></i>  Nhập minh chứng</a>
+
+                    </li>
+                     <li>
+                        <a href ="Timkiem.jsp" ><i class="fa fa-search fa-fw"></i>  Tìm kiếm</a>
                     </li>
                     
                     
@@ -228,8 +228,7 @@
             <div class="row">
                  <!--  page header -->
                 <div class="col-lg-12">
-                	<br>
-                    <h1 class="page-header">DANH SÁCH TÀI KHOẢN</h1>
+                    <h1 class="page-header">Danh sách minh chứng</h1>
                 </div>
                  <!-- end  page header -->
             </div>
@@ -237,103 +236,81 @@
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
                     <div class="panel panel-primary">
-				  <div class="panel-heading">Danh sách Tài khoản</div>
-				   <span class="MyNewClass">
-				     <table class="table table-bordered table-hover specialCollapse" id="myTable">
-					    <thead>
-					      <tr>
-					        <th>STT</th>
-					        <th>NGười dùng</th>
-					        <th>Tài khoản</th>
-					        <th>Phân quyền</th>
-					        <th>Chi tiết</th>
-					        <th>Cập nhật</th>
-					        <th>Xóa</th>
-					      </tr>
-					    </thead>
-					    <tbody>
-					      <tr>
-					        <td>1</td>
-					        <td>Nguyễn Văn A</td>
-					        <td>NVA@gmail.com</td>
-					        <td>Người giao MC</td>
-					        <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
-					        <td><a href="SuaThongTinTK.html" >Cập nhật</a></td>
-					        <td><a href=""  value="Delete" onclick="deleteRow(this)" >Xóa</a></td>
-					      </tr>
-					      <tr>
-					        <td>s</td>
-					        <td>Trần Thị D</td>
-					        <td>TTD@gmail.com</td>
-					        <td>Người nhập MC</td>
-					       <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
-					        <td><a href="SuaThongTinTK.html" >Cập nhật</a></td>
-					        <td><a value="Delete" onclick="deleteRow(this)" >Xóa</a></td>
-					      </tr>
-					
-					    </tbody>
-				    </table>
-				   </span>
-				</div>
-				<div class="row">
-		   			<div class="col-md-offset-11">
-		   			 	<a  class="btn btn-primary" href="TaoTaiKhoan.html" >Thêm tài khoản </a>
-		   			
-		   			 </div>
-		   		</div>
+                        <div class="panel-heading">
+                             Danh sách minh chứng
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <thead>
+						      <tr>
+						        <th>STT</th>
+						        <th>Tên mục minh chứng</th>
+						        <th>Chi tiết</th>
+						        <th>Tình trạng</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						      <tr>
+						        <td>1</td>
+						        <td>Tham gia hội thao</td>
+						        <td><a href="XemChiTietMC.jsp" >Chi tiết</a></td>
+						        <td>Đã hoàn thành</td>
+						      </tr>
+						       <tr>
+						        <td>2</td>
+						        <td>Chất lượng dạy học</td>
+						        <td><a href="XemChiTietMC.jsp" >Chi tiết</a></td>
+						        <td>Chưa hoàn thành</td>
+						      </tr>
+						       <tr>
+						        <td>3</td>
+						        <td>Công tác xã hội</td>
+						        <td><a href="" >Chi tiết</a></td>
+						        <td>Đã hoàn thành</td>
+						      </tr>
+						
+						    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
                     <!--End Advanced Tables -->
                 </div>
             </div>
             
                     <!--  end  Context Classes  -->
                 </div>
-        	
-
  </div>
 
 
     <!-- Core Scripts - Include with every page -->
 
-    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+       <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="assets/plugins/pace/pace.js"></script>
     <script src="assets/scripts/siminta.js"></script>
     <!-- Page-Level Plugin Scripts-->
     <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-
- <script language="javascript">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script> 
+    <script language="javascript">
+				function loadtab1() {
+					$('#page-wrapper').load('NguoiNhapMC.jsp');
 				
-				function loadTTTK() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "ThongTinTK.html", true);
-					  xhttp.send();
-					}
-				function loadSTTK() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "SuaThongTinTK.html", true);
-					  xhttp.send();
-					}
-				function deleteRow(r) {
-				    var i = r.parentNode.parentNode.rowIndex;
-				    document.getElementById("myTable").deleteRow(i);
 				}
-		</script>
+				function loadtab2() {
+					$('#page-wrapper').load('NhapMC.jsp');
+					 
+				}
+		
+	</script>
 
 
 </body>
 <footer style="background-color: rgb(83, 163, 163); min-height: 90px; padding-top: 25px;padding-left:40%; ;color: #fff" >
 	<h5> © 2016 Website quản lý minh chứng đảm bảo chất lượng - Group 18</h5>
 </footer>
-
 </html>

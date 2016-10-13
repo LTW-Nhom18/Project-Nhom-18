@@ -1,7 +1,7 @@
-
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.jsp">
                     <img src="assets/img/logo.png" alt="" />
                 </a>
             </div>
@@ -175,7 +175,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        <li><a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                         </li>
                     </ul>
                     <!-- end dropdown-user -->
@@ -211,7 +211,7 @@
 
                     
                     <li class="">
-                        <a href="Admin.html"><i class="fa fa-book fa-fw"></i>Danh sách tài khoản</a>
+                        <a href="Admin.jsp"><i class="fa fa-book fa-fw"></i>Danh sách tài khoản</a>
                     </li>
                     
                     
@@ -258,8 +258,8 @@
 					        <td>NVA@gmail.com</td>
 					        <td>Người giao MC</td>
 					        <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
-					        <td><a href="SuaThongTinTK.html" >Cập nhật</a></td>
-					        <td><a href=""  value="Delete" onclick="deleteRow(this)" >Xóa</a></td>
+					        <td><a href="#" onclick="loadSTTK();">Cập nhật</a></td>
+					        <td><a value="Delete" onclick="deleteRow(this)" >Xóa</a></td>
 					      </tr>
 					      <tr>
 					        <td>s</td>
@@ -267,7 +267,7 @@
 					        <td>TTD@gmail.com</td>
 					        <td>Người nhập MC</td>
 					       <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
-					        <td><a href="SuaThongTinTK.html" >Cập nhật</a></td>
+					        <td><a href="#" onclick="loadSTTK();">Cập nhật</a></td>
 					        <td><a value="Delete" onclick="deleteRow(this)" >Xóa</a></td>
 					      </tr>
 					
@@ -277,7 +277,7 @@
 				</div>
 				<div class="row">
 		   			<div class="col-md-offset-11">
-		   			 	<a  class="btn btn-primary" href="TaoTaiKhoan.html" >Thêm tài khoản </a>
+		   			 	<a  class="btn btn-primary" href="TaoTaiKhoan.jsp" >Thêm tài khoản </a>
 		   			
 		   			 </div>
 		   		</div>
@@ -311,22 +311,17 @@
 					      document.getElementById("page-wrapper").innerHTML = this.responseText;
 					    }
 					  };
-					  xhttp.open("GET", "ThongTinTK.html", true);
+					  xhttp.open("GET", "ThongTinTK.jsp", true);
 					  xhttp.send();
 					}
-				function loadSTTK() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "SuaThongTinTK.html", true);
-					  xhttp.send();
-					}
+				
 				function deleteRow(r) {
 				    var i = r.parentNode.parentNode.rowIndex;
 				    document.getElementById("myTable").deleteRow(i);
+				}
+				function loadSTTK()
+				{
+					$('#page-wrapper').load('SuaThongTinTK.jsp');
 				}
 		</script>
 
