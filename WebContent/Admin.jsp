@@ -1,16 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/qlmc" 
+		user="root" 
+		password=""/>
+	<sql:query var="items" sql="SELECT * FROM user  "/> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Hệ thống quản lý minh chứng đảm bảo chất lượng - SPKT</title>
     <!-- Core CSS - Include with every page -->
     <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
   <link href="assets/css/style.css" rel="stylesheet" />
+  <link href="table.css" rel="stylesheet" />
       <link href="assets/css/main-style.css" rel="stylesheet" />
 
     <!-- Page-Level CSS -->
@@ -223,7 +232,7 @@
         <!-- end navbar side -->
         <!--  page-wrapper -->
         <div id="page-wrapper">
-
+	
             
             <div class="row">
                  <!--  page header -->
@@ -241,35 +250,30 @@
 				   <span class="MyNewClass">
 				     <table class="table table-bordered table-hover specialCollapse" id="myTable">
 					    <thead>
-					      <tr>
-					        <th>STT</th>
-					        <th>NGười dùng</th>
-					        <th>Tài khoản</th>
-					        <th>Phân quyền</th>
-					        <th>Chi tiết</th>
-					        <th>Cập nhật</th>
-					        <th>Xóa</th>
+					      <tr >
+					      	<th style="width: 5%">STT</th>
+					        <th style="width: 25%">Người dùng</th>
+					        <th style="width: 20%">Tài khoản</th>
+					        <th style="width: 20%">Phân quyền</th>
+					        <th style="width: 10%">Chi tiết</th>
+					        <th style="width: 10%">Cập nhật</th>
+					        <th style="width: 10%">Xóa</th>
 					      </tr>
 					    </thead>
-					    <tbody>
-					      <tr>
-					        <td>1</td>
-					        <td>Nguyễn Văn A</td>
-					        <td>NVA@gmail.com</td>
-					        <td>Người giao MC</td>
-					        <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
-					        <td><a href="#" onclick="loadSTTK();">Cập nhật</a></td>
-					        <td><a value="Delete" onclick="deleteRow(this)" >Xóa</a></td>
-					      </tr>
-					      <tr>
-					        <td>s</td>
-					        <td>Trần Thị D</td>
-					        <td>TTD@gmail.com</td>
-					        <td>Người nhập MC</td>
-					       <td><a href="#" onclick="loadTTTK();">Chi tiết</a></td>
-					        <td><a href="#" onclick="loadSTTK();">Cập nhật</a></td>
-					        <td><a value="Delete" onclick="deleteRow(this)" >Xóa</a></td>
-					      </tr>
+					    <tbody>	
+					        <c:forEach items="${items.rows}" var="col">			
+								<tr>	
+										<td></td>		
+										<td>${col.NAME}</td>	
+										<td>${col.ID}</td>
+										<td>${col.ROLE}</td>				
+									    <td><a href="#" onclick="loadTTTK(this);">Chi tiết</a></td>
+								        <td><a href="#" onclick="loadSTTK();">Cập nhật</a></td>
+								        <td><a value="Delete" onclick="deleteRow(this)" >Xóa</a></td>				
+								</tr>							
+							</c:forEach>
+					
+					   
 					
 					    </tbody>
 				    </table>
@@ -277,6 +281,7 @@
 				</div>
 				<div class="row">
 		   			<div class="col-md-offset-11">
+		   		
 		   			 	<a  class="btn btn-primary" href="TaoTaiKhoan.jsp" >Thêm tài khoản </a>
 		   			
 		   			 </div>
@@ -287,7 +292,7 @@
             
                     <!--  end  Context Classes  -->
                 </div>
-        	
+        
 
  </div>
 
@@ -304,27 +309,46 @@
 
  <script language="javascript">
 				
-				function loadTTTK() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "ThongTinTK.jsp", true);
-					  xhttp.send();
+				function loadTTTK(r) {
+					var i = r.parentNode.parentNode.rowIndex;
+					 var a =document.getElementById("myTable").rows[i].cells[2].innerHTML;
+
+							
+					$('#page-wrapper').load('ThongTinTK.jsp', {abc:a});
+					
 					}
 				
 				function deleteRow(r) {
-				    var i = r.parentNode.parentNode.rowIndex;
-				    document.getElementById("myTable").deleteRow(i);
+					var retVal = confirm("Xóa tài khoản này?");
+		               if( retVal == true ){
+		            	   var i = r.parentNode.parentNode.rowIndex;
+						    document.getElementById("myTable").deleteRow(i);
+		                  return true;
+		               }
+		               else{
+		                  
+		                  return false;
+		               }
+				    
 				}
 				function loadSTTK()
 				{
 					$('#page-wrapper').load('SuaThongTinTK.jsp');
 				}
+				function clickme(){
+					var retVal = confirm("Lưu thay đổi?");
+		               if( retVal == true ){
+		            	   
+		            	    
+		                  return true;
+		               }
+		               else{
+		                  
+		                  return false;
+		               }
+				}
 		</script>
-
+ 
 
 </body>
 <footer style="background-color: rgb(83, 163, 163); min-height: 90px; padding-top: 25px;padding-left:40%; ;color: #fff" >

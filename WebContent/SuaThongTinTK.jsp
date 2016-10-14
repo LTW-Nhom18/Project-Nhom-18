@@ -98,7 +98,7 @@
 									<div class="form-group">
 									    <label class="control-label col-sm-3" for="inputName">Họ tên </label>
 									    <div class="col-sm-9">
-									      <input type="text" class="form-control" name="inputName" id="inputName"  required value="Nguyễn Văn A">
+									      <input type="text" class="form-control" name="inputName" id="inputName"  required value="${param.name}">
 									      <label class="radio-inline"><input type="radio" name="optradio" checked="checked">Nam</label>
 									      <label class="radio-inline"><input type="radio" name="optradio">Nữ</label>
 										</div>
