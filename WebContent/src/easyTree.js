@@ -20,7 +20,6 @@
                 addMultiple: 'Select a node to add a new node',
                 collapseTip: 'collapse',
                 expandTip: 'expand',
-                selectTip: 'select',
                 unselectTip: 'unselet',
                 editTip: 'edit',
                 addTip: 'add',

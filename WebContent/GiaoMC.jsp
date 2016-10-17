@@ -39,18 +39,18 @@
 						<div class="panel panel-primary">
 								<div class="panel-heading">Giao minh chứng</div>
 								<div class="panel-body">
-									<form class="form-horizontal" action="NguoiGiaoMC.jsp">
+									<form class="form-horizontal" action="NguoiGiaoMC.jsp" id="myForm">
 									<fieldset>
 									  <div class="form-group">
-									    <label class="control-label col-md-5" for="muc">Mục minh chứng: </label>
-									    <div class="col-md-6">
-									      <input type="text" class="form-control" id="muc" placeholder="Nhập tên mục minh chứng" required="required">
+									    <label class="control-label col-md-4" for="namemc">Mục minh chứng: </label>
+									    <div class="col-md-7">
+									      <input type="text" class="form-control input-lg" id="namemc" placeholder="Nhập tên mục minh chứng" required="required">
 									    </div>
 									  </div>
 									  <div class="form-group">
-									    <label class="control-label col-md-5" for="nguoi">Người được giao: </label>
-									    <div class="col-md-6"> 
-									      <input type="text" class="form-control" id="nguoi" placeholder="Nhập họ và tên người được giao" required="required">
+									    <label class="control-label col-md-4" for="nguoinhap">Người được giao: </label>
+									    <div class="col-md-7"> 
+									      <input type="text" class="form-control input-lg" id="nguoinhap" placeholder="Nhập họ và tên người được giao" required="required">
 									    </div>
 									  </div>
 									  <button type="submit" hidden="true" name="btnsubmit" id="btnsubmit"></button>
@@ -85,13 +85,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
    <script type="text/javascript">
+   function validateText(id)
+	 {
+		 if($("#"+id).val()==null ||$("#"+id).val()=="")
+			 {
+			 var div = $("#"+id).closest("div");
+			 div.removeClass("has-success");
+			 $("#glypcn"+id).remove();
+			 div.addClass("has-error has-feedback");
+			 div.append('<span id="glypcn'+id+'"class="glyphicon glyphicon-remove form-control-feedback"></span>')
+			 return false;
+			 }
+		 else
+			 {
+			 var div = $("#"+id).closest("div");
+			 div.removeClass("has-error");
+			 $("#glypcn"+id).remove();
+			 div.addClass("has-success has-feedback");
+			 div.append('<span id="glypcn'+id+'"class="glyphicon glyphicon-ok form-control-feedback"></span>')
+			 return true;
+			 }
+	 }
 			$(document).ready(function(){
 				
 				$('#btnXacnhan').on('click',function(){
 					var retVal = confirm("Lưu thay đổi?");
-		               if( retVal == true ){
-		            	   submit();
-		                  return true;
+					if( retVal == true )
+		               {
+					            	if(!validateText("namemc"))
+									{
+									 return false;
+									}
+									if(!validateText("nguoinhap"))
+									{
+									 return false;
+									}
+									
+					            	submit();
+					                  
 		               }
 		               else{
 		                  

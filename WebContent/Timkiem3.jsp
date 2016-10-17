@@ -264,7 +264,7 @@
 			<div class="panel panel-primary">
 				  <div class="panel-heading">Danh sách minh chứng</div>
 				   <span class="MyNewClass">
-				      <table class="table table-bordered table-hover specialCollapse">
+				      <table class="table table-bordered ">
 				    		<thead>
 						      <tr>
 						        <th>STT</th>

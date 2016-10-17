@@ -1,5 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/qlmc" 
+		user="root" 
+		password=""/>
+
+	<% String c= request.getParameter("abc");%>
+	<c:set var="a" value="<%=c %>" />
+	<sql:query var="items"> SELECT * FROM chitietminhchung WHERE idminhchung = '${a}'  </sql:query>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -238,49 +248,52 @@
                     <!-- Advanced Tables -->
                     <div class="col-sm-10 col-sm-offset-1" >
 						
-						<div class="panel panel-primary">
+						<div class="panel panel-primary ">
+							<c:forEach items="${items.rows}" var="col">	
 								  <div class="panel-heading">Thông tin minh chứng</div>
-								    <div class="panel-body">
+								      <div class="panel-body">
 								    <br>
 								    	<label class="control-label col-sm-3" for="namemc">Tên mục minh chứng</label>
 										<div class="col-sm-8">
-										     <input type="text" class="form-control" id="namemc" value="Tham gia hội thao" disabled>
+										     <input type="text" class="form-control" id="namemc" value="${col.ten}" disabled>
 										</div>
 									</div>
 								    <div class="panel-body">
 										<label class="control-label col-sm-3" for="mota">Mô tả minh chứng</label>
 										<div class="col-sm-8">
-										     <input type="text" class="form-control" id="mota" value="Tham gia hội thao công đoàn trường HK2 - Năm học 2016-2017" disabled>
+										     <input type="text" class="form-control" id="mota" value="${col.mota}" disabled>
 										</div>
 									</div>
 									<div class="panel-body">
 										<label class="control-label col-sm-3" for="file">File minh chứng</label>
-										<div class="col-sm-5">
-										     <span class="glyphicon glyphicon-picture" style="font-size:40px;" ></span>
+										<div class="col-sm-5">     
+											        <label style="font-size: 20px">
+											        	<span class="glyphicon glyphicon-file" style="font-size:30px;" ></span>
+											        ${col.file}</label>										
 										</div>
 									</div>
 									<div class="panel-body">
 										<label class="control-label col-sm-3" for="nguoitao">Người tạo</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="nguoitao" value="Phòng ĐBCL" disabled>
+										     <input type="text" class="form-control" id="nguoitao" value="${col.nguoitao}" disabled>
 										</div>
 										<label class="control-label col-sm-2" style="margin-left: 20px;" for="nguoigiao">Người giao</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="nguoigiao" value ="Trưởng khoa CNTT " disabled>
+										     <input type="text" class="form-control" id="nguoigiao" value ="${col.nguoigiao}" disabled>
 										</div>
 									</div>
 									<div class="panel-body">
 										<label class="control-label col-sm-3" for="date">Ngày tạo</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="date" value="20/6/2016" disabled>
+										     <input type="text" class="form-control" id="date" value="${col.ngaytao}" disabled>
 										</div>
 										<label class="control-label col-sm-2" style="margin-left: 20px;" for="state">Tình trạng</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="state" value ="đã hoàn thành" disabled>
+										     <input type="text" class="form-control" id="state" value ="${col.tinhtrang}" disabled>
 										</div>
 									</div>
 									<br>
-									
+							 </c:forEach>		
 						 </div>
 							
 																

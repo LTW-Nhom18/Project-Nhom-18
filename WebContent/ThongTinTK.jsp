@@ -47,11 +47,10 @@
 				     <div class="panel-body" >
 					     <form class="form-horizontal">
 					     <c:forEach items="${items.rows}" var="col">	
-							  <div class="form-group">
-							   	
+							  <div class="form-group">							   	
 							    <label class="control-label col-sm-4" for="user" >Tài khoản </label>
 							    <div class="col-sm-8">
-							      <input type="text" class="form-control" id="user" value="${col.ID}" readonly>
+							      <input type="text" class="form-control " id="user" value="${col.ID}"  readonly>
 							    </div>
 							  </div>
 							  <div class="form-group">
@@ -87,7 +86,6 @@
 						    <label class="control-label col-sm-3" for="inputName">Họ tên </label>
 						    <div class="col-sm-9">
 						      <input type="text" class="form-control" id="inputName" value="${col.NAME}" readonly>
-						      <c:set value="${col.GTINH}" var="gt" />
 						      <c:choose>
 							    <c:when test="${col.GTINH=='Nam'}">
 							       <label class="radio-inline"><input type="radio" name="optradio" checked="checked" disabled="disabled">Nam</label>
@@ -105,7 +103,7 @@
 							<label class="control-label col-sm-3" for="inputDate">Ngày sinh </label>
 						    <div class="col-sm-9">
 						    	<div class="input-group">
-						          <input type="text" name="cognito_time_slots" id="inputDate" value="${col.DATE}"  class="form-control input-lg datepicker" readonly >
+						          <input type="text" name="cognito_time_slots" id="inputDate" value="${col.DATE}"  class="form-control datepicker" readonly >
 						          <span class="input-group-addon time-slots-loading">
 						          	 <i class="glyphicon glyphicon-calendar"></i>
 						          </span>

@@ -257,7 +257,7 @@
 							   </div>
 							  <button type="button" class="btn btn-info" style="margin-left:20px;" >
          						 <span class="glyphicon glyphicon-search" ></span> Tìm kiếm
-         						 </button>
+         					 </button>
 							 </form>
 						</div>
 
@@ -267,7 +267,7 @@
 			<div class="panel panel-primary">
 				  <div class="panel-heading">Danh sách minh chứng</div>
 				   <span class="MyNewClass">
-				      <table class="table table-bordered table-hover specialCollapse">
+				      <table class="table table-bordered ">
 				    		<thead>
 						      <tr>
 						        <th>STT</th>

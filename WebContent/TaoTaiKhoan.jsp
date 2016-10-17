@@ -356,7 +356,8 @@
 			   			<form class="form-inline" >
 							<div class="form-group" >
 							<button  type="button" class="btn btn-primary btn-md" id="btnHoanTat" >Hoàn tất</button>
-							<button  style="margin-left:20px;" id="btnHuy" type="button" class="btn btn-primary btn-md" style="margin-left:20px;" >Hủy</button>
+							<button  style="margin-left:20px;" id="btnHuy" type="button"
+							 class="btn btn-primary btn-md" style="margin-left:20px;" >Hủy</button>
 							</div>
 						</form>
 						</div>

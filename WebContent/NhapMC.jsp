@@ -35,12 +35,12 @@
                     <div class="panel panel-primary">
 					    <div class="panel-heading">Thông tin minh chứng</div>
 					    <div class="panel-body" >
-					    <form class="form-horizontal" action="NguoiNhapMC.jsp">
+					    <form class="form-horizontal" action="NguoiNhapMC.jsp" id="myForm">
 					    <fieldset>
 							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="ten" >Tên mục minh chứng:</label>
+							    <label class="control-label col-sm-4" for="namemc" >Tên mục minh chứng:</label>
 							    <div class="col-sm-7">
-							      <input type="text" class="form-control" id="ten" placeholder="Nhập tên mục minh chứng" required="required">
+							      <input type="text" class="form-control" id="namemc" placeholder="Nhập tên mục minh chứng" required="required">
 							    </div>
 							  </div>
 							  <div class="form-group">
@@ -50,15 +50,15 @@
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="tao">Người tạo:</label>
+							    <label class="control-label col-sm-4" for="nguoitao">Người tạo:</label>
 							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="tao" placeholder="Nhập họ và tên người tạo" required="required">
+							      <input type="text" class="form-control" id="nguoitao" placeholder="Nhập họ và tên người tạo" required="required">
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="giao">Người giao:</label>
+							    <label class="control-label col-sm-4" for="nguoigiao">Người giao:</label>
 							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="giao" placeholder="Nhập họ và tên người giao" required="required">
+							      <input type="text" class="form-control" id="nguoigiao" placeholder="Nhập họ và tên người giao" required="required">
 							    </div>
 							  </div>
 							 <div class="form-group">
@@ -102,13 +102,51 @@
 		<script src="bootstrap/js/bootstrap.min.js"></script>
      
 		  <script type="text/javascript">
+	 function validateText(id)
+	 {
+		 if($("#"+id).val()==null ||$("#"+id).val()=="")
+			 {
+			 var div = $("#"+id).closest("div");
+			 div.removeClass("has-success");
+			 $("#glypcn"+id).remove();
+			 div.addClass("has-error has-feedback");
+			 div.append('<span id="glypcn'+id+'"class="glyphicon glyphicon-remove form-control-feedback"></span>')
+			 return false;
+			 }
+		 else
+			 {
+			 var div = $("#"+id).closest("div");
+			 div.removeClass("has-error");
+			 $("#glypcn"+id).remove();
+			 div.addClass("has-success has-feedback");
+			 div.append('<span id="glypcn'+id+'"class="glyphicon glyphicon-ok form-control-feedback"></span>')
+			 return true;
+			 }
+	 }
 			$(document).ready(function(){
-			
+				
 				$('#btnXacnhan').on('click',function(){
-					var retVal = confirm("Lưu thay đổi?");
-		               if( retVal == true ){
-		            	   submit();
-		                  return true;
+					var retVal = confirm("Lưu thay đổi ?");
+		               if( retVal == true )
+		               {
+					            	if(!validateText("namemc"))
+									{
+									 return false;
+									}
+									if(!validateText("mota"))
+									{
+									 return false;
+									}
+									if(!validateText("nguoitao"))
+									{
+									 return false;
+									}
+									if(!validateText("nguoigiao"))
+									{
+									 return false;
+									}
+					            	submit();
+					                  
 		               }
 		               else{
 		                  

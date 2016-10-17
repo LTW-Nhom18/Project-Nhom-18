@@ -41,21 +41,82 @@
 									</p>
 								</div>
 								<div class="panel-body"> 
-									<div class="checkbox">
-									  <label><input type="checkbox" value="">Tên mục minh chứng</label>
-									</div>
-									<div class="checkbox">
-									  <label><input type="checkbox" value="">Mô tả</label>
-									</div>
-									<div class="checkbox ">
-									  <label><input type="checkbox" value="">File minh chứng</label>
-									</div>
-									<div class="checkbox">
-									  <label><input type="checkbox" value="">Người nhập</label>
-									</div>
-									<div class="checkbox">
-									  <label><input type="checkbox" value="">Người tạo</label>
-									</div>	
+									<form class="form-horizontal">
+									 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-info">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          Tên mục minh chứng
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">	 
+           <label>
+             <input type="text" placeholder="Nhập từ khóa cần tìm" class="form-control"> 
+           </label>
+
+          <br>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Mô tả minh chứng
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+            <label>
+          <input type="text" placeholder="Nhập từ khóa cần tìm" class="form-control"> 
+           </label>
+          <br>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading" role="tab" id="headingTwo1">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
+          Người tạo minh chứng
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo1">
+      <div class="panel-body">
+      	<label>
+             <input type="text" placeholder="Nhập từ khóa cần tìm" class="form-control"> 
+           </label>          
+          <br>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Người nhập minh chứng
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <label>
+             <input type="text" placeholder="Nhập từ khóa cần tìm" class="form-control"> 
+           </label>
+          
+          <br>
+         
+      </div>
+    </div>
+  </div>
+</div>
+									</form>
+									
 								</div>
 								<div class="panel-footer"> 
 								<form class="form-inline col-md-offset-3 "  >
@@ -71,7 +132,7 @@
 							<div class="panel panel-primary">
 							  <div class="panel-heading">Danh sách minh chứng</div>
 							   <span class="MyNewClass">
-							      <table class="table table-bordered table-hover specialCollapse" >
+							      <table class="table table-bordered " >
 							    		<thead>
 									      <tr>
 									        <th>STT</th>

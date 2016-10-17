@@ -11,18 +11,24 @@
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
     	<link href="MyCustom.css" rel="stylesheet">
+
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
       <link href="assets/css/main-style.css" rel="stylesheet" />
 
     <!-- Page-Level CSS -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-	<link rel="stylesheet" href="tree.css">
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="assets/css/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="css/easyTree.css">
-		<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">	
+		<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<link href="assets/js/jquerysctipttop.css" rel="stylesheet" type="text/css">
+		<script src="assets/js/jquery.min.js"></script>
+	<!-- 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>  -->
 		<script src="src/easyTree.js"></script>
-		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 </head>
 
 <body>
@@ -207,7 +213,7 @@
                     </li>
 
                     
-                      <li class="">
+                             <li class="">
                         <a href="NguoiQuyDinhMC.jsp"><i class="fa fa-book fa-fw"></i>Quản lý cây minh chứng</a>
                     </li>
                      <li class="">
@@ -241,76 +247,80 @@
                     <div class="panel-group" id="accordion">
 					<div class ="panel panel-primary">
 						<div class="panel-heading">Cây minh chứng</div>
-						<div class="panel-body">
+						   
 						
-			   				<div class="tree">
-							 <ul>
+						<div class="panel-body">
+							<div class="col-md-12" >
+								<div class="easy-tree">
+											<ul>
 								<li>
-					            <span><i class="glyphicon glyphicon-folder-open" ></i>    Hoạt động giảng dạy</span> 
+					         		 Hoạt động giảng dạy
 						            <ul >
 						                <li >
-						                	<span ><i class="glyphicon glyphicon-book" ></i>   Mục minh chứng 1</span> 
+						                	  Mục minh chứng 1
 						                    <ul>
 						                        <li>
-									                  <span><i class="glyphicon glyphicon-pencil"></i>  Tên: 100% giảng viên dạy đủ số tiết</span> 
+									                     Tên: 100% giảng viên dạy đủ số tiết
 								                 </li>
 								                 <li>
-									                  <span><i class="glyphicon glyphicon-pencil"></i>   Mô tả: 100% giảng viên lên lớp đúng giờ và dạy đủ số tiết</span> 
+									                      Mô tả: 100% giảng viên lên lớp đúng giờ và dạy đủ số tiết
 								                 </li>
 								                 <li>
-									                  <span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span> 
+									                      File minh chứng: File văn bản
 								                 </li>
 								                 <li>
-									                  <span><i class="glyphicon glyphicon-user"></i>   Người nhập: Trưởng khoa CNTT</span> 
+									                     Người nhập: Trưởng khoa CNTT
 								                 </li>
 						                    </ul>
 						                </li>
 						               <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> 
+						                	   Mục minh chứng 2
 						                    <ul>
 						                        <li>
-									                  <span><i class="glyphicon glyphicon-pencil"></i>   Tên: 90% giảng viên đạt loại giỏi</span> 
+									                      Tên: 90% giảng viên đạt loại giỏi
 								                 </li>
 								                 <li>
-									                  <span><i class="glyphicon glyphicon-pencil"></i>   Mô tả: Mỗi khoa phải có tối thiểu 90% giảng viên đủ tiêu chuẩn loại giỏi</span> 
+									                      Mô tả: Mỗi khoa phải có tối thiểu 90% giảng viên đủ tiêu chuẩn loại giỏi 
 								                 </li>
 								                 <li>
-									                  <span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span> 
+									                      File minh chứng: File văn bản
 								                 </li>
 								                 <li>
-									                  <span><i class="glyphicon glyphicon-user"></i>   Người nhập: Trưởng khoa CNTT</span> 
+									                     Người nhập: Trưởng khoa CNTT
 								                 </li>
 						                    </ul>
 						                </li>
 						            </ul>
 						        </li>
 						        <li>
-						            <span><i class="glyphicon glyphicon-folder-open"></i>    Công tác xã hội</span>
+						             Công tác xã hội
 						            <ul>
 						                <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 1</span> 
+						                	 Mục minh chứng 1
 								        </li>
 								        <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> 
+						                	  Mục minh chứng 2
 								        </li>
 								        <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 3</span> 
+						                	   Mục minh chứng 3
 								        </li>
 								    </ul>
 						        </li>
 						        <li>
-						            <span><i class="glyphicon glyphicon-folder-open"></i>    Hoạt động tư vấn</span> 
+						             Hoạt động tư vấn
 						            <ul>
 						                <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 1</span> 
+						                	  Mục minh chứng 1
 								        </li>
 								        <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> 
+						                	>   Mục minh chứng 2
 								        </li>
 	
 								    </ul>
 						        </li>
 						    </ul>
+
+							</div>
 						</div>
 					</div>
 					<div class="panel-footer">
@@ -319,6 +329,7 @@
 						
 					</form>
 				</div>
+
 				</div>
 			</div>
 				
@@ -327,108 +338,48 @@
             </div>
             
                     <!--  end  Context Classes  -->
-                </div>
- </div>
-
-
-    <!-- Core Scripts - Include with every page -->
- 
-    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+       </div>
+            
+                
+        </div>
+  <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="assets/plugins/pace/pace.js"></script>
-    <script src="assets/scripts/siminta.js"></script>
-    <!-- Page-Level Plugin Scripts-->
-    <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-
-	
-	<script type="text/javascript">
-				$(document).ready(function(){
-					$(function () {
-					    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-	
-					    //hide the child li elements
-					    $('.tree li ul > li').hide();
-					    $('.tree li.parent_li > span').on('click', function (e) {
-					        var children = $(this).parent('li.parent_li').find(' > ul > li');
-					        if (children.is(":visible")) {
-					            children.hide('fast');
-					            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
-					        } else {
-					            children.show('fast');
-					            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
-					        }
-					        e.stopPropagation();
-					    });
-					});
-				});
-	</script>
-	<script language = JavaScript>
-	function update()
-	{
-		location = 'ChinhSuaCayMC.jsp';
-	}
-	</script>
+		
 <script language="javascript">
-					
+				function update()
+				{
+					$('#page-wrapper').load('ChinhSuaCayMC.jsp');
+				
+				}
+	
 				function loadtab2() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "QLMucMC.jsp", true);
-					  xhttp.send();
+					$('#page-wrapper').load('QLMucMC.jsp');
 					}
 				function loadtab3() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "Timkiem2.jsp", true);
-					  xhttp.send();
+					$('#page-wrapper').load('Timkiem2.jsp');
 					}
 		</script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				
-				$('#btnXacnhan').on('click',function(){
-					var retVal = confirm("Lưu thay đổi?");
-		               if( retVal == true ){
-		            	   document.location = 'NguoiQuyDinhMC.jsp';
-		                  return true;
-		               }
-		               else{
-		                  
-		                  return false;
-		               }
-				});
-				$('#btnHuy').on('click',function(){
-					var retVal = confirm("Bạn có chắc muốn thoát?");
-		               if( retVal == true ){
-		            	   document.location = 'NguoiQuyDinhMC.jsp';
-		                  return true;
-		               }
-		               else{
-		                  
-		                  return false;
-		               }
-				});
-				
-			});
-			</script>
-
-
   
 
+	<script>
+    (function ($) {
+        function init() {
+            $('.easy-tree').EasyTree({
+            	selectable: false,
+            });
+            $('.easy-tree li ul > li').hide();
+        }
+        window.onload = init();
+    })(jQuery)
+</script>
+
 	
-		
+	
+
 
 </body>
 <footer style="background-color: rgb(83, 163, 163); min-height: 90px; padding-top: 25px;padding-left:40%; ;color: #fff" >
 	<h5> © 2016 Website quản lý minh chứng đảm bảo chất lượng - Group 18</h5>
 </footer>
+
 </html>

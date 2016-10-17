@@ -246,39 +246,34 @@
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
                     <div class="panel panel-primary">
-				  <div class="panel-heading">Danh sách Tài khoản</div>
-				   <span class="MyNewClass">
-				     <table class="table table-bordered table-hover specialCollapse" id="myTable">
-					    <thead>
-					      <tr >
-					      	<th style="width: 5%">STT</th>
-					        <th style="width: 25%">Người dùng</th>
-					        <th style="width: 20%">Tài khoản</th>
-					        <th style="width: 20%">Phân quyền</th>
-					        <th style="width: 10%">Chi tiết</th>
-					        <th style="width: 10%">Cập nhật</th>
-					        <th style="width: 10%">Xóa</th>
-					      </tr>
-					    </thead>
-					    <tbody>	
-					        <c:forEach items="${items.rows}" var="col">			
-								<tr>	
-										<td></td>		
-										<td>${col.NAME}</td>	
-										<td>${col.ID}</td>
-										<td>${col.ROLE}</td>				
-									    <td><a href="#" onclick="loadTTTK(this);">Chi tiết</a></td>
-								        <td><a href="#" onclick="loadSTTK();">Cập nhật</a></td>
-								        <td><a value="Delete" onclick="deleteRow(this)" >Xóa</a></td>				
-								</tr>							
-							</c:forEach>
-					
-					   
-					
-					    </tbody>
-				    </table>
-				   </span>
-				</div>
+					  <div class="panel-heading">Danh sách Tài khoản</div>
+					     <table class="table table-striped table-bordered" id="myTable">
+						    <thead>
+						      <tr >
+						      	<th style="width: 5%">STT</th>
+						        <th style="width: 25%">Người dùng</th>
+						        <th style="width: 20%">Tài khoản</th>
+						        <th style="width: 20%">Phân quyền</th>
+						        <th style="width: 10%">Chi tiết</th>
+						        <th style="width: 10%">Cập nhật</th>
+						        <th style="width: 10%">Xóa</th>
+						      </tr>
+						    </thead>
+						    <tbody>	
+						        <c:forEach items="${items.rows}" var="col">			
+									<tr>	
+											<td></td>		
+											<td>${col.NAME}</td>	
+											<td>${col.ID}</td>
+											<td>${col.ROLE}</td>				
+										    <td><a href="#" onclick="loadTTTK(this);">Chi tiết</a></td>
+									        <td><a href="#" onclick="loadSTTK(this);">Cập nhật</a></td>
+									        <td><a value="Delete" onclick="deleteRow(this)" >Xóa</a></td>				
+									</tr>							
+								</c:forEach>
+						    </tbody>
+					    </table>
+					</div>
 				<div class="row">
 		   			<div class="col-md-offset-11">
 		   		
@@ -331,9 +326,14 @@
 		               }
 				    
 				}
-				function loadSTTK()
+				function loadSTTK(r)
 				{
-					$('#page-wrapper').load('SuaThongTinTK.jsp');
+					var i = r.parentNode.parentNode.rowIndex;
+					 var a =document.getElementById("myTable").rows[i].cells[2].innerHTML;
+
+							
+					$('#page-wrapper').load('SuaThongTinTK.jsp', {abc:a});
+					
 				}
 				function clickme(){
 					var retVal = confirm("Lưu thay đổi?");

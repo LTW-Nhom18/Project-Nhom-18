@@ -1,5 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/qlmc" 
+		user="root" 
+		password=""/>
+	<sql:query var="items" sql="SELECT * FROM chitietminhchung  "/> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,7 +23,7 @@
   <link href="assets/css/style.css" rel="stylesheet" />
       <link href="assets/css/main-style.css" rel="stylesheet" />
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script> 
-
+ <link href="table.css" rel="stylesheet" />
     <!-- Page-Level CSS -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 
@@ -236,53 +243,37 @@
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
-                             Danh sách minh chứng
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
+                        <div class="panel-heading">Danh sách minh chứng</div>
+                            <table class="table table-striped table-bordered" id="myTable">
+                             <thead>
 						      <tr>
-						        <th>STT</th>
-						        <th>Tên mục minh chứng</th>
-						        <th>Chi tiết</th>
-						        <th>Tình trạng</th>
+						        <th style="width: 5%">STT</th>
+						        <th style="width: 10%" hidden="true">Mã minh chứng</th>
+						        <th style="width: 25%">Tên mục minh chứng</th>
+						        <th style="width: 20%">Chi tiết</th>
+						        <th style="width: 20%">Tình trạng</th>
 						      </tr>
 						    </thead>
 						    <tbody>
+						    <c:forEach items="${items.rows}" var="col">	
 						      <tr>
-						        <td>1</td>
-						        <td>Tham gia hội thao</td>
-						        <td><a href="XemChiTietMC.jsp" >Chi tiết</a></td>
-						        <td>Đã hoàn thành</td>
+						        <td ></td>
+						        <td hidden="true">${col.idminhchung}</td>
+						        <td >${col.ten}</td>
+						        <td ><a href="#" onclick="loadchitiet(this);" >Chi tiết</a></td>
+						        <td >${col.tinhtrang}</td>
 						      </tr>
-						       <tr>
-						        <td>2</td>
-						        <td>Chất lượng dạy học</td>
-						        <td><a href="XemChiTietMC.jsp" >Chi tiết</a></td>
-						        <td>Chưa hoàn thành</td>
-						      </tr>
-						       <tr>
-						        <td>3</td>
-						        <td>Công tác xã hội</td>
-						        <td><a href="" >Chi tiết</a></td>
-						        <td>Đã hoàn thành</td>
-						      </tr>
-						
+							</c:forEach>
 						    </tbody>
                                 </table>
-                            </div>
-                            
-                        </div>
-                    </div>
+                    </div>          
+               </div>
                     <!--End Advanced Tables -->
-                </div>
-            </div>
+          </div>
+      </div>
             
                     <!--  end  Context Classes  -->
-                </div>
- </div>
+   </div>
 
 
     <!-- Core Scripts - Include with every page -->
@@ -303,6 +294,15 @@
 				}
 				function loadtab2() {
 					$('#page-wrapper').load('NhapMC.jsp');
+					 
+				}
+				function loadchitiet(r) {
+					var i = r.parentNode.parentNode.rowIndex;
+					 var a =document.getElementById("myTable").rows[i].cells[1].innerHTML;
+				var k ="XemChiTietMC.jsp?abc="+a;
+				window.location.href =(k);
+		
+				
 					 
 				}
 		

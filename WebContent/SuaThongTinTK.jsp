@@ -1,5 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/qlmc" 
+		user="root" 
+		password=""/>
+
+	<% String c= request.getParameter("abc");%>
+	<c:set var="a" value="<%=c %>" />
+	<sql:query var="items"> SELECT * FROM user WHERE ID = '${a}'  </sql:query>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,13 +48,14 @@
                  <!--  page header -->
                 <div class="col-lg-12">
                 	<br>
-                    <h1 class="page-header">SỬA TÀI KHOẢN</h1>
+                    <h1 class="page-header">CẬP NHẬT TÀI KHOẢN</h1>
                 </div>
                  <!-- end  page header -->
             </div>
             <div class="row">
                 <div class="col-lg-12">
 				 <form class="form-horizontal" id="formMain" name="formMain" action="Admin.jsp" method="post">
+				  <c:forEach items="${items.rows}" var="col">	
 					<fieldset>
 					
 		                <div class="col-md-5">
@@ -56,33 +67,49 @@
 									  <div class="form-group">
 									    <label class="control-label col-sm-4" for="user">Tài khoản </label>
 									    <div class="col-sm-8">
-									      <input type="text" class="form-control"  name="user" id="user" required value="NVA@gmail.com">
+									      <input type="text" class="form-control"  name="user" id="user" required value="${col.ID}">
 		
 									    </div>
 									  </div>
 									  <div class="form-group">
 									    <label class="control-label col-sm-4" for="pwd">Mật khẩu</label>
 									    <div class="col-sm-8"> 
-									      <input type="password" class="form-control" name="pwd" id="pwd"  required value="12345">
+									      <input type="text" class="form-control" name="pwd" id="pwd"  required value="${col.PASS}">
 		
 									    </div>
 									  </div>
 									  <div class="form-group">
 									    <label class="control-label col-sm-4" for="pwdagain">Nhập lại</label>
 									    <div class="col-sm-8"> 
-									      <input type="password" class="form-control"  name="pwdagain" id="pwdagain" required value="12345">
+									      <input type="text" class="form-control"  name="pwdagain" id="pwdagain" required value="${col.PASS}">
 		
 									    </div>
 									  </div>						  
 									  <div class="form-group"> 
 									  <label class="control-label col-sm-4" for="phanquyen">Phân quyền</label>
 									    <div class="col-sm-8" id="phanquyen" >
-											  <select class="form-control">
+											  <select class="form-control" id="role" name="role">
 												  <option value="qd">Người quy định</option>
-												  <option value="g" selected="selected">Người giao</option>
+												  <option value="g">Người giao</option>
 												  <option value="n">Người nhập</option>
 												  <option value="kt">Người kiểm tra</option>
 											  </select>
+											   <c:choose>
+											    <c:when test="${col.ROLE=='Người quy định'}">
+											  <script>   document.getElementById('role').value ='qd';  </script>
+											    </c:when>
+											   <c:when test="${col.ROLE=='Người giao'}">
+											  <script>   document.getElementById('role').value ='g'; </script> 
+											    </c:when>
+											    <c:when test="${col.ROLE=='Người nhập'}">
+											  <script>   document.getElementById('role').value ='n'; </script> 
+											    </c:when>
+											    <c:when test="${col.ROLE=='Người kiểm tra'}">
+											  <script>   document.getElementById('role').value ='kt'; </script> 
+											    </c:when>
+									
+											
+											   </c:choose>
 									    </div>
 							 	 		</div>
 
@@ -98,51 +125,103 @@
 									<div class="form-group">
 									    <label class="control-label col-sm-3" for="inputName">Họ tên </label>
 									    <div class="col-sm-9">
-									      <input type="text" class="form-control" name="inputName" id="inputName"  required value="${param.name}">
-									      <label class="radio-inline"><input type="radio" name="optradio" checked="checked">Nam</label>
-									      <label class="radio-inline"><input type="radio" name="optradio">Nữ</label>
+									      <input type="text" class="form-control" name="inputName" id="inputName"  required value="${col.NAME}">
+									      <c:choose>
+							    <c:when test="${col.GTINH=='Nam'}">
+							       <label class="radio-inline"><input type="radio" name="optradio" checked="checked" >Nam</label>
+						     		 <label class="radio-inline"><input type="radio" name="optradio" >Nữ</label>
+							    </c:when>
+							    <c:when test="${col.GTINH=='Nữ'}">
+							       <label class="radio-inline"><input type="radio" name="optradio" >Nam</label>
+						     		 <label class="radio-inline"><input type="radio" name="optradio" checked="checked"  >Nữ</label>
+							    </c:when>
+							    </c:choose>
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-3" for="inputDate">Ngày sinh </label>
 									    <div class="col-sm-9">
-									          <input type="date" name="inputDate" id="inputDate"  class="form-control"   required value="1979-10-10">  
+									          <input type="date" name="inputDate" id="inputDate"  class="form-control"   required value="${col.DATE}">  
 										</div>
 									</div>
 									<div class="form-group">
 										<label class="control-label col-sm-3" for="inputTel">Điện thoại </label>
 									    <div class="col-sm-9">
-									      <input type="tel" class="form-control" name="inputTel" id="inputTel"  required value="0123568954">
+									      <input type="tel" class="form-control" name="inputTel" id="inputTel"  required value="${col.TEL}">
 										</div>
 									</div>
 									<div class="form-group"> 
 									  <label class="control-label col-sm-3" for="Khoa">Khoa/Phòng ban:</label>
+									 
 									    <div class="col-sm-9">
-											  <select class="form-control" id="Khoa">
-												  <option value="CNTT">Công nghệ thông tin</option>
-												  <option value="CKM">Cơ khí máy</option>
-												  <option value="CNTP">Công nghệ thực phẩm</option>
-												  <option value="CNM">Công nghệ may</option>
-												  <option value="CKD">Cơ khí động lực</option>
+											  <select class="form-control" id="Khoa" name="Khoa" >
+												  <option  value="CNTT" >Công nghệ thông tin</option>
+												  <option   value="CNM">Công nghệ may</option>
+												  <option  value="CKD">Cơ khí động lực</option>
 												  <option value="PDBCL">Phòng đảm bảo chất lượng</option>
-												  <option value="PDT">Phòng đào tạo</option>
-												  <option value="BGH">Ban giám hiệu</option>
+												  <option   value="PDT">Phòng đào tạo</option>
+												  <option   value="BGH">Ban giám hiệu</option>
 											  </select>
+											   <c:choose>
+											    <c:when test="${col.KHOA=='Công nghệ thông tin'}">
+											  <script>   document.getElementById('Khoa').value ='CNTT';  </script>
+											    </c:when>
+											   <c:when test="${col.KHOA=='Công nghệ may'}">
+											  <script>   document.getElementById('Khoa').value ='CNM'; </script> 
+											    </c:when>
+											    <c:when test="${col.KHOA=='Cơ khí động lực'}">
+											  <script>   document.getElementById('Khoa').value ='CKD'; </script> 
+											    </c:when>
+											    <c:when test="${col.KHOA=='Phòng đảm bảo chất lượng'}">
+											  <script>   document.getElementById('Khoa').value ='PDBCL'; </script> 
+											    </c:when>
+											    <c:when test="${col.KHOA=='Phòng đào tạo'}">
+											  <script>   document.getElementById('Khoa').value ='PDT'; </script> 
+											    </c:when>
+											    <c:when test="${col.KHOA=='Ban giám hiệu'}">
+											  <script>   document.getElementById('Khoa').value ='BGH'; </script> 
+											    </c:when>
+											
+											   </c:choose>
 									    </div>
 									 </div>
 									 <div class="form-group">
 										<label class="control-label col-sm-3" for="chucvu">Chức vụ: </label>
 									    <div class="col-sm-9">
 									      <select class="form-control" id ="chucvu" >
-												  <option >Trưởng khoa </option>
-												  <option >Phó khoa</option>
-												  <option >CBVC</option>
-												  <option >Trưởng phòng</option>
-												  <option >Phó phòng</option>
-												  <option >Thanh tra</option>
-												  <option >Khác</option>
+												  <option value="tk">Trưởng khoa </option>
+												  <option value="pk">Phó khoa</option>
+												  <option value="cbvc">CBVC</option>
+												  <option value="tp">Trưởng phòng</option>
+												  <option value="pp">Phó phòng</option>
+												  <option value="tt">Thanh tra</option>
+												  <option value="khac">Khác</option>
 			
 											  </select>
+											   <c:choose>
+											    <c:when test="${col.CHUCVU=='Trưởng khoa'}">
+											  <script>   document.getElementById('chucvu').value ='tk'; </script> 
+											    </c:when>
+											   <c:when test="${col.CHUCVU=='Phó khoa'}">
+											  <script>   document.getElementById('chucvu').value ='pk'; </script> 
+											    </c:when>
+											    <c:when test="${col.CHUCVU=='CBVC'}">
+											  <script>   document.getElementById('chucvu').value ='cbvc'; </script> 
+											    </c:when>
+											    <c:when test="${col.CHUCVU=='Trưởng phòng'}">
+											  <script>   document.getElementById('chucvu').value ='tp'; </script> 
+											    </c:when>
+											    <c:when test="${col.CHUCVU=='Phó phòng'}">
+											  <script>   document.getElementById('chucvu').value ='pp'; </script> 
+											    </c:when>
+											    <c:when test="${col.CHUCVU=='Thanh tra'}">
+											  <script>   document.getElementById('chucvu').value ='tt'; </script> 
+											    </c:when>
+											     <c:when test="${col.CHUCVU=='Khác'}">
+											  <script>   document.getElementById('chucvu').value ='khac'; </script> 
+											    </c:when>
+											
+											   </c:choose>
 										</div>
 									</div>
 
@@ -153,7 +232,9 @@
 		    		</div>
 	           <!--End col 7 -->
 	           	 </div>
+	           	
 				</fieldset>
+			 </c:forEach>
 			</form>
 					 <div class="row">
 			   			<div class= "col-md-offset-10">

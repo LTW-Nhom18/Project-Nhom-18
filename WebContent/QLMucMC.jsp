@@ -43,11 +43,11 @@
 					            <span><i class="glyphicon glyphicon-folder-open" ></i>    Hoạt động giảng dạy</span> 
 						            <ul >
 						                <li >
-						                	<span ><i class="glyphicon glyphicon-book" ></i>   Mục minh chứng 1</span> <a href="SuaMucMC.jsp">  Cập nhật</a>
+						                	<span ><i class="glyphicon glyphicon-book" ></i>   Mục minh chứng 1</span> <a href="#" onclick="update()">  Cập nhật</a>
 						                   
 						                </li>
 						               <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> <a href="SuaMucMC.jsp">  Cập nhật</a>
+						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> <a href="#" onclick="update()">  Cập nhật</a>
 						                   
 						                </li>
 						            
@@ -57,13 +57,13 @@
 						            <span><i class="glyphicon glyphicon-folder-open"></i>    Công tác xã hội</span>
 						            <ul>
 						                <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 1</span> <a href="SuaMucMC.jsp">  Cập nhật</a>
+						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 1</span> <a href="#" onclick="update()">  Cập nhật</a>
 								        </li>
 								        <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> <a href="SuaMucMC.jsp">  Cập nhật</a>
+						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> <a href="#" onclick="update()">  Cập nhật</a>
 								        </li>
 								        <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 3</span> <a href="SuaMucMC.jsp">  Cập nhật</a>
+						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 3</span> <a href="#" onclick="update()">  Cập nhật</a>
 								        </li>
 								       
 								    </ul>
@@ -72,10 +72,10 @@
 						            <span><i class="glyphicon glyphicon-folder-open"></i>    Hoạt động tư vấn</span> 
 						            <ul>
 						                <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 1</span> <a href="SuaMucMC.jsp">  Cập nhật</a>
+						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 1</span> <a href="#" onclick="update()">  Cập nhật</a>
 								        </li>
 								        <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> <a href="SuaMucMC.jsp">  Cập nhật</a>
+						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> <a href="#" onclick="update()">  Cập nhật</a>
 								        </li>
 								      
 	
@@ -104,6 +104,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script> 
 	
+	<script language="javascript">
+				function update()
+				{
+					$('#page-wrapper').load('SuaMucMC.jsp');
+				
+				}
+	
+		</script>
 	<script type="text/javascript">
 				$(document).ready(function(){
 					$(function () {
@@ -127,7 +135,7 @@
 	</script>
 	
 	
-	</script>
+	
 
 
 </body>
