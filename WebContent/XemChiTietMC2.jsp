@@ -253,8 +253,11 @@
 									</div>
 									<div class="panel-body">
 										<label class="control-label col-sm-3" for="file">File minh chứng</label>
-										<div class="col-sm-5">
-										     <span class="glyphicon glyphicon-picture" style="font-size:40px;" ></span>
+										<div class="col-sm-5">     
+											        <label style="font-size: 20px">
+											        	<span class="glyphicon glyphicon-file" style="font-size:30px;" ></span>
+											          Văn bản </label>			
+											        <a href="minhchung/mc1.txt">  Download</a>							
 										</div>
 									</div>
 									<div class="panel-body">

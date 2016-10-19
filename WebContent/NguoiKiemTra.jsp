@@ -238,7 +238,7 @@
 						<div class="panel-body">
 			   				<div class="tree">
 							 <ul>
-								<li>
+								<li style="color: rgb(255, 0, 0)">
 					            <span><i class="glyphicon glyphicon-folder-open"></i>    Hoạt động giảng dạy</span> 
 						            <ul>
 						                <li>
@@ -251,7 +251,7 @@
 									                  <span><i class="glyphicon glyphicon-pencil"></i>   Mô tả: 100% giảng viên lên lớp đúng giờ và dạy đủ số tiết</span> 
 								                 </li>
 								                 <li>
-									                  <span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span>  <a href="#">  Xem</a>
+									                  <span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span>  <a href="minhchung/mc1.txt">  Download</a>
 								                 </li>
 								                 <li>
 									                  <span><i class="glyphicon glyphicon-user"></i>   Người nhập: Trưởng khoa CNTT</span> 
@@ -259,7 +259,7 @@
 						                    </ul>
 						                </li>
 						               <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   90% giảng viên đạt loại giỏi</span> 
+						                	<span><i class="glyphicon glyphicon-ok"></i>   90% giảng viên đạt loại giỏi</span> 
 						                    <ul>
 						                        <li>
 									                  <span><i class="glyphicon glyphicon-pencil"></i>   Tên: 90% giảng viên đạt loại giỏi</span> 
@@ -268,7 +268,7 @@
 									                  <span><i class="glyphicon glyphicon-pencil"></i>   Mô tả: Mỗi khoa phải có tối thiểu 90% giảng viên đủ tiêu chuẩn loại giỏi</span> 
 								                 </li>
 								                 <li>
-									                  <span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span> 
+									                  <span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span> <a href="minhchung/mc1.txt">  Download</a>
 								                 </li>
 								                 <li>
 									                  <span><i class="glyphicon glyphicon-user"></i>   Người nhập: Trưởng khoa CNTT</span> 
@@ -280,10 +280,10 @@
 						        <li>
 						            <span><i class="glyphicon glyphicon-folder-open"></i>    Công tác xã hội</span>
 						            <ul>
-						                <li>
+						                <li style="color: rgb(255, 0, 0)">
 						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tổ chức 1 buổi CTXH trong học kỳ</span>  
 								        </li>
-								        <li>
+								        <li style="color: rgb(255, 0, 0)">
 						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tổ chức hội thao cấp trường</span> 
 								        </li>
 								        <li>
@@ -294,7 +294,7 @@
 						        <li>
 						            <span><i class="glyphicon glyphicon-folder-open"></i>    Hoạt động tư vấn</span> 
 						            <ul>
-						                <li>
+						                <li style="color: rgb(255, 0, 0)">
 						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tư vấn chọn chuyên ngành</span> 
 								        </li>
 								        <li>

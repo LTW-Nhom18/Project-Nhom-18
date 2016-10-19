@@ -269,7 +269,8 @@
 										<div class="col-sm-5">     
 											        <label style="font-size: 20px">
 											        	<span class="glyphicon glyphicon-file" style="font-size:30px;" ></span>
-											        ${col.file}</label>										
+											        ${col.file}</label>			
+											        <a href="minhchung/mc1.txt">  Download</a>							
 										</div>
 									</div>
 									<div class="panel-body">

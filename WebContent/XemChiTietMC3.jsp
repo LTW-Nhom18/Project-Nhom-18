@@ -206,10 +206,10 @@
                       
                  
                    <li class="">
-                        <a href="NguoiKiemTra.html"><i class="fa fa-book fa-fw"></i>Xem cây minh chứng</a>
+                        <a href="NguoiKiemTra.jsp"><i class="fa fa-book fa-fw"></i>Xem cây minh chứng</a>
                     </li>
                      <li>
-                        <a href="#" onlcick="loadtab3()"><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
+                        <a href="Timkiem3.jsp" ><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
                     </li>
 
                     
@@ -252,8 +252,11 @@
 									</div>
 									<div class="panel-body">
 										<label class="control-label col-sm-3" for="file">File minh chứng</label>
-										<div class="col-sm-5">
-										     <span class="glyphicon glyphicon-picture" style="font-size:40px;" ></span>
+										<div class="col-sm-5">     
+											        <label style="font-size: 20px">
+											        	<span class="glyphicon glyphicon-file" style="font-size:30px;" ></span>
+											          Văn bản </label>			
+											        <a href="minhchung/mc1.txt">  Download</a>							
 										</div>
 									</div>
 									<div class="panel-body">
@@ -306,17 +309,6 @@
 	<script src="bootstrap/js/bootstrap.min.js"></script> 
 	  <script language="javascript">
 				
-		
-					function loadtab2() {
-						  var xhttp = new XMLHttpRequest();
-						  xhttp.onreadystatechange = function() {
-						    if (this.readyState == 4 && this.status == 200) {
-						      document.getElementById("page-wrapper").innerHTML = this.responseText;
-						    }
-						  };
-						  xhttp.open("GET", "NhapMC.html", true);
-						  xhttp.send();
-					}
 					function loadtab3() {
 						  var xhttp = new XMLHttpRequest();
 						  xhttp.onreadystatechange = function() {
@@ -324,7 +316,7 @@
 						      document.getElementById("page-wrapper").innerHTML = this.responseText;
 						    }
 						  };
-						  xhttp.open("GET", "Timkiem.html", true);
+						  xhttp.open("GET", "Timkiem3.jsp", true);
 						  xhttp.send();
 					}
 		</script>

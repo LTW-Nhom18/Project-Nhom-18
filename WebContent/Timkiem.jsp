@@ -1,5 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/qlmc" 
+		user="root" 
+		password=""/>
+	<sql:query var="items" sql="SELECT * FROM chitietminhchung  "/> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -267,10 +274,11 @@
 			<div class="panel panel-primary">
 				  <div class="panel-heading">Danh sách minh chứng</div>
 				   <span class="MyNewClass">
-				      <table class="table table-bordered ">
+				      <table class="table table-bordered " id="myTable">
 				    		<thead>
 						      <tr>
 						        <th>STT</th>
+						        <th  hidden="true">Mã minh chứng</th>
 						        <th>Tên mục minh chứng</th>
 						        <th>Chi tiết</th>
 						        <th>Tình trạng</th>
@@ -279,8 +287,9 @@
 						    <tbody>
 						      <tr>
 						        <td>1</td>
-						        <td>Tham gia hội thao</td>
-						        <td><a href="XemChiTietMC.jsp" >Chi tiết</a></td>
+						        <td hidden="true">1</td>
+						        <td>100% giảng viên dạy đủ số tiết</td>
+						        <td><a href="#"  onclick="loadchitiet(this);">Chi tiết</a></td>
 						        <td>Đã hoàn thành</td>
 						      </tr>
 
@@ -318,6 +327,15 @@
 				}
 				function loadtab2() {
 					$('#page-wrapper').load('NhapMC.jsp');
+					 
+				}
+				function loadchitiet(r) {
+					var i = r.parentNode.parentNode.rowIndex;
+					 var a =document.getElementById("myTable").rows[i].cells[1].innerHTML;
+				var k ="XemChiTietMC.jsp?abc="+a;
+				window.location.href =(k);
+		
+				
 					 
 				}
 		
