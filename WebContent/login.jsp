@@ -34,7 +34,7 @@
        <h1 class="title-head">SMS Hệ thống quản lý minh chứng ĐBCL</h1>
         <div class="main">
            <br><br><br><br>
-			<form action="" method=""><input type="hidden"  />               
+			<form action="" method="post"><input type="hidden"  />               
 				 <div class="col-login">
                     <div class="box-login">
                         <h2>Đăng nhập hệ thống</h2>

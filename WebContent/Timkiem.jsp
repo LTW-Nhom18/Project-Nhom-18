@@ -260,7 +260,7 @@
 							   </div>
 							   <div class="form-group" style="margin-left:20px;" >
 							     <label for="Key">Từ khóa</label>
-							     <input type="text" class="form-control" id="Key" placeholder="từ khóa cần tìm">
+							     <input type="search" class="form-control" id="Key" placeholder="từ khóa cần tìm">
 							   </div>
 							  <button type="button" class="btn btn-info" style="margin-left:20px;" >
          						 <span class="glyphicon glyphicon-search" ></span> Tìm kiếm

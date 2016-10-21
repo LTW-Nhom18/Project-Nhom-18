@@ -316,24 +316,12 @@
 	<script language="javascript">
 				
 				function loadtab2() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "QLMucMC.jsp", true);
-					  xhttp.send();
+					  
+					  $('#page-wrapper').load('QLMucMC.jsp');
 					}
 				function loadtab3() {
-					  var xhttp = new XMLHttpRequest();
-					  xhttp.onreadystatechange = function() {
-					    if (this.readyState == 4 && this.status == 200) {
-					      document.getElementById("page-wrapper").innerHTML = this.responseText;
-					    }
-					  };
-					  xhttp.open("GET", "Timkiem2.jsp", true);
-					  xhttp.send();
+					 
+					  $('#page-wrapper').load('Timkiem2.jsp');
 					}
 		</script>
 

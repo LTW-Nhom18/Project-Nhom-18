@@ -325,14 +325,8 @@
 				
 		
 					function loadtab2() {
-						  var xhttp = new XMLHttpRequest();
-						  xhttp.onreadystatechange = function() {
-						    if (this.readyState == 4 && this.status == 200) {
-						      document.getElementById("page-wrapper").innerHTML = this.responseText;
-						    }
-						  };
-						  xhttp.open("GET", "NhapMC.jsp", true);
-						  xhttp.send();
+						
+						  $('#page-wrapper').load('NhapMC.jsp');
 					}
 				
 		</script>

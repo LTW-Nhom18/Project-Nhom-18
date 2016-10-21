@@ -48,9 +48,8 @@
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp">
+                <a class="navbar-brand" href="Admin.jsp">
                     <img src="assets/img/logo.png" alt="" />
                 </a>
             </div>
@@ -60,112 +59,50 @@
                 <!-- main dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-danger">3</span><i class="fa fa-envelope fa-3x"></i>
-                    </a>
-                    <!-- dropdown-messages -->
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong><span class=" label label-danger">Andrew Smith</span></strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong><span class=" label label-info">Jonney Depp</span></strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong><span class=" label label-success">Jonney Depp</span></strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- end dropdown-messages -->
-                </li>
-
-                
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <span class="top-label label label-warning">5</span>  <i class="fa fa-bell fa-3x"></i>
+                        <span class="top-label label label-warning">3</span>  <i class="fa fa-bell fa-3x"></i>
                     </a>
                     <!-- dropdown alerts-->
                     <ul class="dropdown-menu dropdown-alerts">
+                     	<li class="divider"></li>
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-comment fa-fw"></i>New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <strong><span class=" label label-info">Nguyễn Thanh Bình</span></strong>
+                                    <span class="pull-right text-muted">
+                                        <em>13/10/2016</em>
+                                    </span>
                                 </div>
+                                <div>Có 1 thông báo mới</div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-twitter fa-fw"></i>3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                    <strong><span class=" label label-info">Phạm Thị C</span></strong>
+                                    <span class="pull-right text-muted">
+                                        <em>15/10/2016</em>
+                                    </span>
                                 </div>
+                                <div>Có 1 thông báo mới</div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-envelope fa-fw"></i>Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <strong><span class=" label label-info">Nguyễn Thanh Bình</span></strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Hôm qua</em>
+                                    </span>
                                 </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i>New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i>Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
+                                <div>Có 1 thông báo mới</div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
+                                <strong>Xem tất cả thông báo</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -247,7 +184,7 @@
                     <!-- Advanced Tables -->
                     <div class="panel panel-primary">
 					  <div class="panel-heading">Danh sách Tài khoản</div>
-					     <table class="table table-striped table-bordered" id="myTable">
+					     <table class="table table-striped table-bordered " id="myTable">
 						    <thead>
 						      <tr >
 						      	<th style="width: 5%">STT</th>
