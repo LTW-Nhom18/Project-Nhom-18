@@ -152,10 +152,10 @@
 
                     
                    <li class="">
-                        <a href="" onclick="Nguoikiemtra();"><i class="fa fa-book fa-fw"></i>Xem cây minh chứng</a>
+                        <a href="NguoiKiemTra.jsp" ><i class="fa fa-book fa-fw"></i>Xem cây minh chứng</a>
                     </li>
                      <li>
-                        <a href="" onclick="Timkiem();"><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
+                        <a href="Timkiem3.jsp" ><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
                     </li>
                     
                     
@@ -305,16 +305,7 @@
 				function loadtab1() {
 					$('#page-wrapper').load('NguoiKiemTra.jsp');
 					}
-				function timkiem()
-				{
-					var k ="Timkiem3.jsp?ten="+${b};
-					window.location.href =(k);
-				}
-				function Nguoikiemtra()
-				{
-					var k ="NguoiKiemTra.jsp?ten="+${b};
-					window.location.href =(k);
-				}
+		
 	</script>
 
 

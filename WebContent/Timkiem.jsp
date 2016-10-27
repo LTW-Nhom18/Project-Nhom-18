@@ -7,6 +7,9 @@
 		user="root" 
 		password=""/>
 	<sql:query var="items" sql="SELECT * FROM chitietminhchung  "/> 
+	<%@ page session="true" %>
+	<% String c=(String)session.getAttribute("ten");%>
+	<c:set var="a" value="<%=c %>" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -137,7 +140,7 @@
                                 <img src="assets/img/user.jpg" alt="">
                             </div>
                             <div class="user-info">
-                                <div><strong>Nguyễn Văn A</strong></div>
+                                <div><strong>${a}</strong></div>
                                 <div class="user-text-online">
                                     <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                                 </div>

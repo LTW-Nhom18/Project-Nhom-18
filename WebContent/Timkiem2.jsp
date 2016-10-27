@@ -1,5 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/qlmc" 
+		user="root" 
+		password=""/>
+	<%@ page session="true" %>
+	<% String c=(String)session.getAttribute("ten");%>
+	<c:set var="a" value="<%=c %>" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -145,7 +154,7 @@
 									      <tr>
 									        <td>1</td>
 									        <td>Tham gia hội thao</td>
-									        <td><a href="#" onclick="loadtab1();" >Chi tiết</a></td>
+									        <td><a href="XemChiTietMC2.jsp"  >Chi tiết</a></td>
 									        <td>Đã hoàn thành</td>
 									      </tr>
 			
@@ -177,15 +186,7 @@
 	<script src="bootstrap/js/bootstrap.min.js"></script> 
 
 		
-<script language="javascript">
-			
-				function loadtab1() {
-					
-					window.location.href ='XemChiTietMC2.jsp?ten='+request.getParameter("ten");
-					}
-			
-		</script>
-	
+
 	
 
 
