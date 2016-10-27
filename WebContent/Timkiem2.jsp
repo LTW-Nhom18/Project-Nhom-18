@@ -145,7 +145,7 @@
 									      <tr>
 									        <td>1</td>
 									        <td>Tham gia hội thao</td>
-									        <td><a href="XemChiTietMC2.jsp" >Chi tiết</a></td>
+									        <td><a href="#" onclick="loadtab1();" >Chi tiết</a></td>
 									        <td>Đã hoàn thành</td>
 									      </tr>
 			
@@ -175,7 +175,16 @@
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script> 
-	
+
+		
+<script language="javascript">
+			
+				function loadtab1() {
+					
+					window.location.href ='XemChiTietMC2.jsp?ten='+request.getParameter("ten");
+					}
+			
+		</script>
 	
 	
 

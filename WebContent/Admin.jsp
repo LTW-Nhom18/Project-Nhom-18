@@ -7,6 +7,9 @@
 		user="root" 
 		password=""/>
 	<sql:query var="items" sql="SELECT * FROM user  "/> 
+	<%@ page session="true" %>
+	<% String c=(String)session.getAttribute("ten");%>
+	<c:set var="a" value="<%=c %>" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,7 +29,6 @@
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 <!-- Load Thư viện jQuery vào trước khi load jQuery Validate-->
 <style type="text/css">
-
 	label.error {
 		display: inline-block;
 		color:red;
@@ -146,7 +148,7 @@
                                 <img src="assets/img/user.jpg" alt="">
                             </div>
                             <div class="user-info">
-                                <div><strong>Nguyễn Văn A</strong></div>
+                                <div><strong>${a}</strong></div>
                                 <div class="user-text-online">
                                     <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                                 </div>
@@ -244,7 +246,6 @@
 				function loadTTTK(r) {
 					var i = r.parentNode.parentNode.rowIndex;
 					 var a =document.getElementById("myTable").rows[i].cells[2].innerHTML;
-
 							
 					$('#page-wrapper').load('ThongTinTK.jsp', {abc:a});
 					
@@ -267,7 +268,6 @@
 				{
 					var i = r.parentNode.parentNode.rowIndex;
 					 var a =document.getElementById("myTable").rows[i].cells[2].innerHTML;
-
 							
 					$('#page-wrapper').load('SuaThongTinTK.jsp', {abc:a});
 					
