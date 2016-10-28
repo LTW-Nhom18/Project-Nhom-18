@@ -54,7 +54,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-				 <form class="form-horizontal" id="formMain" name="formMain" action="Admin.jsp" method="post">
+				 <form class="form-horizontal" id="formMain" name="formMain" action="suauser.do" method="post">
 				  <c:forEach items="${items.rows}" var="col">	
 					<fieldset>
 					
@@ -67,7 +67,7 @@
 									  <div class="form-group">
 									    <label class="control-label col-sm-4" for="user">Tài khoản </label>
 									    <div class="col-sm-8">
-									      <input type="text" class="form-control"  name="user" id="user" required value="${col.ID}">
+									      <input type="text" class="form-control"  name="user" id="user"  value="${col.ID}" readonly="readonly">
 		
 									    </div>
 									  </div>
@@ -88,24 +88,28 @@
 									  <div class="form-group"> 
 									  <label class="control-label col-sm-4" for="phanquyen">Phân quyền</label>
 									    <div class="col-sm-8" id="phanquyen" >
-											  <select class="form-control" id="role" name="role">
-												  <option value="qd">Người quy định</option>
-												  <option value="g">Người giao</option>
-												  <option value="n">Người nhập</option>
-												  <option value="kt">Người kiểm tra</option>
+											   <select  id="role" name="role" class="form-control">
+												  <option  name="role" value="Người quy định">Người quy định</option>
+												  <option  name="role" value="Người giao">Người giao</option>
+												  <option  name="role" value="Người nhập">Người nhập</option>
+												  <option  name="role" value="Người kiểm tra">Người kiểm tra</option>
+												  <option  name="role" value="Admin">Admin</option>
 											  </select>
 											   <c:choose>
+											    <c:when test="${col.ROLE=='Admin'}">
+											  <script>   document.getElementById('role').value ='Admin';  </script>
+											    </c:when>
 											    <c:when test="${col.ROLE=='Người quy định'}">
-											  <script>   document.getElementById('role').value ='qd';  </script>
+											  <script>   document.getElementById('role').value ='Người quy định';  </script>
 											    </c:when>
 											   <c:when test="${col.ROLE=='Người giao'}">
-											  <script>   document.getElementById('role').value ='g'; </script> 
+											  <script>   document.getElementById('role').value ='Người giao'; </script> 
 											    </c:when>
 											    <c:when test="${col.ROLE=='Người nhập'}">
-											  <script>   document.getElementById('role').value ='n'; </script> 
+											  <script>   document.getElementById('role').value ='Người nhập'; </script> 
 											    </c:when>
 											    <c:when test="${col.ROLE=='Người kiểm tra'}">
-											  <script>   document.getElementById('role').value ='kt'; </script> 
+											  <script>   document.getElementById('role').value ='Người kiểm tra'; </script> 
 											    </c:when>
 									
 											
@@ -123,63 +127,71 @@
 							
 							   
 									<div class="form-group">
-									    <label class="control-label col-sm-3" for="inputName">Họ tên </label>
+									    <label class="control-label col-sm-3" for="Name">Họ tên </label>
 									    <div class="col-sm-9">
-									      <input type="text" class="form-control" name="inputName" id="inputName"  required value="${col.NAME}">
+									      <input type="text" class="form-control" name="Name" id="Name"  required value="${col.NAME}" >
 									      <c:choose>
 							    <c:when test="${col.GTINH=='Nam'}">
-							       <label class="radio-inline"><input type="radio" name="optradio" checked="checked" >Nam</label>
-						     		 <label class="radio-inline"><input type="radio" name="optradio" >Nữ</label>
+							       <label class="radio-inline"><input type="radio" name="gt" value= "Nam" checked="checked" >Nam</label>
+						     		 <label class="radio-inline"><input type="radio" name="gt" value= "Nữ">Nữ</label>
 							    </c:when>
 							    <c:when test="${col.GTINH=='Nữ'}">
-							       <label class="radio-inline"><input type="radio" name="optradio" >Nam</label>
-						     		 <label class="radio-inline"><input type="radio" name="optradio" checked="checked"  >Nữ</label>
+							       <label class="radio-inline"><input type="radio" name="gt" value= "Nam" >Nam</label>
+						     		 <label class="radio-inline"><input type="radio" name="gt" value= "Nữ"  checked="checked"  >Nữ</label>
 							    </c:when>
 							    </c:choose>
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="control-label col-sm-3" for="inputDate">Ngày sinh </label>
+										<label class="control-label col-sm-3" for="Date">Ngày sinh </label>
 									    <div class="col-sm-9">
-									          <input type="date" name="inputDate" id="inputDate"  class="form-control"   required value="${col.DATE}">  
+									          <input type="date" name="Date" id="Date"  class="form-control"   required value="${col.DATE}">  
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="control-label col-sm-3" for="inputTel">Điện thoại </label>
+										<label class="control-label col-sm-3" for="Tel">Điện thoại </label>
 									    <div class="col-sm-9">
-									      <input type="tel" class="form-control" name="inputTel" id="inputTel"  required value="${col.TEL}">
+									      <input type="tel" class="form-control" name="Tel" id="Tel"  required value="${col.TEL}">
 										</div>
 									</div>
 									<div class="form-group"> 
 									  <label class="control-label col-sm-3" for="Khoa">Khoa/Phòng ban:</label>
 									 
 									    <div class="col-sm-9">
-											  <select class="form-control" id="Khoa" name="Khoa" >
-												  <option  value="CNTT" >Công nghệ thông tin</option>
-												  <option   value="CNM">Công nghệ may</option>
-												  <option  value="CKD">Cơ khí động lực</option>
-												  <option value="PDBCL">Phòng đảm bảo chất lượng</option>
-												  <option   value="PDT">Phòng đào tạo</option>
-												  <option   value="BGH">Ban giám hiệu</option>
+											  <select name="khoa" class="form-control" id="Khoa">
+												  <option name="khoa" value="Công nghệ thông tin" >Công nghệ thông tin</option>
+												  <option name="khoa"  value="Cơ khí máy">Cơ khí máy</option>
+												  <option name="khoa"  value="Công nghệ thực phẩm">Công nghệ thực phẩm</option>
+												  <option name="khoa"  value="Công nghệ may">Công nghệ may</option>
+												  <option name="khoa"  value="Cơ khí động lực">Cơ khí động lực</option>
+												  <option name="khoa"  value="Phòng đảm bảo chất lượng">Phòng đảm bảo chất lượng</option>
+												  <option name="khoa"  value="Phòng đào tạo">Phòng đào tạo</option>
+												  <option name="khoa"  value="Ban giám hiệu">Ban giám hiệu</option>
 											  </select>
 											   <c:choose>
 											    <c:when test="${col.KHOA=='Công nghệ thông tin'}">
-											  <script>   document.getElementById('Khoa').value ='CNTT';  </script>
+											  <script>   document.getElementById('Khoa').value ='Công nghệ thông tin';  </script>
 											    </c:when>
 											   <c:when test="${col.KHOA=='Công nghệ may'}">
-											  <script>   document.getElementById('Khoa').value ='CNM'; </script> 
+											  <script>   document.getElementById('Khoa').value ='Công nghệ may'; </script> 
 											    </c:when>
 											    <c:when test="${col.KHOA=='Cơ khí động lực'}">
-											  <script>   document.getElementById('Khoa').value ='CKD'; </script> 
+											  <script>   document.getElementById('Khoa').value ='Cơ khí động lực'; </script> 
 											    </c:when>
 											    <c:when test="${col.KHOA=='Phòng đảm bảo chất lượng'}">
-											  <script>   document.getElementById('Khoa').value ='PDBCL'; </script> 
+											  <script>   document.getElementById('Khoa').value ='Phòng đảm bảo chất lượng'; </script> 
 											    </c:when>
 											    <c:when test="${col.KHOA=='Phòng đào tạo'}">
-											  <script>   document.getElementById('Khoa').value ='PDT'; </script> 
+											  <script>   document.getElementById('Khoa').value ='Phòng đào tạo'; </script> 
 											    </c:when>
 											    <c:when test="${col.KHOA=='Ban giám hiệu'}">
-											  <script>   document.getElementById('Khoa').value ='BGH'; </script> 
+											  <script>   document.getElementById('Khoa').value ='Ban giám hiệu'; </script> 
+											    </c:when>
+											 <c:when test="${col.KHOA=='Công nghệ thực phẩm'}">
+											  <script>   document.getElementById('Khoa').value ='Công nghệ thực phẩm'; </script> 
+											    </c:when>
+											     <c:when test="${col.KHOA=='Cơ khí máy'}">
+											  <script>   document.getElementById('Khoa').value ='Cơ khí máy'; </script> 
 											    </c:when>
 											
 											   </c:choose>
@@ -188,37 +200,37 @@
 									 <div class="form-group">
 										<label class="control-label col-sm-3" for="chucvu">Chức vụ: </label>
 									    <div class="col-sm-9">
-									      <select class="form-control" id ="chucvu" >
-												  <option value="tk">Trưởng khoa </option>
-												  <option value="pk">Phó khoa</option>
-												  <option value="cbvc">CBVC</option>
-												  <option value="tp">Trưởng phòng</option>
-												  <option value="pp">Phó phòng</option>
-												  <option value="tt">Thanh tra</option>
-												  <option value="khac">Khác</option>
+									      <select class="form-control" id ="chucvu" name="chucvu" >
+												  <option name="chucvu" value="Trưởng khoa">Trưởng khoa </option>
+												  <option name="chucvu" value="Phó khoa">Phó khoa</option>
+												  <option name="chucvu" value="CBVC">CBVC</option>
+												  <option name="chucvu" value="Trưởng phòng">Trưởng phòng</option>
+												  <option name="chucvu" value="Phó phòng">Phó phòng</option>
+												  <option name="chucvu" value="Thanh tra">Thanh tra</option>
+												  <option name="chucvu" value="Khác">Khác</option>
 			
 											  </select>
 											   <c:choose>
 											    <c:when test="${col.CHUCVU=='Trưởng khoa'}">
-											  <script>   document.getElementById('chucvu').value ='tk'; </script> 
+											  <script>   document.getElementById('chucvu').value ='Trưởng khoa'; </script> 
 											    </c:when>
 											   <c:when test="${col.CHUCVU=='Phó khoa'}">
-											  <script>   document.getElementById('chucvu').value ='pk'; </script> 
+											  <script>   document.getElementById('chucvu').value ='Phó khoa'; </script> 
 											    </c:when>
 											    <c:when test="${col.CHUCVU=='CBVC'}">
-											  <script>   document.getElementById('chucvu').value ='cbvc'; </script> 
+											  <script>   document.getElementById('chucvu').value ='CBVC'; </script> 
 											    </c:when>
 											    <c:when test="${col.CHUCVU=='Trưởng phòng'}">
-											  <script>   document.getElementById('chucvu').value ='tp'; </script> 
+											  <script>   document.getElementById('chucvu').value ='Trưởng phòng'; </script> 
 											    </c:when>
 											    <c:when test="${col.CHUCVU=='Phó phòng'}">
-											  <script>   document.getElementById('chucvu').value ='pp'; </script> 
+											  <script>   document.getElementById('chucvu').value ='Phó phòng'; </script> 
 											    </c:when>
 											    <c:when test="${col.CHUCVU=='Thanh tra'}">
-											  <script>   document.getElementById('chucvu').value ='tt'; </script> 
+											  <script>   document.getElementById('chucvu').value ='Thanh tra'; </script> 
 											    </c:when>
 											     <c:when test="${col.CHUCVU=='Khác'}">
-											  <script>   document.getElementById('chucvu').value ='khac'; </script> 
+											  <script>   document.getElementById('chucvu').value ='Khác'; </script> 
 											    </c:when>
 											
 											   </c:choose>

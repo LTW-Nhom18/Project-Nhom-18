@@ -24,4 +24,13 @@
     <servlet-name>xoauser</servlet-name>
     <url-pattern>/removeuser.do</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>upuser</servlet-name>
+    <servlet-class>admin.updateuser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>upuser</servlet-name>
+    <url-pattern>/suauser.do</url-pattern>
+  </servlet-mapping>
 </web-app>
