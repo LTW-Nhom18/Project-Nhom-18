@@ -188,7 +188,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-				 <form class="form-horizontal" id="formMain" name="formMain" action="Admin.jsp?ten=${a}" method="post">
+				 <form class="form-horizontal" id="formMain" name="formMain" action="adduser.do" method="post">
 					<fieldset>
 					
 		                <div class="col-md-5">
@@ -221,11 +221,11 @@
 									  <div class="form-group"> 
 									  <label class="control-label col-sm-4" for="phanquyen">Phân quyền</label>
 									    <div class="col-sm-8" id="phanquyen" >
-											  <select class="form-control">
-												  <option value="qd">Người quy định</option>
-												  <option value="g">Người giao</option>
-												  <option value="n">Người nhập</option>
-												  <option value="kt">Người kiểm tra</option>
+											  <select  name="role" class="form-control">
+												  <option  name="role" value="Người quy định">Người quy định</option>
+												  <option  name="role" value="Người giao">Người giao</option>
+												  <option  name="role" value="Người nhập">Người nhập</option>
+												  <option  name="role" value="Người kiểm tra">Người kiểm tra</option>
 											  </select>
 									    </div>
 							 	 		</div>
@@ -240,51 +240,51 @@
 							
 							   
 									<div class="form-group">
-									    <label class="control-label col-sm-3" for="inputName">Họ tên </label>
+									    <label class="control-label col-sm-3" for="Name">Họ tên </label>
 									    <div class="col-sm-9">
-									      <input type="text" class="form-control" name="inputName" id="inputName" placeholder="Enter name" required>
-									      <label class="radio-inline"><input type="radio" name="optradio" checked="checked">Nam</label>
-									      <label class="radio-inline"><input type="radio" name="optradio">Nữ</label>
+									      <input type="text" class="form-control" name="Name" id="inputName" placeholder="Enter name" required>
+									      <label class="radio-inline" ><input type="radio" name="gt" value="Nam" checked="checked">Nam</label>
+									      <label class="radio-inline" ><input type="radio" name="gt" value="Nữ">Nữ</label>
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="control-label col-sm-3" for="inputDate">Ngày sinh </label>
+										<label class="control-label col-sm-3" for="Date">Ngày sinh </label>
 									    <div class="col-sm-9">
-									          <input type="date" name="inputDate" id="inputDate" placeholder="Enter date" class="form-control"   required>  
+									          <input type="date" name="Date" id="Date" placeholder="Enter date" class="form-control"   required>  
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="control-label col-sm-3" for="inputTel">Điện thoại </label>
+										<label class="control-label col-sm-3" for="Tel">Điện thoại </label>
 									    <div class="col-sm-9">
-									      <input type="tel" class="form-control" name="inputTel" id="inputTel" placeholder="Enter telephonenumber" required>
+									      <input type="tel" class="form-control" name="Tel" id="Tel" placeholder="Enter telephonenumber" required>
 										</div>
 									</div>
 									<div class="form-group"> 
 									  <label class="control-label col-sm-3" for="Khoa">Khoa/Phòng ban:</label>
 									    <div class="col-sm-9">
-											  <select class="form-control" id="Khoa">
-												  <option value="CNTT">Công nghệ thông tin</option>
-												  <option value="CKM">Cơ khí máy</option>
-												  <option value="CNTP">Công nghệ thực phẩm</option>
-												  <option value="CNM">Công nghệ may</option>
-												  <option value="CKD">Cơ khí động lực</option>
-												  <option value="PDBCL">Phòng đảm bảo chất lượng</option>
-												  <option value="PDT">Phòng đào tạo</option>
-												  <option value="BGH">Ban giám hiệu</option>
+											  <select name="khoa" class="form-control" id="Khoa">
+												  <option name="khoa" value="Công nghệ thông tin" >Công nghệ thông tin</option>
+												  <option name="khoa"  value="Cơ khí máy">Cơ khí máy</option>
+												  <option name="khoa"  value="Công nghệ thực phẩm">Công nghệ thực phẩm</option>
+												  <option name="khoa"  value="Công nghệ may">Công nghệ may</option>
+												  <option name="khoa"  value="Cơ khí động lực">Cơ khí động lực</option>
+												  <option name="khoa"  value="Phòng đảm bảo chất">Phòng đảm bảo chất lượng</option>
+												  <option name="khoa"  value="Phòng đào tạo">Phòng đào tạo</option>
+												  <option name="khoa"  value="Ban giám hiệu">Ban giám hiệu</option>
 											  </select>
 									    </div>
 									 </div>
 									 <div class="form-group">
 										<label class="control-label col-sm-3" for="chucvu">Chức vụ: </label>
 									    <div class="col-sm-9">
-									      <select class="form-control" id ="chucvu" >
-												  <option >Trưởng khoa </option>
-												  <option >Phó khoa</option>
-												  <option >CBVC</option>
-												  <option >Trưởng phòng</option>
-												  <option >Phó phòng</option>
-												  <option >Thanh tra</option>
-												  <option >Khác</option>
+									      <select class="form-control" id ="chucvu" name="chucvu" >
+												  <option name="chucvu" value="Trưởng khoa">Trưởng khoa </option>
+												  <option name="chucvu" value="Phó khoa">Phó khoa</option>
+												  <option name="chucvu" value="CBVC">CBVC</option>
+												  <option name="chucvu" value="Trưởng phòng">Trưởng phòng</option>
+												  <option name="chucvu" value="Phó phòng">Phó phòng</option>
+												  <option name="chucvu" value="Thanh tra">Thanh tra</option>
+												  <option name="chucvu" value="Khác">Khác</option>
 			
 											  </select>
 										</div>

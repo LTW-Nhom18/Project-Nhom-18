@@ -255,7 +255,9 @@
 					var retVal = confirm("Xóa tài khoản này?");
 		               if( retVal == true ){
 		            	   var i = r.parentNode.parentNode.rowIndex;
-						    document.getElementById("myTable").deleteRow(i);
+		            	   var a =document.getElementById("myTable").rows[i].cells[2].innerHTML;
+		            	   window.location.href = "removeuser.do?user="+a;
+					//	    document.getElementById("myTable").deleteRow(i);
 		                  return true;
 		               }
 		               else{
@@ -272,18 +274,7 @@
 					$('#page-wrapper').load('SuaThongTinTK.jsp', {abc:a});
 					
 				}
-				function clickme(){
-					var retVal = confirm("Lưu thay đổi?");
-		               if( retVal == true ){
-		            	   
-		            	    
-		                  return true;
-		               }
-		               else{
-		                  
-		                  return false;
-		               }
-				}
+				
 		</script>
  
 
