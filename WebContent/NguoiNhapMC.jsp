@@ -6,8 +6,10 @@
 		url="jdbc:mysql://localhost/qlmc" 
 		user="root" 
 		password=""/>
-	<sql:query var="items" sql="SELECT * FROM chitietminhchung  "/> 
 	<%@ page session="true" %>
+	<% String id=(String)session.getAttribute("id");%>
+	<c:set var="i" value="<%=id %>" />
+	<sql:query var="items"> SELECT * FROM mucmc inner join phancong on mucmc.IDmucmc=phancong.IDmucmc where IDnguoiduocgiao = '${i}'  </sql:query>
 	<% String c=(String)session.getAttribute("ten");%>
 	<c:set var="a" value="<%=c %>" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -153,10 +155,7 @@
                    <li class="">
                         <a href ="NguoiNhapMC.jsp" ><i class="fa fa-book fa-fw"></i>  Danh sách minh chứng</a>
                     </li>
-                    <li>
-                         <a href ="#" onclick="loadtab2();" ><i class="fa fa-pencil fa-fw"></i>  Nhập minh chứng</a>
-
-                    </li>
+                   
                      <li>
                         <a href ="Timkiem.jsp" ><i class="fa fa-search fa-fw"></i>  Tìm kiếm</a>
                     </li>
@@ -190,18 +189,20 @@
 						        <th style="width: 5%">STT</th>
 						        <th style="width: 10%" hidden="true">Mã minh chứng</th>
 						        <th style="width: 25%">Tên mục minh chứng</th>
-						        <th style="width: 20%">Chi tiết</th>
-						        <th style="width: 20%">Tình trạng</th>
+						        <th style="width: 15%">Chi tiết</th>
+						        <th style="width: 15%">Tình trạng</th>
+						        <th style="width: 10%">Nhập minh chứng</th>
 						      </tr>
 						    </thead>
 						    <tbody>
 						    <c:forEach items="${items.rows}" var="col">	
 						      <tr>
 						        <td ></td>
-						        <td hidden="true">${col.idminhchung}</td>
-						        <td >${col.ten}</td>
+						        <td hidden="true">${col.IDmucmc}</td>
+						        <td >${col.TenMucmc}</td>
 						        <td ><a href="#" onclick="loadchitiet(this);" >Chi tiết</a></td>
-						        <td >${col.tinhtrang}</td>
+						        <td >${col.TrangThai}</td>
+						         <td ><a href="#" onclick="loadchitiet(this);" >Nhập</a></td>
 						      </tr>
 							</c:forEach>
 						    </tbody>

@@ -65,6 +65,7 @@ public class testlogin extends HttpServlet {
 				        role = result.getString("IDROLE");
 				        name =result.getString("NAME");
 				      session.setAttribute("ten", name);
+				      session.setAttribute("id", user);
 				 
 				        if(role.contentEquals("0"))
 				        {

@@ -11,7 +11,7 @@
 	
 	<% String c= request.getParameter("abc");%>
 	<c:set var="a" value="<%=c %>" />
-	<sql:query var="items"> SELECT * FROM chitietminhchung WHERE idminhchung = '${a}'  </sql:query>
+	<sql:query var="items"> SELECT * FROM mucmc inner join phancong on mucmc.IDmucmc=phancong.IDmucmc where phancong.IDmucmc= '${a}'</sql:query>
 	<%@ page session="true" %>
 	<% String d=(String)session.getAttribute("ten");%>
 	<c:set var="b" value="<%=d %>" />
@@ -197,13 +197,13 @@
 								    <br>
 								    	<label class="control-label col-sm-3" for="namemc">Tên mục minh chứng</label>
 										<div class="col-sm-8">
-										     <input type="text" class="form-control" id="namemc" value="${col.ten}" disabled>
+										     <input type="text" class="form-control" id="namemc" value="${col.TenMucmc}" disabled>
 										</div>
 									</div>
 								    <div class="panel-body">
 										<label class="control-label col-sm-3" for="mota">Mô tả minh chứng</label>
 										<div class="col-sm-8">
-										     <input type="text" class="form-control" id="mota" value="${col.mota}" disabled>
+										     <input type="text" class="form-control" id="mota" value="${col.MoTa}" disabled>
 										</div>
 									</div>
 									<div class="panel-body">
@@ -211,28 +211,38 @@
 										<div class="col-sm-5">     
 											        <label style="font-size: 20px">
 											        	<span class="glyphicon glyphicon-file" style="font-size:30px;" ></span>
-											        ${col.file}</label>			
+											        ${col.File}</label>			
 											        <a href="minhchung/mc1.txt">  Download</a>							
 										</div>
 									</div>
 									<div class="panel-body">
 										<label class="control-label col-sm-3" for="nguoitao">Người tạo</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="nguoitao" value="${col.nguoitao}" disabled>
+										     <input type="text" class="form-control" id="nguoitao" value="${col.NguoiTao}" disabled>
 										</div>
-										<label class="control-label col-sm-2" style="margin-left: 20px;" for="nguoigiao">Người giao</label>
+										<label class="control-label col-sm-2" style="margin-left: 20px;" for="nguoigiao">Người nhập</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="nguoigiao" value ="${col.nguoigiao}" disabled>
+										     <input type="text" class="form-control" id="nguoigiao" value ="${col.NguoiDuocGiao}" disabled>
 										</div>
 									</div>
 									<div class="panel-body">
 										<label class="control-label col-sm-3" for="date">Ngày tạo</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="date" value="${col.ngaytao}" disabled>
+										     <input type="text" class="form-control" id="date" value="${col.NgayTao}" disabled>
 										</div>
 										<label class="control-label col-sm-2" style="margin-left: 20px;" for="state">Tình trạng</label>
 										<div class="col-sm-3">
-										     <input type="text" class="form-control" id="state" value ="${col.tinhtrang}" disabled>
+										     <input type="text" class="form-control" id="state" value ="${col.TrangThai}" disabled>
+										</div>
+									</div>
+									<div class="panel-body">
+										<label class="control-label col-sm-3" for="date">Ngày hết hạn</label>
+										<div class="col-sm-3">
+										     <input type="text" class="form-control" id="date" value="${col.NgayHoanThanh}" disabled>
+										</div>
+										<label class="control-label col-sm-2" style="margin-left: 20px;" for="state">Ngày nhập</label>
+										<div class="col-sm-3">
+										     <input type="text" class="form-control" id="state" value ="${col.NgayNhap}" disabled>
 										</div>
 									</div>
 									<br>

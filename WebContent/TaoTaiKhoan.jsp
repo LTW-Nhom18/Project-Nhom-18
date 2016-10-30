@@ -268,7 +268,7 @@
 												  <option name="khoa"  value="Công nghệ thực phẩm">Công nghệ thực phẩm</option>
 												  <option name="khoa"  value="Công nghệ may">Công nghệ may</option>
 												  <option name="khoa"  value="Cơ khí động lực">Cơ khí động lực</option>
-												  <option name="khoa"  value="Phòng đảm bảo chất">Phòng đảm bảo chất lượng</option>
+												  <option name="khoa"  value="Phòng đảm bảo chất lượng">Phòng đảm bảo chất lượng</option>
 												  <option name="khoa"  value="Phòng đào tạo">Phòng đào tạo</option>
 												  <option name="khoa"  value="Ban giám hiệu">Ban giám hiệu</option>
 											  </select>

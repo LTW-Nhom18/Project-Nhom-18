@@ -6,8 +6,9 @@
 		url="jdbc:mysql://localhost/qlmc" 
 		user="root" 
 		password=""/>
-	<sql:query var="items" sql="SELECT * FROM chitietminhchung  "/> 
 	<%@ page session="true" %>
+
+	<sql:query var="items"> SELECT * FROM mucmc inner join phancong on mucmc.IDmucmc=phancong.IDmucmc </sql:query>
 	<% String c=(String)session.getAttribute("ten");%>
 	<c:set var="a" value="<%=c %>" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -153,10 +154,7 @@
                  <li class="">
                         <a href ="NguoiNhapMC.jsp" ><i class="fa fa-book fa-fw"></i>  Danh sách minh chứng</a>
                     </li>
-                    <li>
-                         <a href ="#" onclick="loadtab2();" ><i class="fa fa-pencil fa-fw"></i>  Nhập minh chứng</a>
-
-                    </li>
+                    
                      <li>
                         <a href ="Timkiem.jsp" ><i class="fa fa-search fa-fw"></i>  Tìm kiếm</a>
                     </li>
@@ -218,7 +216,7 @@
 				    		<thead>
 						      <tr>
 						        <th>STT</th>
-						        <th  hidden="true">Mã minh chứng</th>
+						        <th hidden="true">Mã minh chứng</th>
 						        <th>Tên mục minh chứng</th>
 						        <th>Chi tiết</th>
 						        <th>Tình trạng</th>
@@ -227,7 +225,7 @@
 						    <tbody>
 						      <tr>
 						        <td>1</td>
-						        <td hidden="true">1</td>
+						        <td hidden="true">5</td>
 						        <td>100% giảng viên dạy đủ số tiết</td>
 						        <td><a href="#"  onclick="loadchitiet(this);">Chi tiết</a></td>
 						        <td>Đã hoàn thành</td>
