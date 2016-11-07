@@ -7,10 +7,10 @@
 		user="root" 
 		password=""/>
 	<%@ page session="true" %>
-
-	<sql:query var="items"> SELECT * FROM mucmc inner join phancong on mucmc.IDmucmc=phancong.IDmucmc </sql:query>
 	<% String c=(String)session.getAttribute("ten");%>
 	<c:set var="a" value="<%=c %>" />
+	<%@ page import="java.util.*" %>
+	<% request.setAttribute("link","Timkiem1.jsp"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,14 +26,14 @@
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
       <link href="assets/css/main-style.css" rel="stylesheet" />
-
+  <link href="table.css" rel="stylesheet" />
     <!-- Page-Level CSS -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 
 </head>
 
 <body>
-    <!--  wrapper -->
+   <!--  wrapper -->
     <div id="wrapper">
         <!-- navbar top -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
@@ -151,13 +151,15 @@
                     </li>
 
                     
-                 <li class="">
+                    
+                     <li class="">
                         <a href ="NguoiNhapMC.jsp" ><i class="fa fa-book fa-fw"></i>  Danh sách minh chứng</a>
                     </li>
                     
-                     <li>
+                     <li class="">
                         <a href ="Timkiem.jsp" ><i class="fa fa-search fa-fw"></i>  Tìm kiếm</a>
                     </li>
+
                     
                     
                 </ul>
@@ -167,7 +169,7 @@
         </nav>
         <!-- end navbar side -->
         <!--  page-wrapper -->
-        <div id="page-wrapper">
+         <div id="page-wrapper">
 
             
             <div class="row">
@@ -184,23 +186,23 @@
                     <div class="panel panel-primary">	
 					<div class="panel-heading">
 						<div class="container container-fluid">
-							 <form class="form-inline">
+							 <form class="form-inline" id="myForm" action="search1" >
 							   <div class="form-group">
 							     <label for="Type">Chọn loại</label>
-							      <select class="form-control" id="Type">
-							       <option>Thời gian tạo</option>
-							       <option>Tên minh chứng</option>
-							       <option>Mô tả</option>
-							       <option>Người được giao</option>
-							       <option>Người tạo</option>
+							      <select name="key" class="form-control" id="key">
+							       <option name="key" value="NgayTao">Thời gian tạo</option>
+							       <option name="key" value="TenMucmc">Tên minh chứng</option>
+							       <option name="key" value="MoTa">Mô tả</option>
+							       <option name="key" value="NguoiDuocGiao">Người được giao</option>
+							       <option name="key" value="NguoiTao">Người tạo</option>
 							     </select>
-							     
+							        <input name="link" value="Timkiem.jsp" hidden="true">
 							   </div>
 							   <div class="form-group" style="margin-left:20px;" >
-							     <label for="Key">Từ khóa</label>
-							     <input type="search" class="form-control" id="Key" placeholder="từ khóa cần tìm">
+							     <label for="content">Từ khóa</label>
+							     <input type="search" class="form-control" name="content" id="content" placeholder="từ khóa cần tìm">
 							   </div>
-							  <button type="button" class="btn btn-info" style="margin-left:20px;" >
+							  <button class="btn btn-info" onclick="search();"style="margin-left:20px;" >
          						 <span class="glyphicon glyphicon-search" ></span> Tìm kiếm
          					 </button>
 							 </form>
@@ -209,28 +211,47 @@
 					</div>
 					
 			</div>
-			<div class="panel panel-primary">
+			<div class="panel panel-primary" id="ketqua">
 				  <div class="panel-heading">Danh sách minh chứng</div>
 				   <span class="MyNewClass">
-				      <table class="table table-bordered " id="myTable">
+				     <table class="table table-striped table-bordered " id="myTable">
 				    		<thead>
 						      <tr>
-						        <th>STT</th>
+						        <th style="width: 10%">STT</th>
 						        <th hidden="true">Mã minh chứng</th>
-						        <th>Tên mục minh chứng</th>
-						        <th>Chi tiết</th>
-						        <th>Tình trạng</th>
+						        <th style="width: 40%">Tên mục minh chứng</th>
+						        <th style="width: 20%">Chi tiết</th>
+						       <th style="width: 30%">Tình trạng</th>
 						      </tr>
 						    </thead>
 						    <tbody>
+						    <%
+						    int count = 0;
+                if (request.getAttribute("list") != null) {
+                	ArrayList al = (ArrayList) request.getAttribute("list");
+                    Iterator itr = al.iterator();
+                    while (itr.hasNext()) {
+                    	count++;
+                    	ArrayList pList = (ArrayList) itr.next();
+         					   %>
 						      <tr>
-						        <td>1</td>
-						        <td hidden="true">5</td>
-						        <td>100% giảng viên dạy đủ số tiết</td>
+						        <td></td>
+						        <td hidden="true"><%=pList.get(0)%></td>
+						        <td><%=pList.get(1)%></td>
 						        <td><a href="#"  onclick="loadchitiet(this);">Chi tiết</a></td>
-						        <td>Đã hoàn thành</td>
+						        <td><%=pList.get(2)%></td>
 						      </tr>
-
+					<%
+			                    }
+			                }
+			                if (count == 0) {
+			            %>
+			            <tr>
+			                <td colspan=4 align="center"
+			                    style="background-color:#eeffee"><b>No Record Found..</b></td>
+			            </tr>
+			            <%            }
+			            %>
 						    </tbody>
 				    
 				      </table>
@@ -258,26 +279,36 @@
     <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script> 
-	  <script language="javascript">
-				function loadtab1() {
-					$('#page-wrapper').load('NguoiNhapMC.jsp');
+	<script language="javascript">
 				
+		
+				function loadCMC() {
+					$('#page-wrapper').load('NguoiGiaoMC.jsp');
+					}
+			
+				function loadKT()
+				{
+					$('#page-wrapper').load('KiemTraMinhChung.jsp');
 				}
-				function loadtab2() {
-					$('#page-wrapper').load('NhapMC.jsp');
-					 
+				function loadGMC()
+				{
+					$('#page-wrapper').load('GiaoMC.jsp');
 				}
-				function loadchitiet(r) {
+				function search() {
+					//	document.getElementById("myTable").setAttribute("aria-hidden", "true");
+						$(myTable).attr('aria-hidden', 'false').show();
+						$("form#myForm").submit();
+					}
+				function loadchitiet(r) 
+				{
 					var i = r.parentNode.parentNode.rowIndex;
 					 var a =document.getElementById("myTable").rows[i].cells[1].innerHTML;
-				var k ="XemChiTietMC.jsp?abc="+a;
+				var k ="XemChiTietMC1.jsp?abc="+a;
 				window.location.href =(k);
-		
-				
-					 
+	 
 				}
-		
-	</script>
+		</script>
+	
 	
 
 </body>

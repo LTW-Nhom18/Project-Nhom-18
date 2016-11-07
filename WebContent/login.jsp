@@ -1,5 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/qlmc" 
+		user="root" 
+		password=""/>
+		
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -57,15 +64,23 @@
                             <button class="btn-login" type="submit">Đăng nhập</button>
                             <input type="hidden" id="tokenAuthen" name="tokenAuthen" />
                         </div>
-                        <div class="box-message-logon" id ="idErrorMessage" style ="display:none;">
-						    <div class="box-message-in-logon">
-							    <div class="box-message-btm"></div>
-						    </div>
-					    </div>
+                        <br>
+                       <div >
+						<c:choose>
+							<c:when test="${param.error == 'error'}">
+								<h3>Tài khoản đăng nhập không đúng!</h3>
+							</c:when>
+							
+							<c:otherwise>
+								<h4></h4>
+							</c:otherwise>
+							</c:choose>
+						</div>
+						
                     </div>
                     <p class="txt-footer">Trường Đại học Sư phạm Kỹ thuật TPHCM </p>
                 </div>
-			</form>       
+			</form>        
  		</div>
     </div>
     </div>

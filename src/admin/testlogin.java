@@ -97,10 +97,8 @@ public class testlogin extends HttpServlet {
 				       
 				      }
 				 
-				 out.print("<html><body>");
-				 out.print("<script> alert('INCORRECT ACCOUNT!!!'); </script>");
-				 out.print("</body></html>");
-				 response.sendRedirect("login.jsp");
+				 
+				 response.sendRedirect("login.jsp?error=error");
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

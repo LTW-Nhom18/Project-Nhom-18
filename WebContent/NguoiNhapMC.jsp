@@ -118,7 +118,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        <li><a href="logout.do"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                         </li>
                     </ul>
                     <!-- end dropdown-user -->
@@ -202,7 +202,7 @@
 						        <td >${col.TenMucmc}</td>
 						        <td ><a href="#" onclick="loadchitiet(this);" >Chi tiết</a></td>
 						        <td >${col.TrangThai}</td>
-						         <td ><a href="#" onclick="loadchitiet(this);" >Nhập</a></td>
+						         <td ><a href="#" onclick="loadtab2(this);" >Nhập</a></td>
 						      </tr>
 							</c:forEach>
 						    </tbody>
@@ -233,8 +233,11 @@
 					$('#page-wrapper').load('NguoiNhapMC.jsp');
 				
 				}
-				function loadtab2() {
-					$('#page-wrapper').load('NhapMC.jsp');
+				function loadtab2(r) {
+					var i = r.parentNode.parentNode.rowIndex;
+					 var a =document.getElementById("myTable").rows[i].cells[1].innerHTML;
+				
+					$('#page-wrapper').load('NhapMC.jsp', {abc:a});
 					 
 				}
 				function loadchitiet(r) {

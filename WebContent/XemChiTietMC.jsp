@@ -159,10 +159,7 @@
                 <li class="">
                         <a href ="NguoiNhapMC.jsp" ><i class="fa fa-book fa-fw"></i>  Danh sách minh chứng</a>
                     </li>
-                    <li>
-                         <a href ="#" onclick="loadtab2();"><i class="fa fa-pencil fa-fw"></i>  Nhập minh chứng</a>
-
-                    </li>
+                    
                      <li>
                         <a href ="Timkiem.jsp" ><i class="fa fa-search fa-fw"></i>  Tìm kiếm</a>
                     </li>

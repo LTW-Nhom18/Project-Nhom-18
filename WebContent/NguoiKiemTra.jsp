@@ -6,8 +6,10 @@
 		url="jdbc:mysql://localhost/qlmc" 
 		user="root" 
 		password=""/>
-	<sql:query var="items" sql="SELECT * FROM chitietminhchung  "/> 
 	<%@ page session="true" %>
+	<% String id=(String)session.getAttribute("id");%>
+	<c:set var="i" value="<%=id %>" />
+	<sql:query var="items"> SELECT * FROM mucmc inner join phancong on mucmc.IDmucmc=phancong.IDmucmc where IDnguoiduocgiao = '${i}'  </sql:query>
 	<% String c=(String)session.getAttribute("ten");%>
 	<c:set var="a" value="<%=c %>" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -116,7 +118,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        <li><a href="logout.do"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
                         </li>
                     </ul>
                     <!-- end dropdown-user -->

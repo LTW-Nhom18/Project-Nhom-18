@@ -1,6 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/qlmc" 
+		user="root" 
+		password=""/>
+
+	
+	
+	<% String c= request.getParameter("abc");%>
+	<c:set var="a" value="<%=c %>" />
+	<sql:query var="items"> SELECT * FROM mucmc inner join phancong on mucmc.IDmucmc=phancong.IDmucmc where phancong.IDmucmc= '${a}'</sql:query>
 <html>
 <head>
     <meta charset="utf-8">
@@ -37,37 +48,50 @@
 					    <div class="panel-body" >
 					    <form class="form-horizontal" action="NguoiNhapMC.jsp" id="myForm">
 					    <fieldset>
+					     <c:forEach items="${items.rows}" var="col">	
 							  <div class="form-group">
 							    <label class="control-label col-sm-4" for="namemc" >Tên mục minh chứng:</label>
 							    <div class="col-sm-7">
-							      <input type="text" class="form-control" id="namemc" placeholder="Nhập tên mục minh chứng" required="required">
+							      <input type="text" class="form-control" id="namemc" value="${col.TenMucmc}" readonly="readonly">
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label class="control-label col-sm-4" for="mota" style="margin-left:0;">Mô tả:</label>
 							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="mota" placeholder="Nhập mô tả minh chứng" required="required">
+							      <input type="text" class="form-control" name="mota" id="mota" placeholder="Nhập mô tả minh chứng" required="required">
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label class="control-label col-sm-4" for="nguoitao">Người tạo:</label>
 							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="nguoitao" placeholder="Nhập họ và tên người tạo" required="required">
+							      <input type="text" class="form-control" id="nguoitao" value="${col.NguoiTao}" readonly="readonly">
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="nguoigiao">Người giao:</label>
+							    <label class="control-label col-sm-4" for="nguoigiao">Người nhập:</label>
 							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="nguoigiao" placeholder="Nhập họ và tên người giao" required="required">
+							      <input type="text" class="form-control" id="nguoigiao" value="${col.NguoiDuocGiao}" readonly="readonly">
 							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-sm-4" for="loaifile">Loại file:</label>
+							    <div class="col-sm-7" id="phanquyen" >
+											  <select  name="loaifile" id="loaifile" class="form-control">
+												  <option  name="loaifile" value="Văn bản">Văn bản</option>
+												  <option  name="loaifile" value="Hình ảnh">Hình ảnh</option>
+												  <option  name="loaifile" value="Video">Video</option>
+												  <option  name="loaifile" value="File nén">File nén</option>
+											  </select>
+								</div>
 							  </div>
 							 <div class="form-group">
 							   <label class="control-label col-sm-4" for="file">Up file minh chứng:</label>
 										<div class="col-sm-7">
-										     <input type="file" class="form-control" id="file" required="required">
+										     <input type="file" class="form-control" name="file" id="file" required="required">
 										</div>
 							  </div>
 							   <button type="submit" hidden="true" name="btnsubmit" id="btnsubmit"></button>
+						 </c:forEach>	
 							  </fieldset>
 							</form>
 					    </div>
