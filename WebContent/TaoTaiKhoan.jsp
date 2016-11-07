@@ -188,7 +188,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-				 <form class="form-horizontal" id="formMain" name="formMain" action="adduser.do" method="post">
+				 <form class="form-horizontal" id="formMain" name="formMain" action="insertuserbean.jsp" method="post">
 					<fieldset>
 					
 		                <div class="col-md-5">
