@@ -329,13 +329,13 @@
 							minlength: 5,
 							equalTo: "#pwd"
 						},
-						inputName: "required",
-						inputDate: {
+						Name: "required",
+						Date: {
 							required: true,
 					
 						},
 				
-						inputTel: {
+						Tel: {
 							required: true,
 							minlength: 10,
 							digits: true
@@ -354,13 +354,13 @@
 							minlength: 'Vui lòng nhập ít nhất 5 kí tự',
 							equalTo: 'Mật khẩu không trùng'
 						},
-						inputName: "Vui lòng nhập họ tên",
+						Name: "Vui lòng nhập họ tên",
 			
-						inputDate: {
+						Date: {
 							required: "Vui lòng nhập ngày sinh",
 							Date: "Sai định dạng"
 						},
-						inputTel: {
+						Tel: {
 							required: "Vui lòng nhập số điện thoại",
 							minlength: "số điện thoại không hợp lệ",
 							digits: "số điện thoại không hợp lệ"

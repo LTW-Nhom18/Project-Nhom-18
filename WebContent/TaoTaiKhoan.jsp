@@ -242,7 +242,7 @@
 									<div class="form-group">
 									    <label class="control-label col-sm-3" for="Name">Họ tên </label>
 									    <div class="col-sm-9">
-									      <input type="text" class="form-control" name="Name" id="inputName" placeholder="Enter name" required>
+									      <input type="text" class="form-control" name="Name" id="Name" placeholder="Enter name" required>
 									      <label class="radio-inline" ><input type="radio" name="gt" value="Nam" checked="checked">Nam</label>
 									      <label class="radio-inline" ><input type="radio" name="gt" value="Nữ">Nữ</label>
 										</div>
@@ -382,10 +382,10 @@
 							minlength: 5,
 							equalTo: "#pwd"
 						},
-						inputName: "required",
-						inputDate: "required",
+						Name: "required",
+						Date: "required",
 				
-						inputTel: {
+						Tel: {
 							required: true,
 							minlength: 10,
 							digits: true
@@ -404,13 +404,13 @@
 							minlength: 'Vui lòng nhập ít nhất 5 kí tự',
 							equalTo: 'Mật khẩu không trùng'
 						},
-						inputName: "Vui lòng nhập họ tên",
+						Name: "Vui lòng nhập họ tên",
 			
-						inputDate: {
+						Date: {
 							required: "Vui lòng nhập ngày sinh",
 							Date: "Sai định dạng"
 						},
-						inputTel: {
+						Tel: {
 							required: "Vui lòng nhập số điện thoại",
 							minlength: "số điện thoại không hợp lệ",
 							digits: "số điện thoại không hợp lệ"

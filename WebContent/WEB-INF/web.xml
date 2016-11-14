@@ -32,13 +32,28 @@
     <servlet-name>upuser</servlet-name>
     <url-pattern>/suauser.do</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>logout</servlet-name>
     <servlet-class>admin.testlogout</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>logout</servlet-name>
     <url-pattern>/logout.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>addmc</servlet-name>
+    <servlet-class>minhchung.createMC</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addmc</servlet-name>
+    <url-pattern>/addmc.do</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>loadfile</servlet-name>
+    <servlet-class>minhchung.loadfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loadfile</servlet-name>
+    <url-pattern>/loadfile.do</url-pattern>
   </servlet-mapping>
 </web-app>

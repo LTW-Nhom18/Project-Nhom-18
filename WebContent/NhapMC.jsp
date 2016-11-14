@@ -8,9 +8,10 @@
 		password=""/>
 
 	
-	
+	<%@ page session="true" %>
 	<% String c= request.getParameter("abc");%>
 	<c:set var="a" value="<%=c %>" />
+	
 	<sql:query var="items"> SELECT * FROM mucmc inner join phancong on mucmc.IDmucmc=phancong.IDmucmc where phancong.IDmucmc= '${a}'</sql:query>
 <html>
 <head>
@@ -46,13 +47,15 @@
                     <div class="panel panel-primary">
 					    <div class="panel-heading">Thông tin minh chứng</div>
 					    <div class="panel-body" >
-					    <form class="form-horizontal" action="NguoiNhapMC.jsp" id="myForm">
-					    <fieldset>
+					    <form class="form-horizontal" action="addmc.do" id="myForm" method="post" enctype="multipart/form-data">
+					    <fieldset>					 
 					     <c:forEach items="${items.rows}" var="col">	
 							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="namemc" >Tên mục minh chứng:</label>
+						
+							    <label class="control-label col-sm-4" for="tenmc" >Tên mục minh chứng:</label>
 							    <div class="col-sm-7">
-							      <input type="text" class="form-control" id="namemc" value="${col.TenMucmc}" readonly="readonly">
+							      <input type="text" class="form-control" name="tenmc" id="tenmc" value="${col.TenMucmc}" readonly="readonly">
+							      <input name="idmc" value="${a}" hidden="true">
 							    </div>
 							  </div>
 							  <div class="form-group">
@@ -64,30 +67,30 @@
 							  <div class="form-group">
 							    <label class="control-label col-sm-4" for="nguoitao">Người tạo:</label>
 							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="nguoitao" value="${col.NguoiTao}" readonly="readonly">
+							      <input type="text" class="form-control" name="nguoitao" id="nguoitao" value="${col.NguoiTao}" readonly="readonly">
 							    </div>
 							  </div>
 							  <div class="form-group">
-							    <label class="control-label col-sm-4" for="nguoigiao">Người nhập:</label>
+							    <label class="control-label col-sm-4" for="nguoinhap">Người nhập:</label>
 							    <div class="col-sm-7"> 
-							      <input type="text" class="form-control" id="nguoigiao" value="${col.NguoiDuocGiao}" readonly="readonly">
+							      <input type="text" class="form-control" name="nguoinhap" id="nguoinhap" value="${col.NguoiDuocGiao}" readonly="readonly">
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label class="control-label col-sm-4" for="loaifile">Loại file:</label>
 							    <div class="col-sm-7" id="phanquyen" >
 											  <select  name="loaifile" id="loaifile" class="form-control">
-												  <option  name="loaifile" value="Văn bản">Văn bản</option>
-												  <option  name="loaifile" value="Hình ảnh">Hình ảnh</option>
+												  <option  name="loaifile" value="Document">Document</option>
+												  <option  name="loaifile" value="Image">Image</option>
 												  <option  name="loaifile" value="Video">Video</option>
-												  <option  name="loaifile" value="File nén">File nén</option>
+												  <option  name="loaifile" value="Zip">Zip</option>
 											  </select>
 								</div>
 							  </div>
 							 <div class="form-group">
-							   <label class="control-label col-sm-4" for="file">Up file minh chứng:</label>
+							   <label class="control-label col-sm-4" for="fx">Up file minh chứng:</label>
 										<div class="col-sm-7">
-										     <input type="file" class="form-control" name="file" id="file" required="required">
+										     <input type="file" class="form-control" name="fx" id="fx" required="required">
 										</div>
 							  </div>
 							   <button type="submit" hidden="true" name="btnsubmit" id="btnsubmit"></button>
@@ -153,7 +156,7 @@
 					var retVal = confirm("Lưu thay đổi ?");
 		               if( retVal == true )
 		               {
-					            	if(!validateText("namemc"))
+					            	if(!validateText("tenmc"))
 									{
 									 return false;
 									}
@@ -165,10 +168,12 @@
 									{
 									 return false;
 									}
-									if(!validateText("nguoigiao"))
+									if(!validateText("nguoinhap"))
 									{
 									 return false;
 									}
+						
+									
 					            	submit();
 					                  
 		               }
