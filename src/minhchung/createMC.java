@@ -8,6 +8,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -55,8 +58,9 @@ public class createMC extends HttpServlet {
 	   //     System.out.println(root);
 			Connection connection = null;
 			Statement statement = null;
-		
-		
+			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+			Date date = new Date();
+			String d= dateFormat.format(date);
 			
 			
 			try {
@@ -104,7 +108,7 @@ public class createMC extends HttpServlet {
 				//connect to the database
 				statement = (Statement) connection.createStatement();
 		
-				String query = "update phancong set File='"+loaifile+"', DuongDan='"+link+"' where IDmucmc ='"+idmc+"'; ";
+				String query = "update phancong set NgayNhap='"+d+"', TrangThai='Hoàn thành', File='"+loaifile+"', DuongDan='"+link+"' where IDmucmc ='"+idmc+"'; ";
 				statement.executeUpdate(query);	
 				System.out.println(query);
 				query="update mucmc set Mota='"+mota+"' where IDmucmc ='"+idmc+"';  ";
