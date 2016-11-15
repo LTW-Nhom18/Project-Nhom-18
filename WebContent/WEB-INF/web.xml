@@ -56,7 +56,6 @@
     <servlet-name>loadfile</servlet-name>
     <url-pattern>/loadfile.do</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>t</servlet-name>
     <servlet-class>minhchung.loadmc</servlet-class>
@@ -64,5 +63,14 @@
   <servlet-mapping>
     <servlet-name>t</servlet-name>
     <url-pattern>/loadmc.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>kt</servlet-name>
+    <servlet-class>minhchung.kiemtramc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>kt</servlet-name>
+    <url-pattern>/kiemtramc.do</url-pattern>
   </servlet-mapping>
 </web-app>

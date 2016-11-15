@@ -51,8 +51,8 @@
 			   				<div class="easy-tree">
 									<ul>
 								
-										<jsp:include page="loadmc.do" >
-											<jsp:param name="link" value="chinhsua"/>
+										<jsp:include page="kiemtramc.do" >
+											<jsp:param name="link" value="xem"/>
 											</jsp:include>
 										
 						   			 </ul>
