@@ -31,8 +31,7 @@
 </head>
 
 <body>
-   
-
+ 			
             
             <div class="row">
                  <!--  page header -->
@@ -60,7 +59,7 @@
 													<li>Mục minh chứng 1</li>
 													<li>Mục minh chứng 2
 														<ul>
-															<li>Mục minh chứng 2.1</li>
+															<li><span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span> <a href="minhchung/mc1.txt">  Download</a></li>
 															<li>Mục minh chứng 2.2</li>
 														</ul>
 													</li>
@@ -144,7 +143,15 @@
     })(jQuery)
 </script>
 
-	
+
+	<script>
+    (function ($) {
+        function inittree() {
+        	$(easyTree).find('.easy-tree-toolbar .create > button').click();
+        }
+        window.onload = inittree();
+    })(jQuery)
+</script>
 
 
 

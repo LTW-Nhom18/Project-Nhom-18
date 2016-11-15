@@ -48,12 +48,21 @@
     <servlet-name>addmc</servlet-name>
     <url-pattern>/addmc.do</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>loadfile</servlet-name>
     <servlet-class>minhchung.loadfile</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>loadfile</servlet-name>
     <url-pattern>/loadfile.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>t</servlet-name>
+    <servlet-class>minhchung.test</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>t</servlet-name>
+    <url-pattern>/test.do</url-pattern>
   </servlet-mapping>
 </web-app>
