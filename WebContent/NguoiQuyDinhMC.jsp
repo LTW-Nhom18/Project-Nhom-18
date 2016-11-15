@@ -205,71 +205,11 @@
 							<div class="col-md-12" >
 								<div class="easy-tree">
 											<ul>
-								<li>
-					         		 Hoạt động giảng dạy
-						            <ul >
-						                <li >
-						                	  Mục minh chứng 1
-						                    <ul>
-						                        <li>
-									                     Tên: 100% giảng viên dạy đủ số tiết
-								                 </li>
-								                 <li>
-									                      Mô tả: 100% giảng viên lên lớp đúng giờ và dạy đủ số tiết
-								                 </li>
-								                 <li>
-									                      File minh chứng: File văn bản
-								                 </li>
-								                 <li>
-									                     Người nhập: Trưởng khoa CNTT
-								                 </li>
-						                    </ul>
-						                </li>
-						               <li>
-						                	   Mục minh chứng 2
-						                    <ul>
-						                        <li>
-									                      Tên: 90% giảng viên đạt loại giỏi
-								                 </li>
-								                 <li>
-									                      Mô tả: Mỗi khoa phải có tối thiểu 90% giảng viên đủ tiêu chuẩn loại giỏi 
-								                 </li>
-								                 <li>
-									                      File minh chứng: File văn bản
-								                 </li>
-								                 <li>
-									                     Người nhập: Trưởng khoa CNTT
-								                 </li>
-						                    </ul>
-						                </li>
-						            </ul>
-						        </li>
-						        <li>
-						             Công tác xã hội
-						            <ul>
-						                <li>
-						                	 Mục minh chứng 1
-								        </li>
-								        <li>
-						                	  Mục minh chứng 2
-								        </li>
-								        <li>
-						                	   Mục minh chứng 3
-								        </li>
-								    </ul>
-						        </li>
-						        <li>
-						             Hoạt động tư vấn
-						            <ul>
-						                <li>
-						                	  Mục minh chứng 1
-								        </li>
-								        <li>
-						                	>   Mục minh chứng 2
-								        </li>
-	
-								    </ul>
-						        </li>
+								
+										<jsp:include page="loadmc.do" >
+											<jsp:param name="link" value="xem"/>
+											</jsp:include>
+										
 						    </ul>
 
 							</div>

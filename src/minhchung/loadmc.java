@@ -106,7 +106,7 @@ public class loadmc extends HttpServlet {
 					out.println("<ul>");
 					out.println("<li>Tên: "+A.get(u).name+"</li>");
 					out.println("<li>Mô tả: "+A.get(u).mota+" </li>");
-					out.println("<li>File: "+A.get(u).loaifile+"</li> <a href=\"loadfile.do?idmc="+B[i]+"\">  Xem</a>");
+					out.println("<li>File: "+A.get(u).loaifile+"</li> <a href=\"loadfile.do?idmc="+B[i]+"\">Xem minh chứng</a>");
 					out.println("<li>Người nhập: "+A.get(u).nguoinhap+" </li>");
 					out.println("</ul>");
 					out.println("</li>");

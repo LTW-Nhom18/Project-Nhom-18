@@ -52,32 +52,11 @@
 						<div class="panel-body">
 							<div class="col-md-12" >
 								<div class="easy-tree">
-											<ul>
-								
-											<li>Hoạt động giảng dạy
-												<ul>
-													<li>Mục minh chứng 1</li>
-													<li>Mục minh chứng 2
-														<ul>
-															<li><span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span> <a href="minhchung/mc1.txt">  Download</a></li>
-															<li>Mục minh chứng 2.2</li>
-														</ul>
-													</li>
-													<li>Mục minh chứng 3</li>
-												</ul>
-											</li>
-											<li>Công tác xã hội
-												<ul>
-													<li>Mục minh chứng 1</li>
-													<li>Mục minh chứng 2</li>
-												</ul>
-											</li>
-											<li>Hoạt động tư vấn
-												<ul>
-													<li>Mục minh chứng 1</li>
-													<li>Mục minh chứng 2</li>
-												</ul>
-											</li>
+										<ul>
+										<jsp:include page="loadmc.do" >
+											<jsp:param name="link" value="chinhsua"/>
+											</jsp:include>
+										
 											</ul>
 							</div>
 						</div>

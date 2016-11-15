@@ -23,13 +23,24 @@
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
     	<link href="MyCustom.css" rel="stylesheet">
-	<link href="tree.css" rel="stylesheet">
+
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
       <link href="assets/css/main-style.css" rel="stylesheet" />
 
     <!-- Page-Level CSS -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="assets/css/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="css/easyTree.css">
+		<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<link href="assets/js/jquerysctipttop.css" rel="stylesheet" type="text/css">
+		<script src="assets/js/jquery.min.js"></script>
+	<!-- 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>  -->
+		<script src="src/easyTree.js"></script>
 
 </head>
 
@@ -186,75 +197,15 @@
 					<div class ="panel panel-primary">
 						<div class="panel-heading">Cây minh chứng</div>
 						<div class="panel-body">
-			   				<div class="tree">
-							 <ul>
-								<li style="color: rgb(255, 0, 0)">
-					            <span><i class="glyphicon glyphicon-folder-open"></i>    Hoạt động giảng dạy</span> 
-						            <ul>
-						                <li>
-						                	<span><i class= "glyphicon glyphicon-ok" ></i>   100% giảng viên dạy đủ số tiết</span> 
-						                    <ul>
-						                        <li>
-									                  <span><i class="glyphicon glyphicon-pencil"></i>  Tên: 100% giảng viên dạy đủ số tiết</span> 
-								                 </li>
-								                 <li>
-									                  <span><i class="glyphicon glyphicon-pencil"></i>   Mô tả: 100% giảng viên lên lớp đúng giờ và dạy đủ số tiết</span> 
-								                 </li>
-								                 <li>
-									                  <span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span>  <a href="minhchung/mc1.txt">  Download</a>
-								                 </li>
-								                 <li>
-									                  <span><i class="glyphicon glyphicon-user"></i>   Người nhập: Trưởng khoa CNTT</span> 
-								                 </li>
-						                    </ul>
-						                </li>
-						               <li>
-						                	<span><i class="glyphicon glyphicon-ok"></i>   90% giảng viên đạt loại giỏi</span> 
-						                    <ul>
-						                        <li>
-									                  <span><i class="glyphicon glyphicon-pencil"></i>   Tên: 90% giảng viên đạt loại giỏi</span> 
-								                 </li>
-								                 <li>
-									                  <span><i class="glyphicon glyphicon-pencil"></i>   Mô tả: Mỗi khoa phải có tối thiểu 90% giảng viên đủ tiêu chuẩn loại giỏi</span> 
-								                 </li>
-								                 <li>
-									                  <span><i class="glyphicon glyphicon-file"></i>   File minh chứng: File văn bản</span> <a href="minhchung/mc1.txt">  Download</a>
-								                 </li>
-								                 <li>
-									                  <span><i class="glyphicon glyphicon-user"></i>   Người nhập: Trưởng khoa CNTT</span> 
-								                 </li>
-						                    </ul>
-						                </li>
-						            </ul>
-						        </li>
-						        <li>
-						            <span><i class="glyphicon glyphicon-folder-open"></i>    Công tác xã hội</span>
-						            <ul>
-						                <li style="color: rgb(255, 0, 0)">
-						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tổ chức 1 buổi CTXH trong học kỳ</span>  
-								        </li>
-								        <li style="color: rgb(255, 0, 0)">
-						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tổ chức hội thao cấp trường</span> 
-								        </li>
-								        <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   100% giảng viên tham gia hội thao cấp khoa</span> 
-								        </li>
-								    </ul>
-						        </li>
-						        <li>
-						            <span><i class="glyphicon glyphicon-folder-open"></i>    Hoạt động tư vấn</span> 
-						            <ul>
-						                <li style="color: rgb(255, 0, 0)">
-						                	<span><i class= "glyphicon glyphicon-ok" ></i>   Tư vấn chọn chuyên ngành</span> 
-								        </li>
-								        <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Tư vấn hướng nghiệp</span> 
-								        </li>
-	
-								    </ul>
-						        </li>
-						    </ul>
-						</div>
+			   					<div class="easy-tree">
+									<ul>
+								
+										<jsp:include page="loadmc.do" >
+											<jsp:param name="link" value="xem"/>
+											</jsp:include>
+										
+						   			 </ul>
+								</div>
 					</div>
 				</div>
 			</div>
@@ -268,47 +219,28 @@
  </div>
 
 
-    <!-- Core Scripts - Include with every page -->
- 
-    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+      <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="assets/plugins/pace/pace.js"></script>
-    <script src="assets/scripts/siminta.js"></script>
-    <!-- Page-Level Plugin Scripts-->
-    <script src="assets/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="assets/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script> 
 	
-	<script type="text/javascript">
-				$(document).ready(function(){
-					$(function () {
-					    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-	
-					    //hide the child li elements
-					    $('.tree li ul > li').hide();
-					    $('.tree li.parent_li > span').on('click', function (e) {
-					        var children = $(this).parent('li.parent_li').find(' > ul > li');
-					        if (children.is(":visible")) {
-					            children.hide('fast');
-					            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
-					        } else {
-					            children.show('fast');
-					            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
-					        }
-					        e.stopPropagation();
-					    });
-					});
-				});
-	</script>
 	<script language="javascript">
-				
-		
+	
 				function loadtab1() {
 					$('#page-wrapper').load('NguoiKiemTra.jsp');
 					}
 		
 	</script>
+	
+	<script>
+    (function ($) {
+        function init() {
+            $('.easy-tree').EasyTree({
+            	selectable: false,
+            });
+            $('.easy-tree li ul > li').hide();
+        }
+        window.onload = init();
+    })(jQuery)
+</script>
 
 
 </body>
