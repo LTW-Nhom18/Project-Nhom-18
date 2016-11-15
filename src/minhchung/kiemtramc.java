@@ -19,9 +19,9 @@ import com.mysql.jdbc.Statement;
 
 
 public class kiemtramc extends HttpServlet {
-	ArrayList<minhchung> A;
-	int[] B;
-	ArrayList<code> C;
+	ArrayList<minhchung> A; 		// Mảng lưu toàn bộ thông tin cây minh chứng
+	int[] B;	//Mảng lưu các phần tử đang cần xét
+	ArrayList<code> C;	//Mảng lưu code tạo cây
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String link;
@@ -73,12 +73,12 @@ public class kiemtramc extends HttpServlet {
 				if(A.get(j).root==t)
 					n++;
 			}
-			A.get(i).numchild=n;
+			A.get(i).numchild=n; 	//Đếm số con của mỗi mục
 		}
 		
 		
 		B = new int[A.size()];
-		B[0]=1;
+		B[0]=1;	//Đưa gốc vào mảng
 	//	out.println("<li id=\"1\">Minh chứng");
 		code cmd = new code();
 		cmd.id=1;
@@ -90,7 +90,7 @@ public class kiemtramc extends HttpServlet {
 			System.out.println("i = "+i);
 			int m = getchild(i,out);
 			if(m==0)
-				i=i+2;
+				i=i+2; //Xét phần tử con của phần tử i
 			else
 			{
 				Duyet(B[i]);
@@ -126,9 +126,9 @@ public class kiemtramc extends HttpServlet {
 									cmd = new code();
 									cmd.cmd=s;
 									C.add(cmd);
-							A.get(r).numcheck++;
-							A.get(u).numcheck++;
-							 System.out.println(A.get(r).id+"  "+A.get(r).numcheck);
+					//		A.get(r).numcheck++;
+						//	A.get(u).numcheck++;
+							 System.out.println(A.get(u).id+"  "+A.get(u).numcheck);
 						}
 						else
 						{
@@ -155,6 +155,7 @@ public class kiemtramc extends HttpServlet {
 							C.add(cmd);
 							
 						A.get(u).numcheck++;
+						 System.out.println(A.get(u).id+"  "+A.get(r).numcheck);
 						}
 					}
 					else
@@ -185,7 +186,7 @@ public class kiemtramc extends HttpServlet {
 			for(int i=0;i<A.size();i++)
 			{
 				System.out.println("dem so minh chung da hoan thanh");
-				int n=0;
+			
 				int t= A.get(i).id;
 				
 				for(int j=0;j<A.size();j++)
@@ -246,6 +247,7 @@ public class kiemtramc extends HttpServlet {
 		
 	
 	}
+	//Lấy vị trí của id u trong mảng A
 	public int getidA(int u)
 	{
 		for (int i=0;i<A.size();i++)	
@@ -256,12 +258,12 @@ public class kiemtramc extends HttpServlet {
 	}
 	public int getchild(int u,PrintWriter out)
 	{
-		int t,flag=0;
+		int t,flag=0; //flag=1 -> có từ 2 con trở lên
 		String name;
 		for (int i=0;i<A.size();i++)
 		{
-			if (A.get(i).root==B[u])
-				if(!KTdanhdau(i))
+			if (A.get(i).root==B[u])	//Tìm con của mục đang xét
+				if(!KTdanhdau(i))		//Kt xem mục đó duyet xong chưa
 				{
 					t= A.get(i).id;
 					name= A.get(i).name;
@@ -292,8 +294,8 @@ public class kiemtramc extends HttpServlet {
 					flag=1;			
 		}
 		if(flag==1)
-			return 1;
-		return 2;
+			return 1; //thư muc cha đã duyet xong các con
+		return 2; //nhánh trong cùng
 	}
 	public boolean KTdanhdau(int u)
 	{
