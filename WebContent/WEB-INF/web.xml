@@ -59,10 +59,10 @@
   
   <servlet>
     <servlet-name>t</servlet-name>
-    <servlet-class>minhchung.test</servlet-class>
+    <servlet-class>minhchung.loadmc</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>t</servlet-name>
-    <url-pattern>/test.do</url-pattern>
+    <url-pattern>/loadmc.do</url-pattern>
   </servlet-mapping>
 </web-app>

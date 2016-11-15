@@ -65,8 +65,8 @@
 							<div class="col-md-12" >
 									<div class="easy-tree">
 									<ul>
-										<jsp:include page="test.do" >
-											<jsp:param name="user" value="${param.username}"/>
+										<jsp:include page="loadmc.do" >
+											<jsp:param name="link" value="chinhsua"/>
 											</jsp:include>
 									</ul>	
 									

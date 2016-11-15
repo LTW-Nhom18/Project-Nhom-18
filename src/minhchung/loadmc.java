@@ -21,12 +21,14 @@ import com.mysql.jdbc.Statement;
  * Servlet implementation class test
  */
 
-public class test extends HttpServlet {
+public class loadmc extends HttpServlet {
 
 	ArrayList<minhchung> A;
 	int[] B;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String link;
+		link = request.getParameter("link");
 		A= new ArrayList<minhchung>();
 		
 		response.setContentType("text/html;charset=UTF-8");
@@ -64,7 +66,7 @@ public class test extends HttpServlet {
 				 A.add(mc);
 				
 			 }
-			 System.out.println(A.size());
+			 System.out.println(link);
 			
 		 /*	 
 		for (minhchung v : A){
@@ -98,6 +100,8 @@ public class test extends HttpServlet {
 				Duyet(B[i]);
 				if(m==2)
 				{
+					if (!link.contentEquals("chinhsua"))
+					{
 					int u= getidA(B[i]);
 					out.println("<ul>");
 					out.println("<li>Tên: "+A.get(u).name+"</li>");
@@ -106,6 +110,9 @@ public class test extends HttpServlet {
 					out.println("<li>Người nhập: "+A.get(u).nguoinhap+" </li>");
 					out.println("</ul>");
 					out.println("</li>");
+					}
+					else
+						out.println("</li>");
 				}
 				else
 				{
