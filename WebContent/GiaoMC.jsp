@@ -7,7 +7,11 @@
 		user="root" 
 		password=""/>
 	<sql:query var="items"> SELECT * FROM user where IDROLE=1  </sql:query>
-
+<%@ page session="true" %>
+	<% String id=(String)session.getAttribute("id");%>
+	<c:set var="i" value="<%=id %>" />
+	<% String c=(String)session.getAttribute("ten");%>
+	<c:set var="a" value="<%=c %>" />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -167,7 +171,7 @@
                         <a href="NguoiGiaoMC.jsp"  ><i class="fa fa-book fa-fw"></i>Xem cây minh chứng</a>
                     </li>
                      <li class="">
-                        <a href="#" onclick="GiaoMC.jsp" ><i class="fa fa-pencil fa-fw"></i>Phân công nhập minh chứng</a>
+                        <a href="GiaoMC.jsp" ><i class="fa fa-pencil fa-fw"></i>Phân công nhập minh chứng</a>
                     </li>
                      <li class="">
                         <a href="#" onclick="loadKT()"><i class="fa fa-check fa-fw"></i>Kiểm tra mục minh chứng</a>
@@ -191,7 +195,7 @@
                  <!--  page header -->
                 <div class="col-lg-12">
                 	<br>
-                    <h1 class="page-header">XEM CÂY MINH CHỨNG</h1>
+                    <h1 class="page-header">GIAO MINH CHỨNG</h1>
                 </div>
                  <!-- end  page header -->
             </div>
@@ -232,7 +236,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Giao minh chung</h4>
+          <h4 class="modal-title">Giao minh chứng</h4>
         </div>
         <div class="modal-body">
          <form class="form-horizontal" action="giaomc.do" id="myForm" method="post">

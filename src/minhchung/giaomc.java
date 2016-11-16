@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,14 +14,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import minhchung.loadmc.minhchung;
+
 import com.mysql.jdbc.Statement;
 
 public class giaomc extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
+	ArrayList<minhchung> A;
+	int[] B;
+	int[] C;
+	int[] D;
+	int dem;
+	int dem2;
 	String idmc,namenguoinhap,idnguoinhap,deadline;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,16 +33,18 @@ public class giaomc extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		 PrintWriter out = response.getWriter();
+	
+			A= new ArrayList<minhchung>();
 	      
-	        
 	        idmc = request.getParameter("idmc");
 	        idnguoinhap = request.getParameter("nguoinhap");
 	        deadline = request.getParameter("ngayhoanthanh");
-
-	        
+	        int id = Integer.parseInt(idmc);
+	        System.out.println("idmc: "+idmc);
 	        
 	        try {
 				Class.forName("com.mysql.jdbc.Driver");
+				  System.out.println("thanh cong 2");
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -48,23 +55,92 @@ public class giaomc extends HttpServlet {
 			ResultSet result= null;
 
 			try {
-				connection = DriverManager.getConnection("jdbc:mysql://localhost/qlmc","root",""); 
-				//connect to the database
-				statement = (Statement) connection.createStatement();
+				  System.out.println("thanh cong 3");
+				//Tim minh chung con
+				connection = DriverManager.getConnection("jdbc:mysql://localhost/qlmc","root","");
+			statement = (Statement) connection.createStatement();
+		
+				String query = "SELECT * FROM mucmc LEFT JOIN phancong on mucmc.IDmucmc=phancong.IDmucmc;";
+				result = statement.executeQuery(query);	
+				System.out.println("thanh cong 4");
+
+				 while (result.next()) {
+					 
+						minhchung mc = new minhchung();				 
+					 mc.root =result.getInt("IDRoot");
+					 mc.id = result.getInt("IDmucmc");
+					 mc.name = result.getString("TenMucmc");
+					 mc.mota = result.getString("Mota");
+					 mc.nguoinhap = result.getString("NguoiDuocGiao");
+					 mc.loaifile = result.getString("File");
+							 
+					 A.add(mc);
+					
+				 }
+		
+			dem=0;dem2=0;
+			B = new int[A.size()];
+			C= new int[A.size()];
+			D= new int[A.size()];
+			
+			 result= null;
+			query = "SELECT * FROM phancong";
+			result = statement.executeQuery(query);	
+
+			 while (result.next()) {
+				 			 
+				 D[dem2] =result.getInt("IDmucmc");
+				 dem2++;
 				
-				String query = "SELECT * FROM user WHERE ID = '"+idnguoinhap+"'";
+			 }
+			B[0]=id;
+			System.out.println("id: "+id);
+			for (int i=0;i>=0;i--)
+			{
+				int m = getchild(i,out);
+				if(m==0)
+					i=i+2;
+				else
+				{
+					Duyet(B[i]);
+					if(m==2)
+					{
+						
+						int u= getidA(B[i]);						
+						if (KTphancong(B[i]))
+						{
+							System.out.println(A.get(u).mota);
+							C[dem]=B[i];
+							dem++;
+						}						
+						
+					}
+					
+				}
+				
+			}
+				
+			
+				result= null;
+				query = "SELECT * FROM user WHERE ID = '"+idnguoinhap+"'";
 				result = statement.executeQuery(query);			
 				while (result.next()) {
 			        namenguoinhap =result.getNString("NAME");
 				}
 
-				
+				for (int i=0;i<C.length;i++)
+				{
+					if(C[i]!=0)
+					{
 				String create_mc = "INSERT INTO phancong(IDmucmc,NguoiDuocGiao,DuongDan,TrangThai,NgayHoanThanh,NgayNhap,IDnguoiduocgiao,File)"
-						  + "VALUES ('"+idmc+"','"+namenguoinhap+"','','chưa hoàn thành','"+deadline+"','','"+idnguoinhap+"',''); ";
-			       System.out.println(create_mc);
-			//	statement.executeUpdate(create_mc);	
+						  + "VALUES ('"+C[i]+"','"+namenguoinhap+"','','chưa hoàn thành','"+deadline+"',NULL,'"+idnguoinhap+"',''); ";
+				statement.executeUpdate(create_mc);	
+				System.out.println(create_mc);
+					}
+				}
+			//	
 				
-			//	 response.sendRedirect("NguoiGiaoMC.jsp");
+				 response.sendRedirect("NguoiGiaoMC.jsp");
 				
 			
 				
@@ -73,5 +149,79 @@ public class giaomc extends HttpServlet {
 				e.printStackTrace();
 			}
 	}
-
+	
+	public boolean KTphancong(int u)
+	{
+		for (int i=0;i<D.length;i++)
+		{
+			if (D[i]==u)
+				return false;
+		}
+		return true;
+	}
+	public int getidA(int u)
+	{
+		for (int i=0;i<A.size();i++)	
+			if(A.get(i).id==u)
+				return i;
+		return 0;
+		
+	}
+	public int getchild(int u,PrintWriter out)
+	{
+		int t,flag=0;
+		String name;
+		for (int i=0;i<A.size();i++)
+		{
+			if (A.get(i).root==B[u])
+				if(!KTdanhdau(i))
+				{
+					t= A.get(i).id;
+					name= A.get(i).name;
+					if (flag==0)
+					{
+					//	out.println("<ul>");
+					//	out.println("<li id=\""+t+"\" value=\""+name+"\">"+name+"");
+						
+					}						
+					else
+					{
+					//	out.println("<li id=\""+t+"\" value=\""+name+"\">"+name+"");
+					}
+					B[u+1]=t;
+					return 0;
+						
+				}
+				else 
+					flag=1;			
+		}
+		if(flag==1)
+			return 1;
+		return 2;
+	}
+	public boolean KTdanhdau(int u)
+	{
+		if(A.get(u).mark==1)
+			return true;
+		return false;
+	}
+	public void Duyet(int u)
+	{
+		for (int i=0;i<A.size();i++)
+		{
+			if(A.get(i).id==u)
+				A.get(i).mark=1;
+		}
+	}
+	public class minhchung
+	{
+		int id=0;
+		int root=0;
+		String name="";
+		String mota="";
+		String nguoinhap="";
+		String loaifile="";
+		int mark=0;
+	
+	}
 }
