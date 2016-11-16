@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    	<%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
+    	<sql:setDataSource 	driver="com.mysql.jdbc.Driver"    	
+		url="jdbc:mysql://localhost/qlmc" 
+		user="root" 
+		password=""/>
+	<sql:query var="items"> SELECT * FROM user where IDROLE=1  </sql:query>
+	<%@ page session="true" %>
+	<% String c=(String)session.getAttribute("ten");%>
+	<c:set var="a" value="<%=c %>" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -80,19 +90,23 @@
           <h4 class="modal-title">Giao minh chung</h4>
         </div>
         <div class="modal-body">
-         <form class="form-horizontal" action="NguoiGiaoMC.jsp" id="myForm">
+         <form class="form-horizontal" action=" id="myForm">
          <fieldset>
            <div class="form-group">
              <label class="control-label col-md-4" for="namemc">Mục minh chứng: </label>
              <div class="col-md-7">
-               <input type="text" class="form-control input-lg" id="namemc" placeholder="Nhập tên mục minh chứng"  readonly="readonly">
+               <input type="text" class="form-control input-lg" name="namemc" id="namemc" placeholder="Nhập tên mục minh chứng"  readonly="readonly">
              </div>
            </div>
            <div class="form-group">
              <label class="control-label col-md-4" for="nguoinhap">Người được giao: </label>
-             <div class="col-md-7"> 
-               <input type="text" class="form-control input-lg" id="nguoinhap" placeholder="Nhập họ và tên người được giao" required="required">
-             </div>
+             <div class="col-sm-7" id="nguoinhap" >
+				 <select  name="role" class="form-control">
+				  <c:forEach items="${items.rows}" var="col">	
+							<option  name="nguoinhap" value="${col.NAME}">${col.NAME}</option>
+					</c:forEach>		
+				</select>
+			</div>
            </div>
            <button type="submit" hidden="true" name="btnsubmit" id="btnsubmit"></button>
            </fieldset>
@@ -113,7 +127,7 @@
   
    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-   <script type="text/javascript">
+  <script type="text/javascript">
    function validateText(id)
 	 {
 		 if($("#"+id).val()==null ||$("#"+id).val()=="")
@@ -141,6 +155,7 @@
 					var retVal = confirm("Lưu thay đổi?");
 					if( retVal == true )
 		               {
+						
 					            	if(!validateText("namemc"))
 									{
 									 return false;
@@ -171,7 +186,7 @@
 				});
 				
 			});
-			</script>
+			</script> 
 	<script type="text/javascript">
 					 function submit()
 					 {
@@ -193,7 +208,7 @@
 					  xhttp.open("GET", "KiemTraMinhChung.jsp", true);
 					  xhttp.send();
 					}
-				
+			
 		</script>
 <script>
     (function ($) {
@@ -214,3 +229,4 @@
 
 
 </html>
+
