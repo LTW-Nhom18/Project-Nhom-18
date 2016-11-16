@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hệ thống quản lý minh chứng đảm bảo chất lượng - SPKT</title>
     <!-- Core CSS - Include with every page -->
@@ -11,7 +11,7 @@
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
     	<link href="MyCustom.css" rel="stylesheet">
-	<link href="tree.css" rel="stylesheet">
+
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
       <link href="assets/css/main-style.css" rel="stylesheet" />
@@ -19,6 +19,17 @@
     <!-- Page-Level CSS -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 
+		
+		<link rel="stylesheet" href="css/easyTree.css">
+		<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<link href="assets/js/jquerysctipttop.css" rel="stylesheet" type="text/css">
+		<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/css/bootstrap.min.js"></script>
+		<script src="src/easyTree2.js"></script>
+
+
+	
 </head>
 
 <body>
@@ -35,55 +46,73 @@
             <div class="row">
                 <div class="col-lg-12">
                     <!-- Advanced Tables -->
-                   <div class="col-md-5 col-md-offset-3" >
-						<div class="panel panel-primary">
-								<div class="panel-heading">Giao minh chứng</div>
-								<div class="panel-body">
-									<form class="form-horizontal" action="NguoiGiaoMC.jsp" id="myForm">
-									<fieldset>
-									  <div class="form-group">
-									    <label class="control-label col-md-4" for="namemc">Mục minh chứng: </label>
-									    <div class="col-md-7">
-									      <input type="text" class="form-control input-lg" id="namemc" placeholder="Nhập tên mục minh chứng" required="required">
-									    </div>
-									  </div>
-									  <div class="form-group">
-									    <label class="control-label col-md-4" for="nguoinhap">Người được giao: </label>
-									    <div class="col-md-7"> 
-									      <input type="text" class="form-control input-lg" id="nguoinhap" placeholder="Nhập họ và tên người được giao" required="required">
-									    </div>
-									  </div>
-									  <button type="submit" hidden="true" name="btnsubmit" id="btnsubmit"></button>
-									  </fieldset>
-									</form>
-								</div>
-								<div class="panel-footer">
-									<form class="form-inline col-md-offset-8 " >
-										<button type="button" class="btn btn-primary" id="btnXacnhan" >Xác nhận</button>
-										<button style="margin-left:10px;" id="btnHuy" type="button" class="btn btn-primary">Hủy</button>
-									</form>
-								</div>
+                    <div class="panel-group" id="accordion">
+					<div class ="panel panel-primary">
+						<div class="panel-heading">Cây minh chứng</div>
+						<div class="panel-body">
+			   				<div class="easy-tree">
+									<ul>
+								
+										<jsp:include page="loadmc.do" >
+											<jsp:param name="link" value="chinhsua"/>
+											</jsp:include>
 										
-						</div>
+						   			 </ul>
+								</div>
 					</div>
+				</div>
+			</div>
+				
                     <!--End Advanced Tables -->
-               </div>
+                </div>
             </div>
    
             
                     <!--  end  Context Classes  -->
-        
+     <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Giao minh chung</h4>
+        </div>
+        <div class="modal-body">
+         <form class="form-horizontal" action="NguoiGiaoMC.jsp" id="myForm">
+         <fieldset>
+           <div class="form-group">
+             <label class="control-label col-md-4" for="namemc">Mục minh chứng: </label>
+             <div class="col-md-7">
+               <input type="text" class="form-control input-lg" id="namemc" placeholder="Nhập tên mục minh chứng"  readonly="readonly">
+             </div>
+           </div>
+           <div class="form-group">
+             <label class="control-label col-md-4" for="nguoinhap">Người được giao: </label>
+             <div class="col-md-7"> 
+               <input type="text" class="form-control input-lg" id="nguoinhap" placeholder="Nhập họ và tên người được giao" required="required">
+             </div>
+           </div>
+           <button type="submit" hidden="true" name="btnsubmit" id="btnsubmit"></button>
+           </fieldset>
+         </form>
+        </div>
+        <div class="modal-footer">
+          <button id="btnXacnhan" type="button" class="btn btn-success" data-dismiss="modal">Xác nhận</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+      
 
 
     <!-- Core Scripts - Include with every page -->
   
-    <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
+   <script src="assets/plugins/bootstrap/bootstrap.min.js"></script>
     <script src="assets/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="assets/plugins/pace/pace.js"></script>
-    <script src="assets/scripts/siminta.js"></script>
-    <!-- Page-Level Plugin Scripts-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
    <script type="text/javascript">
    function validateText(id)
 	 {
@@ -107,7 +136,7 @@
 			 }
 	 }
 			$(document).ready(function(){
-				
+				  
 				$('#btnXacnhan').on('click',function(){
 					var retVal = confirm("Lưu thay đổi?");
 					if( retVal == true )
@@ -166,6 +195,19 @@
 					}
 				
 		</script>
+<script>
+    (function ($) {
+        function init() {
+            $('.easy-tree').EasyTree({
+            	selectable: false,
+            });
+            $('.easy-tree li ul > li').hide();
+        }
+        
+        window.onload = init();
+    
+    })(jQuery)
+</script>
 
 
 </body>
