@@ -99,10 +99,10 @@ public class kiemtramc extends HttpServlet {
 					if (!link.contentEquals("chinhsua"))
 					{
 						 System.out.println("m=2");
-					int u= getidA(B[i]);
-					int r= getidA(A.get(u).root);
-					 System.out.println("tim root");
-					 System.out.println(A.get(u).mota);
+						int u= getidA(B[i]);
+						int r= getidA(A.get(u).root);
+						 System.out.println("tim root");
+						 System.out.println(A.get(u).mota);
 						if (!A.get(u).mota.isEmpty())
 						{
 							 System.out.println("notempty");
@@ -160,11 +160,33 @@ public class kiemtramc extends HttpServlet {
 					}
 					else
 					{  
-						
+						/*
 						cmd = new code();
 						cmd.cmd="</li>";
 						C.add(cmd);
 					//	out.println("</li>");
+					 */
+						
+							int u= getidA(B[i]);
+					
+							if (!A.get(u).mota.isEmpty())
+							{
+							
+								 cmd = new code();
+									cmd.cmd="</li>";
+									C.add(cmd);
+					
+							}
+							else
+							{
+								 
+								 cmd = new code();
+									cmd.cmd="</li>";
+									C.add(cmd);
+								
+							A.get(u).numcheck++;
+						
+							}
 					}
 				}
 				else

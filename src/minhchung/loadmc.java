@@ -88,7 +88,7 @@ public class loadmc extends HttpServlet {
 		
 		B = new int[A.size()];
 		B[0]=1;
-		out.println("<li id=\"1\">Minh chứng");
+		out.println("<li id=\"1\" value=\"Minh chứng\">Minh chứng");
 //		out.println("<ul>");
 		for (int i=0;i>=0;i--)
 		{
@@ -151,12 +151,12 @@ public class loadmc extends HttpServlet {
 					if (flag==0)
 					{
 						out.println("<ul>");
-						out.println("<li id=\""+t+"\">"+name+"");
+						out.println("<li id=\""+t+"\" value=\""+name+"\">"+name+"");
 						
 					}						
 					else
 					{
-						out.println("<li id=\""+t+"\">"+name+"");
+						out.println("<li id=\""+t+"\" value=\""+name+"\">"+name+"");
 					}
 					B[u+1]=t;
 					return 0;

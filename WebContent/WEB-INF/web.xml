@@ -64,7 +64,6 @@
     <servlet-name>t</servlet-name>
     <url-pattern>/loadmc.do</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>kt</servlet-name>
     <servlet-class>minhchung.kiemtramc</servlet-class>
@@ -72,5 +71,14 @@
   <servlet-mapping>
     <servlet-name>kt</servlet-name>
     <url-pattern>/kiemtramc.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>giao</servlet-name>
+    <servlet-class>minhchung.giaomc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>giao</servlet-name>
+    <url-pattern>/giaomc.do</url-pattern>
   </servlet-mapping>
 </web-app>

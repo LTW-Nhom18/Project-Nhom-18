@@ -156,7 +156,7 @@
                         <a href="NguoiGiaoMC.jsp"  ><i class="fa fa-book fa-fw"></i>Xem cây minh chứng</a>
                     </li>
                      <li class="">
-                        <a href="#" onclick="loadGMC()" ><i class="fa fa-pencil fa-fw"></i>Phân công nhập minh chứng</a>
+                        <a href="#" onclick="GiaoMC.jsp" ><i class="fa fa-pencil fa-fw"></i>Phân công nhập minh chứng</a>
                     </li>
                      <li class="">
                         <a href="#" onclick="loadKT()"><i class="fa fa-check fa-fw"></i>Kiểm tra mục minh chứng</a>

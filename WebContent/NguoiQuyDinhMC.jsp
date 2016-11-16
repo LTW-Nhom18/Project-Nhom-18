@@ -31,8 +31,6 @@
     <!-- Page-Level CSS -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
 
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<script src="assets/css/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="css/easyTree.css">
 		<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
