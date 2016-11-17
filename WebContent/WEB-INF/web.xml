@@ -72,7 +72,6 @@
     <servlet-name>kt</servlet-name>
     <url-pattern>/kiemtramc.do</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>giao</servlet-name>
     <servlet-class>minhchung.giaomc</servlet-class>

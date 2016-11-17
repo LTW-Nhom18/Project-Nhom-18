@@ -354,6 +354,10 @@
 					    $("#btnsubmit").click();
 					    
 					 }
+
+						function loadtab2() {
+							$('#page-wrapper').load('QLMucMC.jsp');
+							}
 					 function search() {
 							//	document.getElementById("myTable").setAttribute("aria-hidden", "true");
 								$(myTable).attr('aria-hidden', 'false').show();

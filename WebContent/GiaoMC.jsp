@@ -345,7 +345,8 @@
 	<script type="text/javascript">
 					 function submit()
 					 {
-					    $("#btnsubmit").click();
+					   $("#btnsubmit").click();
+					  
 					    
 					 }
 		</script>
@@ -365,7 +366,10 @@ $(document).ready(function(){
 
 
 })
-		
+		function loadKT()
+				{
+					$('#page-wrapper').load('KiemTraMinhChung.jsp');
+				}
 				
 				function loadtab3() {
 					  var xhttp = new XMLHttpRequest();
