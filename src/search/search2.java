@@ -31,6 +31,7 @@ public class search2 extends HttpServlet {
 	      
 		 System.out.println("thanh cong 1");
 		 s=new String[5];
+		 s[0]="";
 		 i=0;
 	        namemc = request.getParameter("tenmc");
 	        mota = request.getParameter("mota");
@@ -85,8 +86,9 @@ public class search2 extends HttpServlet {
 				String query ="SELECT * FROM mucmc inner join phancong on mucmc.IDmucmc=phancong.IDmucmc where";
 				 System.out.println("thanh cong 6");
 				 String query2="";
+				 System.out.println("thanh cong 7");
 				if(i==0)
-				 query2 = query2+"TenMucmc = '###'";
+				 query2 = " TenMucmc = '###';";
 				else
 					if(i==1)
 						query2 = query2+s[0];
