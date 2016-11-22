@@ -30,7 +30,7 @@ CREATE TABLE `mucmc` (
   `Mota` varchar(200) DEFAULT NULL,
   `NguoiTao` varchar(50) DEFAULT NULL,
   `NgayTao` date DEFAULT NULL,
-  `IDRoot` varchar(45) DEFAULT NULL,
+  `IDRoot` int(11) DEFAULT NULL,
   PRIMARY KEY (`IDmucmc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,7 +41,7 @@ CREATE TABLE `mucmc` (
 
 LOCK TABLES `mucmc` WRITE;
 /*!40000 ALTER TABLE `mucmc` DISABLE KEYS */;
-INSERT INTO `mucmc` VALUES (1,'Minh Chứng','','Nguyễn Thanh Bình','2016-10-15',NULL),(2,'1. MTCL','','Nguyễn Thanh Bình','2016-10-15','1'),(3,'2016','','Nguyễn Thanh Bình','2016-10-15','2'),(4,'HKI','','Nguyễn Thanh Bình','2016-10-15','3'),(5,'Hoạt động giảng dạy','','Nguyễn Thanh Bình','2016-10-15','4'),(6,'100% giảng viên dạy đủ số tiết','100% giảng viên lên lớp đúng giờ và dạy đủ số tiết','Nguyễn Thanh Bình','2016-10-15','5'),(7,'90% giảng viên đạt loại giỏi','Mỗi khoa phải có tối thiểu 90% giảng viên đủ tiêu chuẩn loại giỏi','Nguyễn Thanh Bình','2016-10-17','5'),(8,'Hoạt động CTXH','','Nguyễn Thanh Bình','2016-10-18','4'),(9,'Tổ chức mùa hè xanh','Tổ chức hoạt động mùa hè xanh trong học kì hè năm học 2015-2016','Nguyễn Thanh Bình','2016-10-18','8'),(10,'2. QT ISO','','Nguyễn Thanh Bình','2016-10-25','1'),(11,'2016','','Nguyễn Thanh Bình','2016-10-25','10'),(12,'HKI','','Nguyễn Thanh Bình','2016-10-25','11'),(13,'Hoạt động NCKH','','Nguyễn Thanh Bình','2016-10-25','12'),(14,'Tham gia nghiên cứu khoa học','Mỗi GV phải tham gia ít nhất một đề tài nghiên cứu khoa học cấp khoa trở lên','Nguyễn Thanh Bình','2016-10-25','13'),(15,'HKII',NULL,'Nguyễn Thanh Bình','2016-10-25','11');
+INSERT INTO `mucmc` VALUES (1,'Minh Chứng','','Nguyễn Thanh Bình','2016-10-15',NULL),(2,'1. MTCL','','Nguyễn Thanh Bình','2016-10-15',1),(3,'2016','','Nguyễn Thanh Bình','2016-10-15',2),(4,'HKI','','Nguyễn Thanh Bình','2016-10-15',3),(5,'Hoạt động giảng dạy','','Nguyễn Thanh Bình','2016-10-15',4),(6,'100% giảng viên dạy đủ số tiết','test','Nguyễn Thanh Bình','2016-10-15',5),(7,'90% giảng viên đạt loại giỏi',' cccccc','Nguyễn Thanh Bình','2016-10-17',5),(8,'Hoạt động CTXH','','Nguyễn Thanh Bình','2016-10-18',4),(9,'Tổ chức mùa hè xanh','to chuc mua he xanh','Nguyễn Thanh Bình','2016-10-18',8),(10,'2. QT ISO','','Nguyễn Thanh Bình','2016-10-25',1),(11,'2016','','Nguyễn Thanh Bình','2016-10-25',10),(12,'HKI','','Nguyễn Thanh Bình','2016-10-25',11),(13,'Hoạt động NCKH','','Nguyễn Thanh Bình','2016-10-25',12),(14,'Tham gia nghiên cứu khoa học','','Nguyễn Thanh Bình','2016-10-25',13),(15,'HKII','','Nguyễn Thanh Bình','2016-10-25',11),(16,'Tham gia nghiên cứu khoa học','tham gia nghiên cứu khoa học HK2','Nguyễn Thanh Bình','2016-10-25',15);
 /*!40000 ALTER TABLE `mucmc` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +55,7 @@ DROP TABLE IF EXISTS `phancong`;
 CREATE TABLE `phancong` (
   `IDmucmc` int(11) NOT NULL,
   `NguoiDuocGiao` varchar(50) DEFAULT NULL,
-  `DuongDan` varchar(100) DEFAULT NULL,
+  `DuongDan` varchar(200) DEFAULT NULL,
   `TrangThai` varchar(20) DEFAULT NULL,
   `NgayHoanThanh` date DEFAULT NULL,
   `NgayNhap` date DEFAULT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE `phancong` (
 
 LOCK TABLES `phancong` WRITE;
 /*!40000 ALTER TABLE `phancong` DISABLE KEYS */;
-INSERT INTO `phancong` VALUES (6,'Trần Thị D','','Chưa hoàn thành','2016-10-29','2016-10-20','TTD@gmail.com','Văn bản'),(7,'Trần Thị D','','Chưa hoàn thành','2016-10-30','2016-10-21','TTD@gmail.com','Hình ảnh'),(9,'Bùi Văn Mạnh','','Chưa hoàn thành','2016-10-31','2016-10-23','BVM@gmail.com','Văn bản'),(14,'Bùi Văn Mạnh','','Chưa hoàn thành','2016-10-31','2016-10-25','BVM@gmail.com','Hình ảnh');
+INSERT INTO `phancong` VALUES (6,'Trần Thị D','minhchung/cvf.jpg','Hoàn thành','2016-10-29','2016-11-15','TTD@gmail.com','Image'),(7,'Trần Thị D','minhchung/Source.zip','Hoàn thành','2017-01-20','2016-11-21','TTD@gmail.com','Document'),(9,'Bùi Văn Mạnh','minhchung/bcd.jpg','Hoàn thành','2016-10-31','2016-11-21','BVM@gmail.com','Image'),(14,'Bùi Văn Mạnh','','chưa hoàn thành','2016-10-31',NULL,'BVM@gmail.com',''),(16,'Trần Thị D','minhchung/Source.txt','Hoàn thành','2017-01-20','2016-11-21','TTD@gmail.com','Document');
 /*!40000 ALTER TABLE `phancong` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,4 +120,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-07 15:09:07
+-- Dump completed on 2016-11-22 21:49:48

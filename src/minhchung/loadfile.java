@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,13 +26,16 @@ public class loadfile extends HttpServlet {
 		System.setProperty("file.encoding","UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
+		
 		 PrintWriter out = response.getWriter();
 		 String root = getServletContext().getRealPath("/");
 		 idmc = request.getParameter("idmc");
 		 System.out.println(idmc);
+		 
 		 Connection connection = null;
 			Statement statement = null;
 			ResultSet result= null;
+			
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost/qlmc","root",""); 
@@ -41,7 +45,6 @@ public class loadfile extends HttpServlet {
 			result = statement.executeQuery(query);		
 			System.out.print("Thanh cong");
 	
-			 HttpSession session = request.getSession();
 		
 			   
 			 while (result.next()) {
@@ -54,13 +57,7 @@ public class loadfile extends HttpServlet {
 			 }
 			
 			 System.out.println(loaifile+" "+duongdan);
-		//		 response.sendRedirect("loadfile.jsp?loai="+loaifile+"&path="+duongdan+"&root="+root);
-			 /*
-				request.setAttribute("loai",loaifile);
-				request.setAttribute("path",duongdan);
-	        	RequestDispatcher rd = request.getRequestDispatcher("loadfile.jsp");
-	        	rd.forward(request,response);
-	        */	
+	
 			
 			out.println("<html><body>");
 			 if(duongdan==null || duongdan=="")
@@ -71,7 +68,7 @@ public class loadfile extends HttpServlet {
 			 }
 			if(loaifile.contentEquals("Image"))
 			{
-			//	out.println("<image src="<%=request.getContextPath() %>/${a}" />");
+	
 				String s= "<image src=\""+request.getContextPath()+"/"+duongdan+"\" />";
 				out.println(s);
 				System.out.println(s);
@@ -89,21 +86,30 @@ public class loadfile extends HttpServlet {
 				else
 				{
 					 String filename = duongdan;
-	     		  	filename= filename.substring(10);
-	     		  
-						  String filepath = root+"\\minhchung\\";   
-							System.out.print("path "+filepath+filename);
-						  response.setContentType("APPLICATION/OCTET-STREAM");   
+	     		 // 	filename= filename.substring(10);
+	     		  	response.sendRedirect(request.getContextPath()+"/"+duongdan);
+					//	  String filepath = root+"minhchung\\";   
+					//		System.out.print("path "+filepath+filename);
+							/*
+						  response.setContentType("application/octet-stream");   
 						  response.setHeader("Content-Disposition","attachment; filename=\"" + filename + "\"");   
 						  
 						  java.io.FileInputStream fileInputStream=new java.io.FileInputStream(filepath + filename);  
-						            
+						  						            
 						  int i;   
-						  while ((i=fileInputStream.read()) != -1) {  
-						    out.write(i);   
-						  }   
+						   while ((i=fileInputStream.read()) != -1) {  
+						  		out.write(i);   
+						  	}   
 						  fileInputStream.close(); 
-				
+/*
+						  ServletOutputStream sos = response.getOutputStream();
+						  
+						    int k = 0;
+						    while( (k = fileInputStream.read()) != -1 )
+						    {
+						      sos.write(k);	      
+						    }
+							*/
 				}
 			out.println("</body></html>");
 		

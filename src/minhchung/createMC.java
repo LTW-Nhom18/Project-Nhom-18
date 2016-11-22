@@ -38,7 +38,7 @@ public class createMC extends HttpServlet {
 	  	String location="";
 	  	String ms="";
 	  	String link="";
-	  
+	  	long maxSize = 1024*10*1024;
 	  	 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.setProperty("file.encoding","UTF-8");
@@ -95,11 +95,18 @@ public class createMC extends HttpServlet {
 		            	
 		           
 	                String fileName = FilenameUtils.getName(item.getName());
+	                long sizeInBytes = item.getSize();
 	                System.out.println(fileName);
 	                if(item.getFieldName().equals("fx"))
 	                 {
 	                	 file_name=fileName;
 	                 }
+	                /*
+	                if(sizeInBytes>maxSize)
+	                {
+	                	out.print("File vượt quá giới hạn quy định");
+	                }
+	                */
 				Class.forName("com.mysql.jdbc.Driver");
 				connection = DriverManager.getConnection("jdbc:mysql://localhost/qlmc","root",""); 
 				 location=root+"minhchung/";
