@@ -39,9 +39,11 @@
 		<script src="assets/js/jquery.min.js"></script>
 	<!-- 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>  -->
 		<script src="src/easyTree.js"></script>
+		
 </head>
 
 <body>
+
     <!--  wrapper -->
     <div id="wrapper">
         <!-- navbar top -->
@@ -164,7 +166,7 @@
 
                     
                              <li class="">
-                        <a href="NguoiQuyDinhMC.jsp?ten=${a}"><i class="fa fa-book fa-fw"></i>Quản lý cây minh chứng</a>
+                        <a href="NguoiQuyDinhMC.jsp"><i class="fa fa-book fa-fw"></i>Quản lý cây minh chứng</a>
                     </li>
                      <li class="">
                         <a href="#" onclick="loadtab2();"><i class="fa fa-file fa-fw"></i>Quản lý mục minh chứng</a>
@@ -238,7 +240,8 @@
 <script language="javascript">
 				function update()
 				{
-					$('#page-wrapper').load('ChinhSuaCayMC.jsp');
+				//	$('#page-wrapper').load('ChinhSuaCayMC.jsp');
+					window.location.href="ChinhSuaCayMC.jsp";
 				
 				}
 	

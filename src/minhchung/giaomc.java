@@ -21,11 +21,11 @@ import com.mysql.jdbc.Statement;
 public class giaomc extends HttpServlet {
 
 	ArrayList<minhchung> A;
-	int[] B;
-	int[] C;
-	int[] D;
-	int dem;
-	int dem2;
+	int[] B;	//Lưu các phần tử đang duyệt
+	int[] C;	//Lưu các minh chứng con sẽ giao
+	int[] D;	//Lưu các minh chứng đã được giao
+	int dem;	//biến đếm cho C
+	int dem2;	//biến đếm cho D
 	String idmc,namenguoinhap,idnguoinhap,deadline;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -79,9 +79,9 @@ public class giaomc extends HttpServlet {
 				 }
 		
 			dem=0;dem2=0;
-			B = new int[A.size()];
-			C= new int[A.size()];
-			D= new int[A.size()];
+			B = new int[A.size()]; 	//Lưu các phần tử đang duyệt
+			C= new int[A.size()];	//Lưu các minh chứng con sẽ giao
+			D= new int[A.size()];	//Lưu các minh chứng đã được giao
 			
 			 result= null;
 			query = "SELECT * FROM phancong";
@@ -93,7 +93,7 @@ public class giaomc extends HttpServlet {
 				 dem2++;
 				
 			 }
-			B[0]=id;
+			B[0]=id;	//Xét gốc là minh chứng được giao
 			System.out.println("id: "+id);
 			for (int i=0;i>=0;i--)
 			{

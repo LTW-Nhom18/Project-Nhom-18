@@ -8,29 +8,35 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import minhchung.kiemtramc.minhchung;
 
 import com.mysql.jdbc.Statement;
+
 /**
- * Servlet implementation class test
+ * Servlet implementation class xoacay
  */
-
-public class loadmc extends HttpServlet {
-
+@WebServlet("/xoacay")
+public class xoacay extends HttpServlet {
 	ArrayList<minhchung> A;
 	int[] B;
+	int[] C;
+	int dem;
+	String idmc;
+	int id;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String link;
 		link = request.getParameter("link");
 		A= new ArrayList<minhchung>();
-		
+		idmc= request.getParameter("idmc");
+		id= Integer.parseInt(idmc);
+
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		 PrintWriter out = response.getWriter();
@@ -38,10 +44,14 @@ public class loadmc extends HttpServlet {
 		Statement statement = null;
 		ResultSet result= null;
 		
-	
+		if(id==1)
+		{
+			response.sendRedirect("ChinhSuaCayMC.jsp");
+			return;
+		}
 		
-		
-		System.out.println("khoi tao");
+		dem=1;
+
 	
 
 		try{
@@ -58,38 +68,17 @@ public class loadmc extends HttpServlet {
 					minhchung mc = new minhchung();				 
 				 mc.root =result.getInt("IDRoot");
 				 mc.id = result.getInt("IDmucmc");
-				 mc.name = result.getString("TenMucmc");
-				 mc.mota = result.getString("Mota");
-				 mc.nguoinhap = result.getString("NguoiDuocGiao");
-				 mc.loaifile = result.getString("File");
+
 						 
 				 A.add(mc);
 				
 			 }
 			 System.out.println(link);
-			
-		 /*	 
-		for (minhchung v : A){
 		
-				 out.println("<p>"+v.id+"</p>");
-				 out.println("<p>"+v.nguoinhap+"</p>");
-				 out.println("<p>"+v.loaifile+"</p>");
-				 out.println("<p>"+v.mark+"</p>");
-				 out.println("<br>");
-			    }
-			
-			 
-			 
-			 for(int i = 0; i < arr.size(); i++) {   
-			//	 System.out.println("In");
-				    out.println(arr.get(i).name);
-				} 
-			*/		
-		
+		C = new int[A.size()+1];
 		B = new int[A.size()];
-		B[0]=1;
-		out.println("<li id=\"1\" value=\"Minh chứng\">Minh chứng");
-//		out.println("<ul>");
+		B[0]=id;
+		C[0]=id;
 		for (int i=0;i>=0;i--)
 		{
 			int m = getchild(i,out);
@@ -98,27 +87,32 @@ public class loadmc extends HttpServlet {
 			else
 			{
 				Duyet(B[i]);
-				if(m==2)
-				{
-					if (!link.contentEquals("chinhsua"))
-					{
-					int u= getidA(B[i]);
-					out.println("<ul>");
-					out.println("<li>Tên: "+A.get(u).name+"</li>");
-					out.println("<li>Mô tả: "+A.get(u).mota+" </li>");
-					out.println("<li>File: "+A.get(u).loaifile+"</li> <a href=\"loadfile.do?idmc="+B[i]+"\">Xem minh chứng</a>");
-					out.println("<li>Người nhập: "+A.get(u).nguoinhap+" </li>");
-					out.println("</ul>");
-					out.println("</li>");
-					}
-					else
-						out.println("</li>");
-				}
-				else
-				{
-					out.println("</ul>");
-					out.println("</li>");
-				}
+			
+			}
+		}
+		/*
+		System.out.println("mang C: ");
+		for (int i=0;i<C.length;i++)
+		{
+			System.out.print(C[i]);
+		}	
+		*/
+		for (int i=0;i<C.length;i++)
+		{
+			if(C[i]==0)
+			{
+				response.sendRedirect("ChinhSuaCayMC.jsp");
+				return;
+			}
+			else
+			{
+				String delete ="DELETE FROM mucmc WHERE IDmucmc='"+C[i]+"';";
+				statement.executeUpdate(delete);
+				String delete1 ="DELETE FROM phancong WHERE IDmucmc='"+C[i]+"';";
+				statement.executeUpdate(delete1);
+				System.out.print("Thanh cong: ");
+				
+
 			}
 		}
 		
@@ -139,25 +133,16 @@ public class loadmc extends HttpServlet {
 	public int getchild(int u,PrintWriter out)
 	{
 		int t,flag=0;
-		String name;
 		for (int i=0;i<A.size();i++)
 		{
 			if (A.get(i).root==B[u])
 				if(!KTdanhdau(i))
 				{
 					t= A.get(i).id;
-					name= A.get(i).name;
-					if (flag==0)
-					{
-						out.println("<ul>");
-						out.println("<li id=\""+t+"\" value=\""+name+"\">"+name+"");
-						
-					}						
-					else
-					{
-						out.println("<li id=\""+t+"\" value=\""+name+"\">"+name+"");
-					}
+					
 					B[u+1]=t;
+					C[dem]=t;
+					dem++;
 					return 0;
 						
 				}
@@ -186,15 +171,11 @@ public class loadmc extends HttpServlet {
 	{
 		int id=0;
 		int root=0;
-		String name="";
-		String mota="";
-		String nguoinhap="";
-		String loaifile="";
 		int mark=0;
 	
 	}
 
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
