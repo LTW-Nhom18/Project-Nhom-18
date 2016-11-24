@@ -56,7 +56,7 @@
                 }
             });
 
-            $(easyTree).find('li:has(ul)').addClass('parent_li').find(' > span').attr('title', options.i18n.collapseTip);
+            $(easyTree).find('li:has(ul)').addClass('parent_li');
 
             // add easy tree toolbar dom
             if (options.deletable || options.editable || options.addable) {
@@ -142,14 +142,12 @@
                 var children = $(this).parent('li.parent_li').find(' > ul > li');
                 if (children.is(':visible')) {
                     children.hide('fast');
-                    $(this).attr('title', options.i18n.expandTip)
-                        .find(' > span.glyphicon')
+                    $(this).find(' > span.glyphicon')
                         .addClass('glyphicon-folder-close')
                         .removeClass('glyphicon-folder-open');
                 } else {
                     children.show('fast');
-                    $(this).attr('title', options.i18n.collapseTip)
-                        .find(' > span.glyphicon')
+                    $(this).find(' > span.glyphicon')
                         .addClass('glyphicon-folder-open')
                         .removeClass('glyphicon-folder-close');
                 }

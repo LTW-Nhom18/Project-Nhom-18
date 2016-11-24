@@ -38,7 +38,7 @@
 		<link href="assets/js/jquerysctipttop.css" rel="stylesheet" type="text/css">
 		<script src="assets/js/jquery.min.js"></script>
 	<!-- 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>  -->
-		<script src="src/easyTree.js"></script>
+		<script src="src/easyTree2.js"></script>
 		
 </head>
 
@@ -202,6 +202,12 @@
 						   
 						
 						<div class="panel-body">
+						<form class="form-inline  "  >
+									<input class="btn btn-success" type="button" onclick="expand();" value="Expand All">
+									<input class="btn btn-danger" type="button" onclick="collapse();" value="Collapse All">
+									
+								</form>
+								<br>
 							<div class="col-md-12" >
 								<div class="easy-tree">
 											<ul>
@@ -252,6 +258,13 @@
 				
 					$('#page-wrapper').load('Timkiem2.jsp');
 					}
+				function expand() {
+					 $('.easy-tree li ul > li').show();
+					}
+				function collapse()
+				{
+					$('.easy-tree li ul > li').hide();
+				}
 		</script>
   
 

@@ -10,14 +10,14 @@
     <link href="assets/plugins/bootstrap/bootstrap.css" rel="stylesheet" />
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="assets/plugins/pace/pace-theme-big-counter.css" rel="stylesheet" />
-    	<link href="MyCustom.css" rel="stylesheet">
-	<link href="tree.css" rel="stylesheet">
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
       <link href="assets/css/main-style.css" rel="stylesheet" />
 
     <!-- Page-Level CSS -->
     <link href="assets/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/easyTree.css">
+    	<script src="src/easyTree2.js"></script>
 
 </head>
 
@@ -37,51 +37,23 @@
                     <div class ="panel panel-primary" >
                   	  <div class="panel-heading">Cây minh chứng</div>
                   	  <div class="panel-body">
-                   	 <div class="tree">
-							 <ul>
-								<li>
-					            <span><i class="glyphicon glyphicon-folder-open" ></i>    Hoạt động giảng dạy</span> 
-						            <ul >
-						                <li >
-						                	<span ><i class="glyphicon glyphicon-book" ></i>   Mục minh chứng 1</span> <a href="#" onclick="update()">  Cập nhật</a>
-						                   
-						                </li>
-						               <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> <a href="#" onclick="update()">  Cập nhật</a>
-						                   
-						                </li>
-						            
-						            </ul>
-						        </li>
-						        <li>
-						            <span><i class="glyphicon glyphicon-folder-open"></i>    Công tác xã hội</span>
-						            <ul>
-						                <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 1</span> <a href="#" onclick="update()">  Cập nhật</a>
-								        </li>
-								        <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> <a href="#" onclick="update()">  Cập nhật</a>
-								        </li>
-								        <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 3</span> <a href="#" onclick="update()">  Cập nhật</a>
-								        </li>
-								       
-								    </ul>
-						        </li>
-						        <li>
-						            <span><i class="glyphicon glyphicon-folder-open"></i>    Hoạt động tư vấn</span> 
-						            <ul>
-						                <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 1</span> <a href="#" onclick="update()">  Cập nhật</a>
-								        </li>
-								        <li>
-						                	<span><i class="glyphicon glyphicon-book"></i>   Mục minh chứng 2</span> <a href="#" onclick="update()">  Cập nhật</a>
-								        </li>
-								      
-	
-								    </ul>
-						        </li>
+						<form class="form-inline  "  >
+									<input class="btn btn-success" type="button" onclick="expand();" value="Expand All">
+									<input class="btn btn-danger" type="button" onclick="collapse();" value="Collapse All">
+									
+								</form>
+								<br>
+							<div class="col-md-12" >
+								<div class="easy-tree">
+											<ul>
+								
+										<jsp:include page="loadmc.do" >
+											<jsp:param name="link" value="chinhsua"/>
+											</jsp:include>
+										
 						    </ul>
+
+							</div>
 						</div>
 					</div>
 					</div>
@@ -110,29 +82,26 @@
 					$('#page-wrapper').load('SuaMucMC.jsp');
 				
 				}
+				function expand() {
+					 $('.easy-tree li ul > li').show();
+					}
+				function collapse()
+				{
+					$('.easy-tree li ul > li').hide();
+				}
 	
 		</script>
-	<script type="text/javascript">
-				$(document).ready(function(){
-					$(function () {
-					    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-	
-					    //hide the child li elements
-					    $('.tree li ul > li').hide();
-					    $('.tree li.parent_li > span').on('click', function (e) {
-					        var children = $(this).parent('li.parent_li').find(' > ul > li');
-					        if (children.is(":visible")) {
-					            children.hide('fast');
-					            $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
-					        } else {
-					            children.show('fast');
-					            $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
-					        }
-					        e.stopPropagation();
-					    });
-					});
-				});
-	</script>
+	<script>
+    (function ($) {
+        function init() {
+            $('.easy-tree').EasyTree({
+            	selectable: false,
+            });
+            $('.easy-tree li ul > li').hide();
+        }
+        window.onload = init();
+    })(jQuery)
+</script>
 	
 	
 	

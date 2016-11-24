@@ -88,7 +88,7 @@ public class loadmc extends HttpServlet {
 		
 		B = new int[A.size()];
 		B[0]=1;
-		out.println("<li id=\"1\" value=\"Minh chứng\">Minh chứng");
+		out.println("<li id=\"1\" title=\"Gốc Minh chứng\" value=\"Minh chứng\">Minh chứng");
 //		out.println("<ul>");
 		for (int i=0;i>=0;i--)
 		{
@@ -139,7 +139,7 @@ public class loadmc extends HttpServlet {
 	public int getchild(int u,PrintWriter out)
 	{
 		int t,flag=0;
-		String name;
+		String name,mota;
 		for (int i=0;i<A.size();i++)
 		{
 			if (A.get(i).root==B[u])
@@ -147,15 +147,16 @@ public class loadmc extends HttpServlet {
 				{
 					t= A.get(i).id;
 					name= A.get(i).name;
+					mota = A.get(i).mota;
 					if (flag==0)
 					{
 						out.println("<ul>");
-						out.println("<li id=\""+t+"\" value=\""+name+"\">"+name+"");
+						out.println("<li id=\""+t+"\" title=\""+mota+"\" value=\""+name+"\">"+name+"");
 						
 					}						
 					else
 					{
-						out.println("<li id=\""+t+"\" value=\""+name+"\">"+name+"");
+						out.println("<li id=\""+t+"\"  title=\""+mota+"\" value=\""+name+"\">"+name+"");
 					}
 					B[u+1]=t;
 					return 0;

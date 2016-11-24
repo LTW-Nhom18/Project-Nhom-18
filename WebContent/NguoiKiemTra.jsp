@@ -40,7 +40,7 @@
 		<link href="assets/js/jquerysctipttop.css" rel="stylesheet" type="text/css">
 		<script src="assets/js/jquery.min.js"></script>
 	<!-- 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>  -->
-		<script src="src/easyTree.js"></script>
+		<script src="src/easyTree2.js"></script>
 
 </head>
 
@@ -197,10 +197,15 @@
 					<div class ="panel panel-primary">
 						<div class="panel-heading">Cây minh chứng</div>
 						<div class="panel-body">
+						<form class="form-inline  "  >
+									<input class="btn btn-success" type="button" onclick="expand();" value="Expand All">
+									<input class="btn btn-danger" type="button" onclick="collapse();" value="Collapse All">
+									
+								</form>
+								<br>
 			   					<div class="easy-tree">
 									<ul>
-								
-										<jsp:include page="loadmc.do" >
+										<jsp:include page="kiemtramc.do" >
 											<jsp:param name="link" value="xem"/>
 											</jsp:include>
 										
@@ -227,6 +232,13 @@
 				function loadtab1() {
 					$('#page-wrapper').load('NguoiKiemTra.jsp');
 					}
+				function expand() {
+					 $('.easy-tree li ul > li').show();
+					}
+				function collapse()
+				{
+					$('.easy-tree li ul > li').hide();
+				}
 		
 	</script>
 	

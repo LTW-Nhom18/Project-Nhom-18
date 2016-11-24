@@ -82,7 +82,7 @@ public class kiemtramc extends HttpServlet {
 	//	out.println("<li id=\"1\">Minh chứng");
 		code cmd = new code();
 		cmd.id=1;
-		cmd.cmd="<li id=\"1\">Minh chứng";
+		cmd.cmd="<li id=\"1\" title=\"Gốc Minh Chứng\">Minh chứng";
 		C.add(cmd);
 		 System.out.println("khoi tao C");
 		for (int i=0;i>=0;i--)
@@ -239,6 +239,7 @@ public class kiemtramc extends HttpServlet {
 					int t = A.get(i).id;
 				//	int r= getidA(A.get(i).root);
 					String name = A.get(i).name;
+					String mota = A.get(i).mota;
 					for (int j=0;j<C.size();j++)
 					{
 						if (C.get(j).id==t)
@@ -246,9 +247,9 @@ public class kiemtramc extends HttpServlet {
 						//	A.get(r).numcheck++;
 							System.out.println("nhanh bi đoi: "+C.get(j).id);
 							if (C.get(j).loai==1)
-								C.get(j).cmd="<ul><li style=\"color:#FF0000\" id=\""+t+"\">"+name+"";
+								C.get(j).cmd="<ul><li style=\"color:#FF0000\" id=\""+t+"\" title=\""+mota+"\">"+name+"";
 							else
-								C.get(j).cmd="<li style=\"color:#FF0000\" id=\""+t+"\">"+name+"";
+								C.get(j).cmd="<li style=\"color:#FF0000\" id=\""+t+"\" title=\""+mota+"\">"+name+"";
 							
 						}
 							

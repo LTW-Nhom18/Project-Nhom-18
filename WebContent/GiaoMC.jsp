@@ -206,6 +206,12 @@
 					<div class ="panel panel-primary">
 						<div class="panel-heading">Cây minh chứng</div>
 						<div class="panel-body">
+						<form class="form-inline  "  >
+									<input class="btn btn-success" type="button" onclick="expand();" value="Expand All">
+									<input class="btn btn-danger" type="button" onclick="collapse();" value="Collapse All">
+									
+								</form>
+								<br>
 			   				<div class="easy-tree">
 											<ul>
 								
@@ -345,10 +351,16 @@
 	<script type="text/javascript">
 					 function submit()
 					 {
-					   $("#btnsubmit").click();
-					  
+					   $("#btnsubmit").click();		  
 					    
 					 }
+						function expand() {
+							 $('.easy-tree li ul > li').show();
+							}
+						function collapse()
+						{
+							$('.easy-tree li ul > li').hide();
+						}
 		</script>
 	
 <script language="javascript">
