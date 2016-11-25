@@ -162,7 +162,7 @@
                         <a href="NguoiQuyDinhMC.jsp"><i class="fa fa-book fa-fw"></i>Quản lý cây minh chứng</a>
                     </li>
                      <li class="">
-                        <a href="#" onclick="loadtab2();"><i class="fa fa-file fa-fw"></i>Quản lý mục minh chứng</a>
+                        <a href="QLMucMC.jsp"><i class="fa fa-file fa-fw"></i>Quản lý mục minh chứng</a>
                      <li>
                         <a href="Timkiem2.jsp" ><i class="fa fa-search fa-fw"></i> Tìm kiếm</a>
                     </li>

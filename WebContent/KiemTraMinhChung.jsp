@@ -58,7 +58,7 @@
 									<ul>
 								
 										<jsp:include page="kiemtramc.do" >
-											<jsp:param name="link" value="xem"/>
+											<jsp:param name="link" value="chinhsua"/>
 											</jsp:include>
 										
 						   			 </ul>

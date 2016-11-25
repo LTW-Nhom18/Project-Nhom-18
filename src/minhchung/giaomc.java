@@ -107,7 +107,7 @@ public class giaomc extends HttpServlet {
 					{
 						
 						int u= getidA(B[i]);						
-						if (KTphancong(B[i]))
+						if (KTphancong(B[i]))	//Nếu nhánh đó có minh chứng đã được giao thì sẽ loại minh chứng đó ra
 						{
 							System.out.println(A.get(u).mota);
 							C[dem]=B[i];
@@ -121,24 +121,50 @@ public class giaomc extends HttpServlet {
 			}
 				
 			
+			//Lấy tên của người được giao minh chứng ứng với ID người giao đã chọn
+			//(vì trường hợp có thể trùng tên nên phải truyền ID mà ko thể truyền thẳng tên người được giao)
 				result= null;
 				query = "SELECT * FROM user WHERE ID = '"+idnguoinhap+"'";
 				result = statement.executeQuery(query);			
 				while (result.next()) {
 			        namenguoinhap =result.getNString("NAME");
 				}
-
+				//Tiến hành giao các mục minh chứng con cho người được giao
 				for (int i=0;i<C.length;i++)
 				{
 					if(C[i]!=0)
 					{
-				String create_mc = "INSERT INTO phancong(IDmucmc,NguoiDuocGiao,DuongDan,TrangThai,NgayHoanThanh,NgayNhap,IDnguoiduocgiao,File)"
-						  + "VALUES ('"+C[i]+"','"+namenguoinhap+"','','chưa hoàn thành','"+deadline+"',NULL,'"+idnguoinhap+"',''); ";
+				String create_mc = "INSERT INTO phancong(IDmucmc,NguoiDuocGiao,DuongDan,TrangThai,NgayHoanThanh,NgayNhap,IDnguoiduocgiao,File,flag)"
+						  + "VALUES ('"+C[i]+"','"+namenguoinhap+"','','chưa hoàn thành','"+deadline+"','','"+idnguoinhap+"','','0'); ";
 				statement.executeUpdate(create_mc);	
 				System.out.println(create_mc);
 					}
 				}
 			//	
+				System.out.println(dem);
+		
+					int f=0; //Kiểm tra xem minh chứng này đã tồn tại chưa
+					 result= null;
+						query = "SELECT * FROM phancong where IDmucmc ='"+idmc+"';";
+						result = statement.executeQuery(query);	
+
+						 while (result.next()) {
+							 		f=1;	 
+							
+							
+						 }
+					if(f==0) //Chưa tồn tại thì thêm mới
+					{
+				String create_mc = "INSERT INTO phancong(IDmucmc,NguoiDuocGiao,DuongDan,TrangThai,NgayHoanThanh,NgayNhap,IDnguoiduocgiao,File,flag)"
+						  + "VALUES ('"+idmc+"','"+namenguoinhap+"','','chưa hoàn thành','"+deadline+"','','"+idnguoinhap+"','','1'); ";
+				statement.executeUpdate(create_mc);
+					}
+					else //Tồn tại rồi thì update lại người được giao
+					{
+						query = "update phancong set NguoiDuocGiao='"+namenguoinhap+"',IDnguoiduocgiao='"+idnguoinhap+"' where IDmucmc ='"+idmc+"'; ";
+						statement.executeUpdate(query);	
+					}
+				
 				
 				 response.sendRedirect("NguoiGiaoMC.jsp");
 				

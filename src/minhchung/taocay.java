@@ -68,13 +68,21 @@ public class taocay extends HttpServlet {
 				connection = DriverManager.getConnection("jdbc:mysql://localhost/qlmc","root","");
 				statement = (Statement) connection.createStatement();
 		
-				String create_mc = "INSERT INTO mucmc(IDmucmc,TenMucmc,Mota,NguoiTao,NgayTao,IDRoot)"
-						  + "VALUES (NULL,'"+tenmc+"','','"+nguoigiao+"','"+d+"','"+idmc+"'); ";
+				
+			
+				
+				int max=0;
+				String query ="select IDmucmc from mucmc order by IDmucmc desc limit 1;";
+				result = statement.executeQuery(query);
+				 while (result.next()) {
+					 max=result.getInt("IDmucmc");
+				 }
+				 max= max+1;
+				 System.out.println("muc minh chung max: "+max);
+				 String create_mc = "INSERT INTO mucmc(IDmucmc,TenMucmc,Mota,NguoiTao,NgayTao,IDRoot,id)"
+						  + "VALUES ('"+max+"','"+tenmc+"','mô tả','"+nguoigiao+"','"+d+"','"+idmc+"','"+max+"'); ";
 				statement.executeUpdate(create_mc);	
 				System.out.println("thanh cong 4");
-
-				
-		
 			
 				 response.sendRedirect("ChinhSuaCayMC.jsp");
 				

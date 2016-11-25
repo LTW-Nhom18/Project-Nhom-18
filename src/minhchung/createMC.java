@@ -38,7 +38,7 @@ public class createMC extends HttpServlet {
 	  	String location="";
 	  	String ms="";
 	  	String link="";
-	  	long maxSize = 1024*10*1024;
+	
 	  	 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.setProperty("file.encoding","UTF-8");
@@ -58,7 +58,7 @@ public class createMC extends HttpServlet {
 	   //     System.out.println(root);
 			Connection connection = null;
 			Statement statement = null;
-			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date date = new Date();
 			String d= dateFormat.format(date);
 			

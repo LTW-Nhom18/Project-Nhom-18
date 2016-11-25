@@ -9,7 +9,7 @@
 	<%@ page session="true" %>
 	<% String id=(String)session.getAttribute("id");%>
 	<c:set var="i" value="<%=id %>" />
-	<sql:query var="items"> SELECT * FROM mucmc inner join phancong on mucmc.IDmucmc=phancong.IDmucmc where IDnguoiduocgiao = '${i}'  </sql:query>
+	<sql:query var="items"> SELECT * FROM mucmc inner join phancong on mucmc.IDmucmc=phancong.IDmucmc where IDnguoiduocgiao = '${i}' and flag='0';  </sql:query>
 	<% String c=(String)session.getAttribute("ten");%>
 	<c:set var="a" value="<%=c %>" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
