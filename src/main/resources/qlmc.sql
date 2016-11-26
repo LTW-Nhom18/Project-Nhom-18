@@ -31,6 +31,7 @@ CREATE TABLE `mucmc` (
   `NguoiTao` varchar(50) DEFAULT NULL,
   `NgayTao` date DEFAULT NULL,
   `IDRoot` int(11) DEFAULT NULL,
+  `id` int(11) DEFAULT NULL,
   PRIMARY KEY (`IDmucmc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -41,7 +42,7 @@ CREATE TABLE `mucmc` (
 
 LOCK TABLES `mucmc` WRITE;
 /*!40000 ALTER TABLE `mucmc` DISABLE KEYS */;
-INSERT INTO `mucmc` VALUES (1,'Minh Chứng','','Nguyễn Thanh Bình','2016-10-15',NULL),(2,'1. MTCL','','Nguyễn Thanh Bình','2016-10-15',1),(3,'2016','','Nguyễn Thanh Bình','2016-10-15',2),(4,'HKI','','Nguyễn Thanh Bình','2016-10-15',3),(5,'Hoạt động giảng dạy','','Nguyễn Thanh Bình','2016-10-15',4),(6,'100% giảng viên dạy đủ số tiết','test','Nguyễn Thanh Bình','2016-10-15',5),(7,'90% giảng viên đạt loại giỏi',' cccccc','Nguyễn Thanh Bình','2016-10-17',5),(8,'Hoạt động CTXH','','Nguyễn Thanh Bình','2016-10-18',4),(9,'Tổ chức mùa hè xanh','to chuc mua he xanh','Nguyễn Thanh Bình','2016-10-18',8),(10,'2. QT ISO','','Nguyễn Thanh Bình','2016-10-25',1),(11,'2016','','Nguyễn Thanh Bình','2016-10-25',10),(12,'HKI','','Nguyễn Thanh Bình','2016-10-25',11),(13,'Hoạt động NCKH','','Nguyễn Thanh Bình','2016-10-25',12),(14,'Tham gia nghiên cứu khoa học','','Nguyễn Thanh Bình','2016-10-25',13),(15,'HKII','','Nguyễn Thanh Bình','2016-10-25',11),(16,'Tham gia nghiên cứu khoa học','tham gia nghiên cứu khoa học HK2','Nguyễn Thanh Bình','2016-10-25',15);
+INSERT INTO `mucmc` VALUES (1,'Minh chứng','Gốc Minh Chứng','Nguyễn Thanh Bình','2016-10-15',NULL,1),(2,'1. MTCL','mô tả của MTLC','Nguyễn Thanh Bình','2016-10-15',1,2),(3,'2016','mô tả của 2016','Nguyễn Thanh Bình','2016-10-15',2,3),(4,'HKI','mô tả của HK1','Nguyễn Thanh Bình','2016-10-15',3,4),(5,'Hoạt động giảng dạy','mô tả của Hoạt động giảng dạy','Nguyễn Thanh Bình','2016-10-15',4,5),(6,'100% giảng viên dạy đủ số tiết','mo ta 100% giang vien day du tiet','Nguyễn Thanh Bình','2016-10-15',5,6),(7,'90% giảng viên đạt loại giỏi','mo ta 90% giang vien dat loai gioi','Nguyễn Thanh Bình','2016-10-17',5,7),(8,'Hoạt động CTXH','mô tả Hoạt động CTXH','Nguyễn Thanh Bình','2016-10-18',4,8),(9,'Tổ chức mùa hè xanh','mô tả','Nguyễn Thanh Bình','2016-10-18',8,9),(10,'2. QT ISO','mô tả  QT ISO','Nguyễn Thanh Bình','2016-10-25',1,10),(11,'2016','mô tả của 2016','Nguyễn Thanh Bình','2016-10-25',10,11),(12,'HKI','mô tả của HK1','Nguyễn Thanh Bình','2016-10-25',11,12),(13,'Hoạt động NCKH','mô tả Hoạt động NCKH','Nguyễn Thanh Bình','2016-10-25',12,13),(14,'Tham gia nghiên cứu khoa học','mo ta tham gia nghien cuu khoa hoc','Nguyễn Thanh Bình','2016-10-25',13,14),(15,'HKII','mô tả của HK2','Nguyễn Thanh Bình','2016-10-25',11,15),(16,'Tham gia nghiên cứu khoa học hk2','mo ta tham gia nghien cuu khoa hoc hk2','Nguyễn Thanh Bình','2016-10-25',15,16);
 /*!40000 ALTER TABLE `mucmc` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,9 +59,10 @@ CREATE TABLE `phancong` (
   `DuongDan` varchar(200) DEFAULT NULL,
   `TrangThai` varchar(20) DEFAULT NULL,
   `NgayHoanThanh` date DEFAULT NULL,
-  `NgayNhap` date DEFAULT NULL,
+  `NgayNhap` varchar(10) DEFAULT NULL,
   `IDnguoiduocgiao` varchar(45) DEFAULT NULL,
   `File` varchar(45) DEFAULT NULL,
+  `flag` varchar(2) DEFAULT '0',
   PRIMARY KEY (`IDmucmc`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -71,7 +73,7 @@ CREATE TABLE `phancong` (
 
 LOCK TABLES `phancong` WRITE;
 /*!40000 ALTER TABLE `phancong` DISABLE KEYS */;
-INSERT INTO `phancong` VALUES (6,'Trần Thị D','minhchung/cvf.jpg','Hoàn thành','2016-10-29','2016-11-15','TTD@gmail.com','Image'),(7,'Trần Thị D','minhchung/Source.zip','Hoàn thành','2017-01-20','2016-11-21','TTD@gmail.com','Document'),(9,'Bùi Văn Mạnh','minhchung/bcd.jpg','Hoàn thành','2016-10-31','2016-11-21','BVM@gmail.com','Image'),(14,'Bùi Văn Mạnh','','chưa hoàn thành','2016-10-31',NULL,'BVM@gmail.com',''),(16,'Trần Thị D','minhchung/Source.txt','Hoàn thành','2017-01-20','2016-11-21','TTD@gmail.com','Document');
+INSERT INTO `phancong` VALUES (4,'Trần Thị D','','chưa hoàn thành','2016-12-15','','TTD@gmail.com','','1'),(6,'Trần Thị D','minhchung/cvf.jpg','Hoàn thành','2016-12-15','2016-11-25','TTD@gmail.com','Image','0'),(7,'Bùi Văn Mạnh','minhchung/abc.mp4','Hoàn thành','2016-12-12','2016-11-25','BVM@gmail.com','Video','0'),(9,'Trần Thị D','','chưa hoàn thành','2016-12-15','','TTD@gmail.com','','0'),(13,'Bùi Văn Mạnh','','chưa hoàn thành','2016-12-20','','BVM@gmail.com','','1'),(14,'Bùi Văn Mạnh','minhchung/Source.zip','Hoàn thành','2016-12-20','2016-11-25','BVM@gmail.com','Zip','0'),(16,'Bùi Văn Mạnh','minhchung/asss.pdf','Hoàn thành','2016-12-20','2016-11-26','BVM@gmail.com','Document','0');
 /*!40000 ALTER TABLE `phancong` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,4 +122,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-22 21:49:48
+-- Dump completed on 2016-11-26 12:11:15
