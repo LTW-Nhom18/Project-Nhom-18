@@ -73,7 +73,7 @@ CREATE TABLE `phancong` (
 
 LOCK TABLES `phancong` WRITE;
 /*!40000 ALTER TABLE `phancong` DISABLE KEYS */;
-INSERT INTO `phancong` VALUES (4,'Trần Thị D','','chưa hoàn thành','2016-12-15','','TTD@gmail.com','','1'),(6,'Trần Thị D','minhchung/cvf.jpg','Hoàn thành','2016-12-15','2016-11-25','TTD@gmail.com','Image','0'),(7,'Bùi Văn Mạnh','minhchung/abc.mp4','Hoàn thành','2016-12-12','2016-11-25','BVM@gmail.com','Video','0'),(9,'Trần Thị D','','chưa hoàn thành','2016-12-15','','TTD@gmail.com','','0'),(13,'Bùi Văn Mạnh','','chưa hoàn thành','2016-12-20','','BVM@gmail.com','','1'),(14,'Bùi Văn Mạnh','minhchung/Source.zip','Hoàn thành','2016-12-20','2016-11-25','BVM@gmail.com','Zip','0'),(16,'Bùi Văn Mạnh','minhchung/asss.pdf','Hoàn thành','2016-12-20','2016-11-26','BVM@gmail.com','Document','0');
+INSERT INTO `phancong` VALUES (4,'Trần Thị D','','chưa hoàn thành','2016-12-15','','TTD@gmail.com','','1'),(6,'Trần Thị D','','chưa hoàn thành','2016-12-15','','TTD@gmail.com','','0'),(7,'Bùi Văn Mạnh','','chưa hoàn thành','2016-12-12','','BVM@gmail.com','','0'),(9,'Trần Thị D','','chưa hoàn thành','2016-12-15','','TTD@gmail.com','','0'),(13,'Bùi Văn Mạnh','','chưa hoàn thành','2016-12-20','','BVM@gmail.com','','1'),(14,'Bùi Văn Mạnh','','chưa hoàn thành','2016-12-20','','BVM@gmail.com','','0'),(16,'Bùi Văn Mạnh','','chưa hoàn thành','2016-12-20','','BVM@gmail.com','','0');
 /*!40000 ALTER TABLE `phancong` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,4 +122,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-26 12:11:15
+-- Dump completed on 2016-11-26 13:46:59

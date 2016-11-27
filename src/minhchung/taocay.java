@@ -37,6 +37,7 @@ public class taocay extends HttpServlet {
 		 HttpSession session = request.getSession();
 		 idmc = request.getParameter("idmc");
 		 tenmc = request.getParameter("tenmc");
+		 System.out.println("ten minh chung: "+request.getParameter("tenmc"));
 		 nguoigiao = (String) session.getAttribute("ten");
 		// out.print(idmc);
 		 DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");

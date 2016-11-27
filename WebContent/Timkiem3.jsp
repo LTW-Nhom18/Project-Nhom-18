@@ -190,7 +190,7 @@
 							      <select name="key" class="form-control" id="key">
 							       <option name="key" value="NgayTao">Thời gian tạo</option>
 							       <option name="key" value="TenMucmc">Tên minh chứng</option>
-							       <option name="key" value="MoTa">Mô tả</option>
+							       <option name="key" value="Mota">Mô tả</option>
 							       <option name="key" value="NguoiDuocGiao">Người được giao</option>
 							       <option name="key" value="NguoiTao">Người tạo</option>
 							     </select>

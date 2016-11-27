@@ -60,18 +60,30 @@ public class kiemtramc extends HttpServlet {
 				 mc.mota = result.getString("Mota");
 				 else
 					 mc.mota="";
-				 if (!result.getString("Mota").isEmpty())	
+			
+				 String s= result.getString("NguoiDuocGiao");
+		
+				 if (s!=null)	
 				 mc.nguoinhap = result.getString("NguoiDuocGiao");
 				 else
 					 mc.nguoinhap="";
-				 if (!result.getString("Mota").isEmpty())	
+				 
+				 s= result.getString("File");
+				 
+				 if (s!=null)	
 				 mc.loaifile = result.getString("File");
 				 else
 					 mc.loaifile="";
-				 if (!result.getString("Mota").isEmpty())	
+				 
+				 s= result.getString("NgayNhap");
+				 
+				 if (s!=null)	
 				 mc.ngaynhap = result.getString("NgayNhap");
 				 else
+				 {
+					 System.out.println("ngay nhap rong");
 					 mc.ngaynhap="";
+				 }
 						 
 				 A.add(mc);
 				
@@ -95,7 +107,7 @@ public class kiemtramc extends HttpServlet {
 	//	out.println("<li id=\"1\">Minh chứng");
 		code cmd = new code();
 		cmd.id=1;
-		cmd.cmd="<li id=\"1\" title=\"Gốc Minh Chứng\">Minh chứng";
+		cmd.cmd="<li id=\"1\" title=\"Gốc Minh Chứng\"  value=\"Minh chứng\">Minh chứng";
 		C.add(cmd);
 		 System.out.println("khoi tao C");
 		for (int i=0;i>=0;i--)
@@ -263,9 +275,9 @@ public class kiemtramc extends HttpServlet {
 						//	System.out.println("nhanh bi đoi: "+C.get(j).id);
 							//loai 1 nhánh đầu, loại 2 là các nhánh còn lại của 1 nhánh chính
 							if (C.get(j).loai==1)
-								C.get(j).cmd="<ul><li style=\"color:#FF0000\" id=\""+t+"\" title=\""+mota+"\">"+name+"";
+								C.get(j).cmd="<ul><li style=\"color:#FF0000\" id=\""+t+"\" title=\""+mota+"\" value=\""+name+"\">"+name+"";
 							else
-								C.get(j).cmd="<li style=\"color:#FF0000\" id=\""+t+"\" title=\""+mota+"\">"+name+"";
+								C.get(j).cmd="<li style=\"color:#FF0000\" id=\""+t+"\" title=\""+mota+"\" value=\""+name+"\">"+name+"";
 							
 						}
 							
@@ -313,7 +325,7 @@ public class kiemtramc extends HttpServlet {
 					//	out.println("<li id=\""+t+"\">"+name+"");
 						code cmd= new code();
 						cmd.id=t;
-						cmd.cmd ="<ul><li id=\""+t+"\" title=\""+mota+"\">"+name+"";
+						cmd.cmd ="<ul><li id=\""+t+"\" title=\""+mota+"\" value=\""+name+"\">"+name+"";
 						cmd.loai=1;
 						C.add(cmd);
 					}						
@@ -322,7 +334,7 @@ public class kiemtramc extends HttpServlet {
 						//out.println("<li id=\""+t+"\">"+name+"");
 						code cmd= new code();
 						cmd.id=t;
-						cmd.cmd ="<li id=\""+t+"\" title=\""+mota+"\">"+name+"";
+						cmd.cmd ="<li id=\""+t+"\" title=\""+mota+"\" value=\""+name+"\">"+name+"";
 						cmd.loai=2;
 						C.add(cmd);
 					}

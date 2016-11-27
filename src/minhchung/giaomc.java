@@ -166,7 +166,7 @@ public class giaomc extends HttpServlet {
 					}
 				
 				
-				 response.sendRedirect("NguoiGiaoMC.jsp");
+				 response.sendRedirect("GiaoMC.jsp");
 				
 			
 				

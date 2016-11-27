@@ -222,10 +222,10 @@
 									  <label class="control-label col-sm-4" for="phanquyen">Phân quyền</label>
 									    <div class="col-sm-8" id="phanquyen" >
 											  <select  name="role" class="form-control">
-												  <option  name="role" value="Người quy định">Người quy định</option>
-												  <option  name="role" value="Người giao">Người giao</option>
-												  <option  name="role" value="Người nhập">Người nhập</option>
-												  <option  name="role" value="Người kiểm tra">Người kiểm tra</option>
+												  <option  name="role" value="3">Người quy định</option>
+												  <option  name="role" value="2">Người giao</option>
+												  <option  name="role" value="1">Người nhập</option>
+												  <option  name="role" value="4">Người kiểm tra</option>
 											  </select>
 									    </div>
 							 	 		</div>

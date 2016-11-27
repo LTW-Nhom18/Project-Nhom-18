@@ -215,7 +215,7 @@
 			   				<div class="easy-tree">
 											<ul>
 								
-										<jsp:include page="loadmc.do" >
+										<jsp:include page="kiemtramc.do" >
 											<jsp:param name="link" value="chinhsua"/>
 											</jsp:include>
 										

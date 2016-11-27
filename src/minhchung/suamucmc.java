@@ -58,7 +58,7 @@ public class suamucmc extends HttpServlet {
 				statement = (Statement) connection.createStatement();
 		
 				String query="update mucmc set TenMucmc='"+tenmc+"',Mota='"+mota+"',NguoiTao='"+nguoitao+"' where IDmucmc ='"+idmc+"';  ";
-			//	statement.executeUpdate(query);
+				statement.executeUpdate(query);
 				System.out.println(query);
 		
 			if(!nguoinhap.isEmpty())
@@ -83,11 +83,11 @@ public class suamucmc extends HttpServlet {
 							if (nguoinhap.isEmpty())
 								query="update phancong set File='"+file+"' where IDmucmc ='"+idmc+"';  ";
 				
-			//	statement.executeUpdate(query);
+				statement.executeUpdate(query);
 				System.out.println(query);
-			//	 response.sendRedirect("ChinhSuaCayMC.jsp");
+			
 			}
-				
+			 response.sendRedirect("QLMucMC.jsp");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

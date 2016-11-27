@@ -10,7 +10,7 @@
 	<% String c=(String)session.getAttribute("ten");%>
 	<c:set var="a" value="<%=c %>" />
 	<%@ page import="java.util.*" %>
-	<% request.setAttribute("link","Timkiem1.jsp"); %>
+	<% request.setAttribute("link","Timkiem.jsp"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -192,7 +192,7 @@
 							      <select name="key" class="form-control" id="key">
 							       <option name="key" value="NgayTao">Thời gian tạo</option>
 							       <option name="key" value="TenMucmc">Tên minh chứng</option>
-							       <option name="key" value="MoTa">Mô tả</option>
+							       <option name="key" value="Mota">Mô tả</option>
 							       <option name="key" value="NguoiDuocGiao">Người được giao</option>
 							       <option name="key" value="NguoiTao">Người tạo</option>
 							     </select>
@@ -303,7 +303,7 @@
 				{
 					var i = r.parentNode.parentNode.rowIndex;
 					 var a =document.getElementById("myTable").rows[i].cells[1].innerHTML;
-				var k ="XemChiTietMC1.jsp?abc="+a;
+				var k ="XemChiTietMC.jsp?abc="+a;
 				window.location.href =(k);
 	 
 				}

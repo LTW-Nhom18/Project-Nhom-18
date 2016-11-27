@@ -89,27 +89,27 @@
 									  <label class="control-label col-sm-4" for="phanquyen">Phân quyền</label>
 									    <div class="col-sm-8" id="phanquyen" >
 											   <select  id="role" name="role" class="form-control">
-												  <option  name="role" value="Người quy định">Người quy định</option>
-												  <option  name="role" value="Người giao">Người giao</option>
-												  <option  name="role" value="Người nhập">Người nhập</option>
-												  <option  name="role" value="Người kiểm tra">Người kiểm tra</option>
-												  <option  name="role" value="Admin">Admin</option>
+												  <option  name="role" value="3">Người quy định</option>
+												  <option  name="role" value="2">Người giao</option>
+												  <option  name="role" value="1">Người nhập</option>
+												  <option  name="role" value="4">Người kiểm tra</option>
+												  <option  name="role" value="0">Admin</option>
 											  </select>
 											   <c:choose>
-											    <c:when test="${col.ROLE=='Admin'}">
-											  <script>   document.getElementById('role').value ='Admin';  </script>
+											    <c:when test="${col.IDROLE=='0'}">
+											  <script>   document.getElementById('role').value ='0';  </script>
 											    </c:when>
-											    <c:when test="${col.ROLE=='Người quy định'}">
-											  <script>   document.getElementById('role').value ='Người quy định';  </script>
+											    <c:when test="${col.IDROLE=='3'}">
+											  <script>   document.getElementById('role').value ='3';  </script>
 											    </c:when>
-											   <c:when test="${col.ROLE=='Người giao'}">
-											  <script>   document.getElementById('role').value ='Người giao'; </script> 
+											   <c:when test="${col.IDROLE=='2'}">
+											  <script>   document.getElementById('role').value ='2'; </script> 
 											    </c:when>
-											    <c:when test="${col.ROLE=='Người nhập'}">
-											  <script>   document.getElementById('role').value ='Người nhập'; </script> 
+											    <c:when test="${col.IDROLE=='1'}">
+											  <script>   document.getElementById('role').value ='1'; </script> 
 											    </c:when>
-											    <c:when test="${col.ROLE=='Người kiểm tra'}">
-											  <script>   document.getElementById('role').value ='Người kiểm tra'; </script> 
+											    <c:when test="${col.IDROLE=='4'}">
+											  <script>   document.getElementById('role').value ='4'; </script> 
 											    </c:when>
 									
 											

@@ -207,7 +207,7 @@
 											        <label style="font-size: 20px">
 											        	<span class="glyphicon glyphicon-file" style="font-size:30px;" ></span>
 											        ${col.File}</label>			
-											        <a href="minhchung/mc1.txt">  Download</a>							
+											       <a href="loadfile.do?idmc=${a}">  Xem</a>						
 										</div>
 									</div>
 									<div class="panel-body">

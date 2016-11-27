@@ -23,6 +23,8 @@ public class search2 extends HttpServlet {
 	String namemc,mota,nguoitao,nguoinhap;
 	String[] s;
 	int i;
+	ArrayList a1; 
+	ArrayList a2; 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.setProperty("file.encoding","UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
@@ -73,8 +75,8 @@ public class search2 extends HttpServlet {
 			Connection connection = null;
 			Statement statement = null;
 			ResultSet result= null;
-		     ArrayList a1 = null;
-		     ArrayList a2 = new ArrayList();
+	
+		     a2 = new ArrayList();
 		
 		     System.out.println("thanh cong 4");
 			
@@ -101,6 +103,7 @@ public class search2 extends HttpServlet {
 								query2 = query2 +s[j] +";";
 						}
 			query = query +query2;
+			
 				result = statement.executeQuery(query);		
 				 System.out.println("query " + query);
 				
@@ -112,10 +115,10 @@ public class search2 extends HttpServlet {
 		                a2.add(a1);
 		            }
 				 request.setAttribute("list", a2);
-	
+				 System.out.println("list a2 ");
 		            RequestDispatcher view = request.getRequestDispatcher("Timkiem2.jsp");
 		            view.forward(request, response);
-		            
+		   		 System.out.println("thanh cong! ");
 				
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

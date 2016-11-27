@@ -212,7 +212,7 @@
 								<div class="easy-tree">
 											<ul>
 								
-										<jsp:include page="loadmc.do" >
+										<jsp:include page="kiemtramc.do" >
 											<jsp:param name="link" value="chinhsua"/>
 											</jsp:include>
 										
@@ -259,7 +259,7 @@
 										<div class="form-group"> 
 									  <label class="control-label col-sm-4" for="file">Loại File</label>
 									 
-									    <div class="col-sm-8" id="file"  >
+									    <div class="col-sm-8"  >
 									     <c:if test="${not empty col.File}">
 											  <select  id="file" name="file" class="form-control" >
 												  <option  name="file" value="Image">Image</option>
@@ -272,7 +272,7 @@
 									    </c:if>
 									    <c:if test="${empty col.File}">
 											  <input id="file" name="file"  type="text" class="form-control" placeholder="minh chứng chưa được nhập" value="" readonly="readonly" >
-												</c:if>
+										</c:if>
 									    
 									    </div>
 									  

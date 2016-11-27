@@ -34,7 +34,6 @@ public class updateuser extends HttpServlet {
 	        
 	        user = request.getParameter("user");
 	        pass = request.getParameter("pwd");
-	        role = request.getParameter("role");
 	        name = request.getParameter("Name");
 	        gt = request.getParameter("gt");
 	        dt = request.getParameter("Tel");
@@ -43,7 +42,7 @@ public class updateuser extends HttpServlet {
 	        nsinh =  request.getParameter("Date");
 	       
 	 
-	        
+	        idrole = Integer.parseInt(request.getParameter("role"));
 	        try {
 				Class.forName("com.mysql.jdbc.Driver");
 			} catch (ClassNotFoundException e) {
@@ -63,24 +62,24 @@ public class updateuser extends HttpServlet {
 				connection = DriverManager.getConnection("jdbc:mysql://localhost/qlmc","root",""); 
 				//connect to the database
 				statement = (Statement) connection.createStatement();
-				if (request.getParameter("role").contentEquals("Người nhập"))
+				if (idrole==1)
 				{
-					idrole = 1;
+					role="Người nhập";
 				}
-				if (request.getParameter("role").contentEquals("Người quy định"))
+				if (idrole==3)
 				{
-					idrole = 3;
+					role="Người quy định";
 				}
-				if (request.getParameter("role").contentEquals("Người giao"))
+				if (idrole==2)
 				{
-					idrole = 2;
+					role="Người giao";
 				}
-				if (request.getParameter("role").contentEquals("Người kiểm tra"))
+				if (idrole==4)
 				{
-					idrole = 4;
+					role="Người kiểm tra";
 				}
-				else
-					idrole = 0;
+				if (idrole==0)
+					role="Admin";;
 				
 
 				 ps = (com.mysql.jdbc.PreparedStatement) connection.prepareStatement("update user set PASS=?,NAME=?,GTINH=?,TEL=?,KHOA=?,CHUCVU=?,ROLE=?,DATE=?,IDROLE=? where ID =?");
