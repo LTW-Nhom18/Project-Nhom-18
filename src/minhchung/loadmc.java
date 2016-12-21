@@ -23,8 +23,8 @@ import com.mysql.jdbc.Statement;
 
 public class loadmc extends HttpServlet {
 
-	ArrayList<minhchung> A;
-	int[] B;
+	ArrayList<minhchung> A; //lưu thông tin tất cả các minh chứng
+	int[] B; //lưu các phần tử được xét
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String link;
